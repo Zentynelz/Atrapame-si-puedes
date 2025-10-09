@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "com.equipo.atrapame.app-mergeDebugResources-43:/layout/activity_score.xml",
+        "source": "com.equipo.atrapame.app-main-46:/layout/activity_score.xml"
+    },
+    {
+        "merged": "com.equipo.atrapame.app-mergeDebugResources-43:/layout/activity_game.xml",
+        "source": "com.equipo.atrapame.app-main-46:/layout/activity_game.xml"
+    },
+    {
+        "merged": "com.equipo.atrapame.app-mergeDebugResources-43:/layout/activity_main.xml",
+        "source": "com.equipo.atrapame.app-main-46:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.equipo.atrapame.app-mergeDebugResources-43:/layout/activity_config.xml",
+        "source": "com.equipo.atrapame.app-main-46:/layout/activity_config.xml"
+    },
+    {
+        "merged": "com.equipo.atrapame.app-mergeDebugResources-43:/layout/item_score.xml",
+        "source": "com.equipo.atrapame.app-main-46:/layout/item_score.xml"
+    }
+]

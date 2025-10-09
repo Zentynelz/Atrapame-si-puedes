@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/board_background">
+
+    <!-- Game Info Panel -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="@color/white"
+        android:padding="12dp"
+        android:elevation="2dp">
+
+        <TextView
+            android:id="@+id/tvMoves"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/moves_count"
+            android:textSize="14sp"
+            android:textColor="@color/text_primary" />
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/time_elapsed"
+            android:textSize="14sp"
+            android:textColor="@color/text_primary"
+            android:gravity="end" />
+
+    </LinearLayout>
+
+    <!-- Game Board Container -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:elevation="2dp"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/tvGameStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Cargando juego..."
+            android:textSize="18sp"
+            android:textColor="@color/text_secondary" />
+
+        <!-- TODO: Aquí irá el tablero del juego -->
+        <GridLayout
+            android:id="@+id/gameBoard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:rowCount="8"
+            android:columnCount="8"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+    <!-- Game Controls -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <Button
+            android:id="@+id/btnPause"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:text="@string/btn_pause"
+            android:backgroundTint="@color/button_secondary" />
+
+        <Button
+            android:id="@+id/btnRestart"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="@string/btn_restart"
+            android:backgroundTint="@color/button_primary" />
+
+    </LinearLayout>
+
+</LinearLayout>

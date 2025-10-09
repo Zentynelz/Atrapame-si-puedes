@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.AtrapamelSiPuedes" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/primary_blue</item>
+        <item name="colorPrimaryVariant">@color/primary_blue_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/accent_orange</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:statusBarColor">@color/primary_blue_dark</item>
+    </style>
+
+    <style name="Theme.AtrapamelSiPuedes" parent="Base.Theme.AtrapamelSiPuedes" />
+    
+    <!-- Game Button Style -->
+    <style name="GameButton" parent="Widget.Material3.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="backgroundTint">@color/button_primary</item>
+    </style>
+    
+    <!-- Game Cell Style -->
+    <style name="GameCell">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:background">@color/cell_empty</item>
+    </style>
+</resources>

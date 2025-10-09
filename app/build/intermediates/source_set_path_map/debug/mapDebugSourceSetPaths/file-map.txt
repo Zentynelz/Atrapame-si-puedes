@@ -1,0 +1,48 @@
+com.equipo.atrapame.app-appcompat-resources-1.6.1-0 C:\Users\diego\.gradle\caches\8.13\transforms\039a29effd456285b10c751568a07122\transformed\appcompat-resources-1.6.1\res
+com.equipo.atrapame.app-appcompat-1.6.1-1 C:\Users\diego\.gradle\caches\8.13\transforms\053f41f6719a5135425af9ed60ec1649\transformed\appcompat-1.6.1\res
+com.equipo.atrapame.app-transition-1.2.0-2 C:\Users\diego\.gradle\caches\8.13\transforms\060710777ddfd6fe2b161077ca3e0799\transformed\transition-1.2.0\res
+com.equipo.atrapame.app-savedstate-ktx-1.2.1-3 C:\Users\diego\.gradle\caches\8.13\transforms\0873322fd8ae4f46549392e64c6d8b15\transformed\savedstate-ktx-1.2.1\res
+com.equipo.atrapame.app-lifecycle-livedata-2.7.0-4 C:\Users\diego\.gradle\caches\8.13\transforms\100e0d463767f9aa00341c147a939f65\transformed\lifecycle-livedata-2.7.0\res
+com.equipo.atrapame.app-core-runtime-2.2.0-5 C:\Users\diego\.gradle\caches\8.13\transforms\16dfe170daa1fea54081781b8b24a4db\transformed\core-runtime-2.2.0\res
+com.equipo.atrapame.app-startup-runtime-1.1.1-6 C:\Users\diego\.gradle\caches\8.13\transforms\1f6524dfddba3a445bbf390fc2ac4d98\transformed\startup-runtime-1.1.1\res
+com.equipo.atrapame.app-ads-adservices-java-1.0.0-beta05-7 C:\Users\diego\.gradle\caches\8.13\transforms\2053d47750f5ad33a0148c0939394c6a\transformed\ads-adservices-java-1.0.0-beta05\res
+com.equipo.atrapame.app-lifecycle-livedata-core-ktx-2.7.0-8 C:\Users\diego\.gradle\caches\8.13\transforms\224136906109150132221b28414c58fb\transformed\lifecycle-livedata-core-ktx-2.7.0\res
+com.equipo.atrapame.app-emoji2-views-helper-1.2.0-9 C:\Users\diego\.gradle\caches\8.13\transforms\3975fe6c03cd07109219a6ea4e169c22\transformed\emoji2-views-helper-1.2.0\res
+com.equipo.atrapame.app-lifecycle-viewmodel-2.7.0-10 C:\Users\diego\.gradle\caches\8.13\transforms\3ee03cf3291975a02681c9a0acaaa151\transformed\lifecycle-viewmodel-2.7.0\res
+com.equipo.atrapame.app-lifecycle-livedata-core-2.7.0-11 C:\Users\diego\.gradle\caches\8.13\transforms\44735d5637e6cffca98731bdd4f53277\transformed\lifecycle-livedata-core-2.7.0\res
+com.equipo.atrapame.app-core-ktx-1.12.0-12 C:\Users\diego\.gradle\caches\8.13\transforms\44d25667d0d3fa5ff5ef90af2a7f3003\transformed\core-ktx-1.12.0\res
+com.equipo.atrapame.app-cardview-1.0.0-13 C:\Users\diego\.gradle\caches\8.13\transforms\4d9b91f26aba29f6fe327dba21ebbc71\transformed\cardview-1.0.0\res
+com.equipo.atrapame.app-profileinstaller-1.3.0-14 C:\Users\diego\.gradle\caches\8.13\transforms\50c7c716573652fec1a02318bb173505\transformed\profileinstaller-1.3.0\res
+com.equipo.atrapame.app-viewpager2-1.0.0-15 C:\Users\diego\.gradle\caches\8.13\transforms\53621da6225d759adec9a025a4e2ccfd\transformed\viewpager2-1.0.0\res
+com.equipo.atrapame.app-lifecycle-viewmodel-ktx-2.7.0-16 C:\Users\diego\.gradle\caches\8.13\transforms\53991e51baf4deee97cd2e4985291ab3\transformed\lifecycle-viewmodel-ktx-2.7.0\res
+com.equipo.atrapame.app-emoji2-1.2.0-17 C:\Users\diego\.gradle\caches\8.13\transforms\57de2f5f007d218750231398914a466c\transformed\emoji2-1.2.0\res
+com.equipo.atrapame.app-recyclerview-1.1.0-18 C:\Users\diego\.gradle\caches\8.13\transforms\5e25b0a9ecb88613fca005c9bbdb16b7\transformed\recyclerview-1.1.0\res
+com.equipo.atrapame.app-play-services-base-18.0.1-19 C:\Users\diego\.gradle\caches\8.13\transforms\600cc1c1779d4da49bab13daba373887\transformed\play-services-base-18.0.1\res
+com.equipo.atrapame.app-constraintlayout-2.1.4-20 C:\Users\diego\.gradle\caches\8.13\transforms\668413d9e535a78e1bc5949ffc5c7a77\transformed\constraintlayout-2.1.4\res
+com.equipo.atrapame.app-core-1.12.0-21 C:\Users\diego\.gradle\caches\8.13\transforms\7b81a078229d45123eba0a9f2eeccbf4\transformed\core-1.12.0\res
+com.equipo.atrapame.app-lifecycle-livedata-ktx-2.7.0-22 C:\Users\diego\.gradle\caches\8.13\transforms\83190e0496831856c9c1a55bdb533f38\transformed\lifecycle-livedata-ktx-2.7.0\res
+com.equipo.atrapame.app-play-services-measurement-api-21.5.0-23 C:\Users\diego\.gradle\caches\8.13\transforms\8ef8a7d970b0a859bfdd521928a82f99\transformed\play-services-measurement-api-21.5.0\res
+com.equipo.atrapame.app-firebase-common-20.4.2-24 C:\Users\diego\.gradle\caches\8.13\transforms\936848aa6579c8e7a406c7b960d330d6\transformed\firebase-common-20.4.2\res
+com.equipo.atrapame.app-annotation-experimental-1.3.0-25 C:\Users\diego\.gradle\caches\8.13\transforms\b690ec06a13c387e66df4b1d3398fe1c\transformed\annotation-experimental-1.3.0\res
+com.equipo.atrapame.app-material-1.10.0-26 C:\Users\diego\.gradle\caches\8.13\transforms\c154fc49ecbba2b8fb08a0147f9caa34\transformed\material-1.10.0\res
+com.equipo.atrapame.app-ads-adservices-1.0.0-beta05-27 C:\Users\diego\.gradle\caches\8.13\transforms\c4f584483504e42ad074cfe037d8d372\transformed\ads-adservices-1.0.0-beta05\res
+com.equipo.atrapame.app-savedstate-1.2.1-28 C:\Users\diego\.gradle\caches\8.13\transforms\da8334fadceed4f15c1a0e2c87753e2f\transformed\savedstate-1.2.1\res
+com.equipo.atrapame.app-activity-1.8.2-29 C:\Users\diego\.gradle\caches\8.13\transforms\de76400a8b6dd698c11f6c892d2912f2\transformed\activity-1.8.2\res
+com.equipo.atrapame.app-drawerlayout-1.1.1-30 C:\Users\diego\.gradle\caches\8.13\transforms\decf19afc3778d7adbe1601bf3d817d5\transformed\drawerlayout-1.1.1\res
+com.equipo.atrapame.app-activity-ktx-1.8.2-31 C:\Users\diego\.gradle\caches\8.13\transforms\e2ea575c128c5a0c3440913f7d3277cd\transformed\activity-ktx-1.8.2\res
+com.equipo.atrapame.app-lifecycle-viewmodel-savedstate-2.7.0-32 C:\Users\diego\.gradle\caches\8.13\transforms\e9cea41921da16e2dc899227a7f691f6\transformed\lifecycle-viewmodel-savedstate-2.7.0\res
+com.equipo.atrapame.app-coordinatorlayout-1.1.0-33 C:\Users\diego\.gradle\caches\8.13\transforms\f03008d3c77719e49979cdd333d2b2c7\transformed\coordinatorlayout-1.1.0\res
+com.equipo.atrapame.app-lifecycle-process-2.7.0-34 C:\Users\diego\.gradle\caches\8.13\transforms\f07e44474482a48936f4a2aa941ebc6d\transformed\lifecycle-process-2.7.0\res
+com.equipo.atrapame.app-lifecycle-runtime-2.7.0-35 C:\Users\diego\.gradle\caches\8.13\transforms\f9993482ab71342ef53f2c8408294164\transformed\lifecycle-runtime-2.7.0\res
+com.equipo.atrapame.app-fragment-1.3.6-36 C:\Users\diego\.gradle\caches\8.13\transforms\fb264880b5daae6e028b87a663761e56\transformed\fragment-1.3.6\res
+com.equipo.atrapame.app-play-services-basement-18.1.0-37 C:\Users\diego\.gradle\caches\8.13\transforms\fd9631b35970d36ce4ad0548320c037e\transformed\play-services-basement-18.1.0\res
+com.equipo.atrapame.app-lifecycle-runtime-ktx-2.7.0-38 C:\Users\diego\.gradle\caches\8.13\transforms\fe9a048b1a3435ca64e3a76c6f1d343a\transformed\lifecycle-runtime-ktx-2.7.0\res
+com.equipo.atrapame.app-pngs-39 C:\Users\diego\OneDrive\Documentos\kotlin\Proyecto final\AtrapamelSiPuedes - copia\app\build\generated\res\pngs\debug
+com.equipo.atrapame.app-res-40 C:\Users\diego\OneDrive\Documentos\kotlin\Proyecto final\AtrapamelSiPuedes - copia\app\build\generated\res\processDebugGoogleServices
+com.equipo.atrapame.app-resValues-41 C:\Users\diego\OneDrive\Documentos\kotlin\Proyecto final\AtrapamelSiPuedes - copia\app\build\generated\res\resValues\debug
+com.equipo.atrapame.app-updated_navigation_xml-42 C:\Users\diego\OneDrive\Documentos\kotlin\Proyecto final\AtrapamelSiPuedes - copia\app\build\generated\updated_navigation_xml\debug
+com.equipo.atrapame.app-packageDebugResources-43 C:\Users\diego\OneDrive\Documentos\kotlin\Proyecto final\AtrapamelSiPuedes - copia\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.equipo.atrapame.app-packageDebugResources-44 C:\Users\diego\OneDrive\Documentos\kotlin\Proyecto final\AtrapamelSiPuedes - copia\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.equipo.atrapame.app-debug-45 C:\Users\diego\OneDrive\Documentos\kotlin\Proyecto final\AtrapamelSiPuedes - copia\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.equipo.atrapame.app-debug-46 C:\Users\diego\OneDrive\Documentos\kotlin\Proyecto final\AtrapamelSiPuedes - copia\app\src\debug\res
+com.equipo.atrapame.app-main-47 C:\Users\diego\OneDrive\Documentos\kotlin\Proyecto final\AtrapamelSiPuedes - copia\app\src\main\res
