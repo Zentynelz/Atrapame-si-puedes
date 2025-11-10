@@ -10,6 +10,8 @@
     <color name="cell_enemy">#F44336</color>
     <color name="cell_obstacle">#424242</color>
     <color name="cell_player">#4CAF50</color>
+    <color name="joystick_base">#302196F3</color>
+    <color name="joystick_handle">#FF2196F3</color>
     <color name="primary_blue">#2196F3</color>
     <color name="primary_blue_dark">#1976D2</color>
     <color name="text_primary">#212121</color>
@@ -26,29 +28,32 @@
     <string name="btn_save">Guardar</string>
     <string name="btn_scores">Puntuaciones</string>
     <string name="config_title">Configuración</string>
-    <string name="default_web_client_id" translatable="false">123456789012-abcdefghijklmnopqrstuvwxyz.apps.googleusercontent.com</string>
     <string name="difficulty">Dificultad</string>
     <string name="difficulty_easy">Fácil</string>
     <string name="difficulty_hard">Difícil</string>
     <string name="difficulty_medium">Medio</string>
     <string name="error_connection">Error de conexión</string>
+    <string name="game_board_content_description">Tablero isométrico del juego</string>
     <string name="game_lost">¡Perdiste!</string>
     <string name="game_title">Juego</string>
     <string name="game_won">¡Ganaste!</string>
-    <string name="gcm_defaultSenderId" translatable="false">123456789012</string>
-    <string name="google_api_key" translatable="false">AIzaSyABCDEFGHIJKLMNOPQRSTUVWXYZ1234567</string>
-    <string name="google_app_id" translatable="false">1:123456789012:android:abcdef1234567890</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyABCDEFGHIJKLMNOPQRSTUVWXYZ1234567</string>
-    <string name="google_storage_bucket" translatable="false">atrapame-si-puedes.appspot.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">545226921829</string>
+    <string name="google_api_key" translatable="false">AIzaSyBmu8Q1GZmZeFEHwp945JOzUD-PzZETNKE</string>
+    <string name="google_app_id" translatable="false">1:545226921829:android:c1e083f93d82e3533c338c</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBmu8Q1GZmZeFEHwp945JOzUD-PzZETNKE</string>
+    <string name="google_storage_bucket" translatable="false">atrapame-si-puedes-dba5f.firebasestorage.app</string>
+    <string name="joystick_content_description">Joystick virtual para mover al perseguidor</string>
     <string name="loading">Cargando...</string>
     <string name="main_title">Atrápame Si Puedes</string>
     <string name="moves_count">Movimientos: %d</string>
+    <string name="moves_initial">Movimientos: 0</string>
     <string name="no_scores">No hay puntuaciones guardadas</string>
     <string name="player_name">Nombre del Jugador</string>
-    <string name="project_id" translatable="false">atrapame-si-puedes</string>
+    <string name="project_id" translatable="false">atrapame-si-puedes-dba5f</string>
     <string name="score_format">%s - %d movimientos - %s</string>
     <string name="score_title">Puntuaciones</string>
     <string name="time_elapsed">Tiempo: %s</string>
+    <string name="time_initial">Tiempo: 00:00</string>
     <style name="Base.Theme.AtrapamelSiPuedes" parent="Theme.Material3.DayNight">
         <item name="colorPrimary">@color/primary_blue</item>
         <item name="colorPrimaryVariant">@color/primary_blue_dark</item>

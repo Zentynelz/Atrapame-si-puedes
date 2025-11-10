@@ -16,15 +16,19 @@
     <string name="difficulty_hard">Hard</string>
     <string name="difficulty_medium">Medium</string>
     <string name="error_connection">Connection error</string>
+    <string name="game_board_content_description">Isometric game board</string>
     <string name="game_lost">You Lost!</string>
     <string name="game_title">Game</string>
     <string name="game_won">You Won!</string>
+    <string name="joystick_content_description">Virtual joystick to move the chaser</string>
     <string name="loading">Loading...</string>
     <string name="main_title">Catch Me If You Can</string>
     <string name="moves_count">Moves: %d</string>
+    <string name="moves_initial">Moves: 0</string>
     <string name="no_scores">No scores saved</string>
     <string name="player_name">Player Name</string>
     <string name="score_format">%s - %d moves - %s</string>
     <string name="score_title">Scores</string>
     <string name="time_elapsed">Time: %s</string>
+    <string name="time_initial">Time: 00:00</string>
 </resources>

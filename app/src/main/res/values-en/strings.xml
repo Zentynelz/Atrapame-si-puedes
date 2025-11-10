@@ -13,10 +13,14 @@
     <string name="game_title">Game</string>
     <string name="moves_count">Moves: %d</string>
     <string name="time_elapsed">Time: %s</string>
+    <string name="moves_initial">Moves: 0</string>
+    <string name="time_initial">Time: 00:00</string>
     <string name="btn_pause">Pause</string>
     <string name="btn_restart">Restart</string>
     <string name="game_won">You Won!</string>
     <string name="game_lost">You Lost!</string>
+    <string name="game_board_content_description">Isometric game board</string>
+    <string name="joystick_content_description">Virtual joystick to move the chaser</string>
     
     <!-- Configuration Screen -->
     <string name="config_title">Settings</string>

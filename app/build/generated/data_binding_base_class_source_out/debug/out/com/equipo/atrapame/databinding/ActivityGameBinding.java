@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.GridLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -13,6 +12,8 @@ import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.equipo.atrapame.R;
+import com.equipo.atrapame.presentation.game.view.IsometricBoardView;
+import com.equipo.atrapame.presentation.game.view.VirtualJoystickView;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -28,7 +29,13 @@ public final class ActivityGameBinding implements ViewBinding {
   public final Button btnRestart;
 
   @NonNull
-  public final GridLayout gameBoard;
+  public final IsometricBoardView gameBoard;
+
+  @NonNull
+  public final VirtualJoystickView joystick;
+
+  @NonNull
+  public final LinearLayout layoutButtons;
 
   @NonNull
   public final TextView tvGameStatus;
@@ -40,12 +47,15 @@ public final class ActivityGameBinding implements ViewBinding {
   public final TextView tvTime;
 
   private ActivityGameBinding(@NonNull LinearLayout rootView, @NonNull Button btnPause,
-      @NonNull Button btnRestart, @NonNull GridLayout gameBoard, @NonNull TextView tvGameStatus,
-      @NonNull TextView tvMoves, @NonNull TextView tvTime) {
+      @NonNull Button btnRestart, @NonNull IsometricBoardView gameBoard,
+      @NonNull VirtualJoystickView joystick, @NonNull LinearLayout layoutButtons,
+      @NonNull TextView tvGameStatus, @NonNull TextView tvMoves, @NonNull TextView tvTime) {
     this.rootView = rootView;
     this.btnPause = btnPause;
     this.btnRestart = btnRestart;
     this.gameBoard = gameBoard;
+    this.joystick = joystick;
+    this.layoutButtons = layoutButtons;
     this.tvGameStatus = tvGameStatus;
     this.tvMoves = tvMoves;
     this.tvTime = tvTime;
@@ -91,8 +101,20 @@ public final class ActivityGameBinding implements ViewBinding {
       }
 
       id = R.id.gameBoard;
-      GridLayout gameBoard = ViewBindings.findChildViewById(rootView, id);
+      IsometricBoardView gameBoard = ViewBindings.findChildViewById(rootView, id);
       if (gameBoard == null) {
+        break missingId;
+      }
+
+      id = R.id.joystick;
+      VirtualJoystickView joystick = ViewBindings.findChildViewById(rootView, id);
+      if (joystick == null) {
+        break missingId;
+      }
+
+      id = R.id.layoutButtons;
+      LinearLayout layoutButtons = ViewBindings.findChildViewById(rootView, id);
+      if (layoutButtons == null) {
         break missingId;
       }
 
@@ -115,7 +137,7 @@ public final class ActivityGameBinding implements ViewBinding {
       }
 
       return new ActivityGameBinding((LinearLayout) rootView, btnPause, btnRestart, gameBoard,
-          tvGameStatus, tvMoves, tvTime);
+          joystick, layoutButtons, tvGameStatus, tvMoves, tvTime);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

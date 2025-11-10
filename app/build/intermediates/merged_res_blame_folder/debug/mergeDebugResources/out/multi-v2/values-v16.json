@@ -4,7 +4,17 @@
             "outputFile": "com.equipo.atrapame.app-mergeDebugResources-42:/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\diego\\.gradle\\caches\\8.13\\transforms\\053f41f6719a5135425af9ed60ec1649\\transformed\\appcompat-1.6.1\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\ESTEBAN\\.gradle\\caches\\8.13\\transforms\\7b81a078229d45123eba0a9f2eeccbf4\\transformed\\core-1.12.0\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\ESTEBAN\\.gradle\\caches\\8.13\\transforms\\053f41f6719a5135425af9ed60ec1649\\transformed\\appcompat-1.6.1\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -20,16 +30,6 @@
                         "endLines": "6",
                         "endColumns": "12",
                         "endOffsets": "289"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\diego\\.gradle\\caches\\8.13\\transforms\\7b81a078229d45123eba0a9f2eeccbf4\\transformed\\core-1.12.0\\res\\values-v16\\values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "65",
-                        "endOffsets": "116"
                     }
                 }
             ]
