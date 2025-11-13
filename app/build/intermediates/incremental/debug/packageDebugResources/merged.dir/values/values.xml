@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent_orange">#FF6C00</color>
+    <color name="black">#FF000000</color>
+    <color name="board_background">#0A0E27</color>
+    <color name="button_primary">#00F0FF</color>
+    <color name="button_secondary">#1A2847</color>
+    <color name="cell_border">#00F0FF</color>
+    <color name="cell_empty">#0F1535</color>
+    <color name="cell_enemy">#FF6C00</color>
+    <color name="cell_obstacle">#1A2847</color>
+    <color name="cell_player">#00F0FF</color>
+    <color name="grid_line">#1A2847</color>
+    <color name="joystick_base">#301A2847</color>
+    <color name="joystick_border">#6DFFFF</color>
+    <color name="joystick_handle">#FF00F0FF</color>
+    <color name="primary_blue">#00F0FF</color>
+    <color name="primary_blue_dark">#0066FF</color>
+    <color name="status_lose">#FF6C00</color>
+    <color name="status_win">#00F0FF</color>
+    <color name="text_on_dark">#FFFFFF</color>
+    <color name="text_primary">#00F0FF</color>
+    <color name="text_secondary">#6DFFFF</color>
+    <color name="tron_blue">#0066FF</color>
+    <color name="tron_cyan">#00F0FF</color>
+    <color name="tron_cyan_glow">#6DFFFF</color>
+    <color name="tron_dark_bg">#0A0E27</color>
+    <color name="tron_darker_bg">#050812</color>
+    <color name="tron_grid">#1A2847</color>
+    <color name="tron_orange">#FF6C00</color>
+    <color name="tron_orange_glow">#FF9D42</color>
+    <color name="tron_purple">#9D00FF</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">Atrápame Si Puedes</string>
+    <string name="btn_cancel">Cancelar</string>
+    <string name="btn_config">Configuración</string>
+    <string name="btn_exit">Salir</string>
+    <string name="btn_main_menu">Menú Principal</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_pause">Pausar</string>
+    <string name="btn_play">Jugar</string>
+    <string name="btn_play_again">Jugar de Nuevo</string>
+    <string name="btn_restart">Reiniciar</string>
+    <string name="btn_resume">Reanudar</string>
+    <string name="btn_save">Guardar</string>
+    <string name="btn_scores">Puntuaciones</string>
+    <string name="btn_try_again">Intentar de Nuevo</string>
+    <string name="config_title">Configuración</string>
+    <string name="dialog_defeat_message">El enemigo te ha capturado.\n\n¡No te rindas! Inténtalo de nuevo.</string>
+    <string name="dialog_defeat_title">¡Derrota!</string>
+    <string formatted="false" name="dialog_victory_message">¡Felicidades! Has capturado al enemigo.\n\nMovimientos: %d\nTiempo: %s</string>
+    <string name="dialog_victory_title">¡Victoria!</string>
+    <string name="difficulty">Dificultad</string>
+    <string name="difficulty_easy">Fácil</string>
+    <string name="difficulty_hard">Difícil</string>
+    <string name="difficulty_medium">Medio</string>
+    <string name="error_connection">Error de conexión</string>
+    <string name="error_firebase_load">No se pudieron cargar las puntuaciones</string>
+    <string name="error_firebase_save">No se pudo guardar la puntuación</string>
+    <string name="game_board_content_description">Tablero isométrico del juego</string>
+    <string name="game_lost">¡Perdiste!</string>
+    <string name="game_title">Juego</string>
+    <string name="game_won">¡Ganaste!</string>
+    <string name="gcm_defaultSenderId" translatable="false">285909664078</string>
+    <string name="google_api_key" translatable="false">AIzaSyDSn7-iAUW6gGmNFyFlthbZhrn01-ERQ7M</string>
+    <string name="google_app_id" translatable="false">1:285909664078:android:2ab7b8cc5b3b1e74751e1f</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDSn7-iAUW6gGmNFyFlthbZhrn01-ERQ7M</string>
+    <string name="google_storage_bucket" translatable="false">atrapame-si-puedes-30ab4.firebasestorage.app</string>
+    <string name="joystick_content_description">Joystick virtual para mover al perseguidor</string>
+    <string name="loading">Cargando...</string>
+    <string name="main_title">Atrápame Si Puedes</string>
+    <string name="moves_count">Movimientos: %d</string>
+    <string name="moves_initial">Movimientos: 0</string>
+    <string name="no_scores">No hay puntuaciones guardadas</string>
+    <string name="notification_channel_description">Notificaciones del juego Atrápame Si Puedes</string>
+    <string name="notification_defeat_text">El enemigo te capturó. ¡Inténtalo de nuevo!</string>
+    <string name="notification_defeat_title">¡Derrota!</string>
+    <string formatted="false" name="notification_victory_text">¡Ganaste en %d movimientos y %s!</string>
+    <string name="notification_victory_title">¡Victoria!</string>
+    <string name="player_name">Nombre del Jugador</string>
+    <string name="project_id" translatable="false">atrapame-si-puedes-30ab4</string>
+    <string formatted="false" name="score_format">%s - %d movimientos - %s</string>
+    <string name="score_title">Puntuaciones</string>
+    <string name="time_elapsed">Tiempo: %s</string>
+    <string name="time_initial">Tiempo: 00:00</string>
+    <style name="Base.Theme.AtrapamelSiPuedes" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/tron_cyan</item>
+        <item name="colorPrimaryVariant">@color/tron_blue</item>
+        <item name="colorOnPrimary">@color/tron_dark_bg</item>
+        <item name="colorSecondary">@color/tron_orange</item>
+        <item name="colorOnSecondary">@color/tron_dark_bg</item>
+        <item name="android:statusBarColor">@color/tron_darker_bg</item>
+        <item name="android:navigationBarColor">@color/tron_darker_bg</item>
+        <item name="android:windowBackground">@color/tron_dark_bg</item>
+        <item name="android:textColorPrimary">@color/tron_cyan</item>
+        <item name="android:textColorSecondary">@color/tron_cyan_glow</item>
+    </style>
+    <style name="GameButton" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/tron_cyan</item>
+        <item name="strokeColor">@color/tron_cyan</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="backgroundTint">@color/tron_darker_bg</item>
+        <item name="android:letterSpacing">0.1</item>
+    </style>
+    <style name="GameButtonPrimary" parent="Widget.Material3.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/tron_dark_bg</item>
+        <item name="backgroundTint">@color/tron_cyan</item>
+        <item name="android:letterSpacing">0.1</item>
+    </style>
+    <style name="GameCell">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:background">@color/cell_empty</item>
+    </style>
+    <style name="Theme.AtrapamelSiPuedes" parent="Base.Theme.AtrapamelSiPuedes">
+        <item name="actionBarStyle">@style/TronActionBar</item>
+    </style>
+    <style name="TronActionBar" parent="Widget.Material3.ActionBar.Solid">
+        <item name="background">@color/tron_darker_bg</item>
+        <item name="titleTextStyle">@style/TronActionBarTitle</item>
+    </style>
+    <style name="TronActionBarTitle" parent="TextAppearance.Material3.ActionBar.Title">
+        <item name="android:textColor">@color/tron_cyan</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TronTextBody">
+        <item name="android:textColor">@color/tron_cyan_glow</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="TronTextStats">
+        <item name="android:textColor">@color/tron_cyan</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">monospace</item>
+    </style>
+    <style name="TronTextTitle">
+        <item name="android:textColor">@color/tron_cyan</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.15</item>
+    </style>
+</resources>
