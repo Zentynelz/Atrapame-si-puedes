@@ -2,14 +2,15 @@ pluginManagement {
     repositories {
         google()
         mavenCentral()
-        gradlePluginPortal()
+        gradlePluginPortal() // Necesario para plugins externos como KSP
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-        google()
-        mavenCentral()
+        google()       // repositorio principal de Android
+        mavenCentral() // librerías Kotlin, Room, etc.
     }
 }
 

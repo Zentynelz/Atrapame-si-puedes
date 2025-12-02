@@ -9,7 +9,7 @@ import com.equipo.atrapame.data.models.GameState
 import com.equipo.atrapame.data.models.Position
 import com.equipo.atrapame.data.models.Score
 import com.equipo.atrapame.data.repository.ConfigRepository
-import com.equipo.atrapame.data.repository.GameRepository
+import com.equipo.atrapame.data.local.LocalGameRepository
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
@@ -18,10 +18,9 @@ import kotlinx.coroutines.launch
 data class GameResult(val moves: Int, val timeElapsed: Long)
 
 class GameViewModel(
-    private val gameRepository: GameRepository = GameRepository(),
-    private val configRepository: ConfigRepository? = null
+    private val gameRepository: LocalGameRepository,
+    private val configRepository: ConfigRepository
 ) : ViewModel() {
-
     private val _gameState = MutableLiveData<GameState>()
     val gameState: LiveData<GameState> = _gameState
 
@@ -33,9 +32,11 @@ class GameViewModel(
 
     private var enemyMovementJob: Job? = null
     private var timerJob: Job? = null
+
     private var gameStartTime: Long = 0L
     private var pauseStartTime: Long = 0L
     private var totalPausedTime: Long = 0L
+
     private var isPaused: Boolean = false
 
     init {
@@ -43,34 +44,38 @@ class GameViewModel(
     }
 
     fun initializeGame(rows: Int = GameState.DEFAULT_ROWS, cols: Int = GameState.DEFAULT_COLS) {
-        // Cancelar jobs anteriores
+
         timerJob?.cancel()
         enemyMovementJob?.cancel()
-        
+
         val obstacles = createDefaultObstacles(rows, cols)
+
         _gameState.value = GameState.createInitialState(rows, cols, obstacles)
+
         gameStartTime = System.currentTimeMillis()
         totalPausedTime = 0L
         isPaused = false
-        
+
         startTimerLoop()
         startEnemyMovementLoop()
     }
 
     fun onDirectionInput(direction: Direction?) {
         if (direction == null || isPaused) return
-        val currentState = _gameState.value ?: return
-        val newState = currentState.movePlayer(direction)
-        if (newState != currentState) {
-            _gameState.value = newState
-        }
+        val current = _gameState.value ?: return
+
+        val result = runCatching { current.movePlayer(direction) }
+        if (result.isFailure) return
+
+        val newState = result.getOrNull()!!
+        if (newState != current) _gameState.value = newState
     }
-    
+
     fun pauseGame() {
         isPaused = true
         pauseStartTime = System.currentTimeMillis()
     }
-    
+
     fun resumeGame() {
         if (isPaused) {
             totalPausedTime += System.currentTimeMillis() - pauseStartTime
@@ -81,21 +86,19 @@ class GameViewModel(
     private fun startTimerLoop() {
         timerJob = viewModelScope.launch {
             while (isActive) {
-                val currentState = _gameState.value
-                if (currentState != null && !currentState.isGameWon && !currentState.isGameLost && !isPaused) {
+                val state = _gameState.value
+                if (state != null && !state.isGameWon && !state.isGameLost && !isPaused) {
                     val elapsed = System.currentTimeMillis() - gameStartTime - totalPausedTime
-                    _gameState.value = currentState.copy(timeElapsed = elapsed)
+                    _gameState.postValue(state.copy(timeElapsed = elapsed))
                 }
-                delay(100) // Actualizar cada 100ms para suavidad
+                delay(100)
             }
         }
     }
 
     private fun startEnemyMovementLoop() {
-        // Obtener velocidad del enemigo según dificultad
-        val enemySpeed = configRepository?.getPlayerConfig()?.difficulty?.enemySpeed?.toLong()
-            ?: DEFAULT_ENEMY_MOVE_INTERVAL_MS
-        
+        val enemySpeed = configRepository.getPlayerConfig().difficulty.enemySpeed.toLong()
+
         enemyMovementJob = viewModelScope.launch {
             while (isActive) {
                 val shouldContinue = stepEnemy()
@@ -106,29 +109,30 @@ class GameViewModel(
     }
 
     private fun stepEnemy(): Boolean {
-        val currentState = _gameState.value ?: return true
-        if (currentState.isGameWon || currentState.isGameLost || isPaused) {
-            return !isPaused // Continuar el loop si está pausado, pero no hacer nada
-        }
+        val current = _gameState.value ?: return true
 
-        val updatedState = currentState.advanceEnemy()
-        if (updatedState != currentState) {
-            _gameState.value = updatedState
-        }
+        if (isPaused || current.isGameWon || current.isGameLost) return true
 
-        return !(updatedState.isGameWon || updatedState.isGameLost)
+        val result = runCatching { current.advanceEnemy() }
+        if (result.isFailure) return false
+
+        val updated = result.getOrNull()!!
+        _gameState.value = updated
+
+        return !(updated.isGameWon || updated.isGameLost)
     }
-
 
     private fun createDefaultObstacles(rows: Int, cols: Int): List<Position> {
         if (rows < 3 || cols < 3) return emptyList()
 
         val positions = mutableSetOf<Position>()
+
         for (row in 1 until rows - 1 step 2) {
             val startCol = (row / 2) % cols
             positions.add(Position(row, startCol))
+
             val secondaryCol = startCol + 2
-            if (secondaryCol < cols) {
+            if (secondaryCol in 0 until cols) {
                 positions.add(Position(row, secondaryCol))
             }
         }
@@ -148,20 +152,21 @@ class GameViewModel(
         _showDefeatDialog.value = true
     }
 
+    // ✔ Ahora usa el repositorio que se pasó al constructor
     suspend fun saveCurrentScore(): Result<String> {
         val state = _gameState.value ?: return Result.failure(Exception("No game state"))
-        if (configRepository == null) {
-            return Result.failure(Exception("ConfigRepository not available"))
-        }
-        
         val config = configRepository.getPlayerConfig()
+
         val score = Score(
             playerName = config.name,
             moves = state.moves,
             timeElapsed = state.timeElapsed,
             difficulty = config.difficulty
         )
-        return gameRepository.saveScore(score)
+
+        gameRepository.saveScore(score)
+
+        return Result.success("guardado-local")
     }
 
     fun resetDialogEvents() {

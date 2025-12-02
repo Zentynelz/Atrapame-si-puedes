@@ -5,11 +5,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.equipo.atrapame.data.models.Score
-import com.equipo.atrapame.data.repository.GameRepository
+import com.equipo.atrapame.data.local.LocalGameRepository
 import kotlinx.coroutines.launch
 
 class ScoreViewModel(
-    private val repository: GameRepository = GameRepository()
+    private val repository: LocalGameRepository
 ) : ViewModel() {
 
     private val _scores = MutableLiveData<List<Score>>()
@@ -30,18 +30,15 @@ class ScoreViewModel(
             _loading.value = true
             _error.value = null
 
-            val result = repository.getTopScores(limit)
-            result.fold(
-                onSuccess = { scoreList ->
-                    _scores.value = scoreList
-                    _loading.value = false
-                },
-                onFailure = { exception ->
-                    _error.value = exception.message ?: "Error desconocido"
-                    _scores.value = emptyList()
-                    _loading.value = false
-                }
-            )
+            try {
+                val scoreList = repository.getTopScores()
+                _scores.value = scoreList
+            } catch (e: Exception) {
+                _error.value = e.message ?: "Error desconocido"
+                _scores.value = emptyList()
+            }
+
+            _loading.value = false
         }
     }
 
@@ -50,18 +47,15 @@ class ScoreViewModel(
             _loading.value = true
             _error.value = null
 
-            val result = repository.getPlayerScores(playerName)
-            result.fold(
-                onSuccess = { scoreList ->
-                    _scores.value = scoreList
-                    _loading.value = false
-                },
-                onFailure = { exception ->
-                    _error.value = exception.message ?: "Error desconocido"
-                    _scores.value = emptyList()
-                    _loading.value = false
-                }
-            )
+            try {
+                val scoreList = repository.getPlayerScores(playerName)
+                _scores.value = scoreList
+            } catch (e: Exception) {
+                _error.value = e.message ?: "Error desconocido"
+                _scores.value = emptyList()
+            }
+
+            _loading.value = false
         }
     }
 
