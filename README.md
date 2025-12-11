@@ -491,4 +491,4 @@ Este proyecto fue desarrollado como parte del curso de **Programación por Compo
 
 ---
 
-**Proyecto desarrollado para Programación por Componentes - Universidad Nacional de Colombia**
+**Proyecto desarrollado para Programación por Componentes - Universidad Distrital Francisco José de Caldas**
