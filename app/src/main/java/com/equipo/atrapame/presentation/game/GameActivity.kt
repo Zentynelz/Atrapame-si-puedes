@@ -117,7 +117,23 @@ class GameActivity : AppCompatActivity() {
 
         // Guardar puntuación
         lifecycleScope.launch {
-            viewModel.saveCurrentScore()
+            val result = viewModel.saveCurrentScore()
+            result.fold(
+                onSuccess = { message ->
+                    // Mostrar notificación de éxito
+                    notificationHelper.showCustomNotification(
+                        "Puntuación Guardada", 
+                        "Tu puntuación se guardó correctamente en Firebase"
+                    )
+                },
+                onFailure = { error ->
+                    // Mostrar notificación de error
+                    notificationHelper.showCustomNotification(
+                        "Error al Guardar", 
+                        "No se pudo guardar en Firebase: ${error.message}"
+                    )
+                }
+            )
         }
     }
 

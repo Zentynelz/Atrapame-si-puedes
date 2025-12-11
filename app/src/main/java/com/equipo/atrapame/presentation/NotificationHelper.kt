@@ -71,6 +71,24 @@ class NotificationHelper(private val context: Context) {
         }
     }
 
+    fun showCustomNotification(title: String, message: String) {
+        if (!hasNotificationPermission()) {
+            return
+        }
+
+        val notification = NotificationCompat.Builder(context, CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setContentTitle(title)
+            .setContentText(message)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setAutoCancel(true)
+            .build()
+
+        with(NotificationManagerCompat.from(context)) {
+            notify(System.currentTimeMillis().toInt(), notification) // ID único
+        }
+    }
+
     fun requestNotificationPermission(activity: Activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (!hasNotificationPermission()) {

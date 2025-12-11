@@ -8,6 +8,9 @@ import com.equipo.atrapame.data.models.Difficulty
 import com.equipo.atrapame.data.models.PlayerConfig
 import com.equipo.atrapame.data.repository.ConfigRepository
 import com.equipo.atrapame.databinding.ActivityConfigBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class ConfigActivity : AppCompatActivity() {
     
@@ -50,6 +53,45 @@ class ConfigActivity : AppCompatActivity() {
         
         binding.btnCancel.setOnClickListener {
             finish()
+        }
+        
+        // Botón temporal para probar Firebase - QUITAR EN PRODUCCIÓN
+        binding.etPlayerName.setOnLongClickListener {
+            testFirebase()
+            true
+        }
+    }
+    
+    private fun testFirebase() {
+        Toast.makeText(this, "Probando Firebase...", Toast.LENGTH_SHORT).show()
+        
+        // Usar corrutinas para probar Firebase
+        val scope = kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.Main)
+        scope.launch {
+            try {
+                val result = com.equipo.atrapame.utils.FirebaseTestHelper.testFirebaseConnection(this@ConfigActivity)
+                
+                // Mostrar resultado en un diálogo
+                androidx.appcompat.app.AlertDialog.Builder(this@ConfigActivity)
+                    .setTitle("Resultado de Firebase")
+                    .setMessage(result)
+                    .setPositiveButton("Ver Scores") { _, _ ->
+                        // Mostrar scores existentes
+                        scope.launch {
+                            val scores = com.equipo.atrapame.utils.FirebaseTestHelper.readAllScores()
+                            androidx.appcompat.app.AlertDialog.Builder(this@ConfigActivity)
+                                .setTitle("Scores en Firebase")
+                                .setMessage(scores)
+                                .setPositiveButton("OK", null)
+                                .show()
+                        }
+                    }
+                    .setNegativeButton("OK", null)
+                    .show()
+                    
+            } catch (e: Exception) {
+                Toast.makeText(this@ConfigActivity, "Error: ${e.message}", Toast.LENGTH_LONG).show()
+            }
         }
     }
     

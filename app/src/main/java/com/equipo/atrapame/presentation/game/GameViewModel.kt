@@ -273,9 +273,28 @@ class GameViewModel(
             difficulty = config.difficulty
         )
 
-        gameRepository.saveScore(score)
-
-        return Result.success("guardado-local")
+        return try {
+            gameRepository.saveScore(score)
+            Result.success("Puntuación guardada correctamente")
+        } catch (e: Exception) {
+            Result.failure(Exception("Error al guardar: ${e.message}"))
+        }
+    }
+    
+    // Función para probar Firebase directamente
+    suspend fun testFirebaseConnection(): Result<String> {
+        return try {
+            val testScore = Score(
+                playerName = "TEST_USER",
+                moves = 999,
+                timeElapsed = 60000L,
+                difficulty = com.equipo.atrapame.data.models.Difficulty.EASY
+            )
+            gameRepository.saveScore(testScore)
+            Result.success("Firebase funciona correctamente")
+        } catch (e: Exception) {
+            Result.failure(Exception("Firebase falló: ${e.message}"))
+        }
     }
 
     fun resetDialogEvents() {

@@ -40,7 +40,7 @@ public final class ScoreDao_Impl implements ScoreDao {
       @Override
       @NonNull
       protected String createQuery() {
-        return "INSERT OR REPLACE INTO `scores` (`localId`,`idFirebase`,`playerName`,`moves`,`timeElapsed`,`timestamp`,`synced`) VALUES (nullif(?, 0),?,?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `scores` (`localId`,`idFirebase`,`playerName`,`moves`,`timeElapsed`,`difficulty`,`timestamp`,`synced`) VALUES (nullif(?, 0),?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -55,9 +55,10 @@ public final class ScoreDao_Impl implements ScoreDao {
         statement.bindString(3, entity.getPlayerName());
         statement.bindLong(4, entity.getMoves());
         statement.bindLong(5, entity.getTimeElapsed());
-        statement.bindLong(6, entity.getTimestamp());
+        statement.bindString(6, entity.getDifficulty());
+        statement.bindLong(7, entity.getTimestamp());
         final int _tmp = entity.getSynced() ? 1 : 0;
-        statement.bindLong(7, _tmp);
+        statement.bindLong(8, _tmp);
       }
     };
     this.__preparedStmtOfMarkAsSynced = new SharedSQLiteStatement(__db) {
@@ -135,6 +136,7 @@ public final class ScoreDao_Impl implements ScoreDao {
           final int _cursorIndexOfPlayerName = CursorUtil.getColumnIndexOrThrow(_cursor, "playerName");
           final int _cursorIndexOfMoves = CursorUtil.getColumnIndexOrThrow(_cursor, "moves");
           final int _cursorIndexOfTimeElapsed = CursorUtil.getColumnIndexOrThrow(_cursor, "timeElapsed");
+          final int _cursorIndexOfDifficulty = CursorUtil.getColumnIndexOrThrow(_cursor, "difficulty");
           final int _cursorIndexOfTimestamp = CursorUtil.getColumnIndexOrThrow(_cursor, "timestamp");
           final int _cursorIndexOfSynced = CursorUtil.getColumnIndexOrThrow(_cursor, "synced");
           final List<LocalScoreEntity> _result = new ArrayList<LocalScoreEntity>(_cursor.getCount());
@@ -154,13 +156,15 @@ public final class ScoreDao_Impl implements ScoreDao {
             _tmpMoves = _cursor.getInt(_cursorIndexOfMoves);
             final long _tmpTimeElapsed;
             _tmpTimeElapsed = _cursor.getLong(_cursorIndexOfTimeElapsed);
+            final String _tmpDifficulty;
+            _tmpDifficulty = _cursor.getString(_cursorIndexOfDifficulty);
             final long _tmpTimestamp;
             _tmpTimestamp = _cursor.getLong(_cursorIndexOfTimestamp);
             final boolean _tmpSynced;
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfSynced);
             _tmpSynced = _tmp != 0;
-            _item = new LocalScoreEntity(_tmpLocalId,_tmpIdFirebase,_tmpPlayerName,_tmpMoves,_tmpTimeElapsed,_tmpTimestamp,_tmpSynced);
+            _item = new LocalScoreEntity(_tmpLocalId,_tmpIdFirebase,_tmpPlayerName,_tmpMoves,_tmpTimeElapsed,_tmpDifficulty,_tmpTimestamp,_tmpSynced);
             _result.add(_item);
           }
           return _result;
@@ -191,6 +195,7 @@ public final class ScoreDao_Impl implements ScoreDao {
           final int _cursorIndexOfPlayerName = CursorUtil.getColumnIndexOrThrow(_cursor, "playerName");
           final int _cursorIndexOfMoves = CursorUtil.getColumnIndexOrThrow(_cursor, "moves");
           final int _cursorIndexOfTimeElapsed = CursorUtil.getColumnIndexOrThrow(_cursor, "timeElapsed");
+          final int _cursorIndexOfDifficulty = CursorUtil.getColumnIndexOrThrow(_cursor, "difficulty");
           final int _cursorIndexOfTimestamp = CursorUtil.getColumnIndexOrThrow(_cursor, "timestamp");
           final int _cursorIndexOfSynced = CursorUtil.getColumnIndexOrThrow(_cursor, "synced");
           final List<LocalScoreEntity> _result = new ArrayList<LocalScoreEntity>(_cursor.getCount());
@@ -210,13 +215,15 @@ public final class ScoreDao_Impl implements ScoreDao {
             _tmpMoves = _cursor.getInt(_cursorIndexOfMoves);
             final long _tmpTimeElapsed;
             _tmpTimeElapsed = _cursor.getLong(_cursorIndexOfTimeElapsed);
+            final String _tmpDifficulty;
+            _tmpDifficulty = _cursor.getString(_cursorIndexOfDifficulty);
             final long _tmpTimestamp;
             _tmpTimestamp = _cursor.getLong(_cursorIndexOfTimestamp);
             final boolean _tmpSynced;
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfSynced);
             _tmpSynced = _tmp != 0;
-            _item = new LocalScoreEntity(_tmpLocalId,_tmpIdFirebase,_tmpPlayerName,_tmpMoves,_tmpTimeElapsed,_tmpTimestamp,_tmpSynced);
+            _item = new LocalScoreEntity(_tmpLocalId,_tmpIdFirebase,_tmpPlayerName,_tmpMoves,_tmpTimeElapsed,_tmpDifficulty,_tmpTimestamp,_tmpSynced);
             _result.add(_item);
           }
           return _result;
@@ -245,6 +252,7 @@ public final class ScoreDao_Impl implements ScoreDao {
           final int _cursorIndexOfPlayerName = CursorUtil.getColumnIndexOrThrow(_cursor, "playerName");
           final int _cursorIndexOfMoves = CursorUtil.getColumnIndexOrThrow(_cursor, "moves");
           final int _cursorIndexOfTimeElapsed = CursorUtil.getColumnIndexOrThrow(_cursor, "timeElapsed");
+          final int _cursorIndexOfDifficulty = CursorUtil.getColumnIndexOrThrow(_cursor, "difficulty");
           final int _cursorIndexOfTimestamp = CursorUtil.getColumnIndexOrThrow(_cursor, "timestamp");
           final int _cursorIndexOfSynced = CursorUtil.getColumnIndexOrThrow(_cursor, "synced");
           final List<LocalScoreEntity> _result = new ArrayList<LocalScoreEntity>(_cursor.getCount());
@@ -264,13 +272,15 @@ public final class ScoreDao_Impl implements ScoreDao {
             _tmpMoves = _cursor.getInt(_cursorIndexOfMoves);
             final long _tmpTimeElapsed;
             _tmpTimeElapsed = _cursor.getLong(_cursorIndexOfTimeElapsed);
+            final String _tmpDifficulty;
+            _tmpDifficulty = _cursor.getString(_cursorIndexOfDifficulty);
             final long _tmpTimestamp;
             _tmpTimestamp = _cursor.getLong(_cursorIndexOfTimestamp);
             final boolean _tmpSynced;
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfSynced);
             _tmpSynced = _tmp != 0;
-            _item = new LocalScoreEntity(_tmpLocalId,_tmpIdFirebase,_tmpPlayerName,_tmpMoves,_tmpTimeElapsed,_tmpTimestamp,_tmpSynced);
+            _item = new LocalScoreEntity(_tmpLocalId,_tmpIdFirebase,_tmpPlayerName,_tmpMoves,_tmpTimeElapsed,_tmpDifficulty,_tmpTimestamp,_tmpSynced);
             _result.add(_item);
           }
           return _result;
