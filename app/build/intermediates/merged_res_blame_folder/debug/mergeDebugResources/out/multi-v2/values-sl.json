@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.equipo.atrapame.app-mergeDebugResources-45:/values-sl/values-sl.xml",
+            "outputFile": "com.equipo.atrapame.app-mergeDebugResources-46:/values-sl/values-sl.xml",
             "map": [
                 {
                     "source": "C:\\Users\\diego\\.gradle\\caches\\8.13\\transforms\\ea5cf6ad0defce21772bf926990f8a21\\transformed\\play-services-basement-18.4.0\\res\\values-sl\\values.xml",

@@ -1,94 +1,94 @@
 [
     {
-        "merged": "com.equipo.atrapame.app-debug-47:/drawable_tron_panel_bg.xml.flat",
-        "source": "com.equipo.atrapame.app-main-49:/drawable/tron_panel_bg.xml"
+        "merged": "com.equipo.atrapame.app-debug-48:/layout_item_score.xml.flat",
+        "source": "com.equipo.atrapame.app-main-50:/layout/item_score.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-debug-47:/mipmap-xxxhdpi_ic_launcher.xml.flat",
-        "source": "com.equipo.atrapame.app-main-49:/mipmap-xxxhdpi/ic_launcher.xml"
+        "merged": "com.equipo.atrapame.app-debug-48:/mipmap-xxxhdpi_ic_launcher.xml.flat",
+        "source": "com.equipo.atrapame.app-main-50:/mipmap-xxxhdpi/ic_launcher.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-debug-47:/drawable_tron_grid_bg.xml.flat",
-        "source": "com.equipo.atrapame.app-main-49:/drawable/tron_grid_bg.xml"
+        "merged": "com.equipo.atrapame.app-debug-48:/drawable_tron_grid_bg.xml.flat",
+        "source": "com.equipo.atrapame.app-main-50:/drawable/tron_grid_bg.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-debug-47:/mipmap-xhdpi_ic_launcher_round.xml.flat",
-        "source": "com.equipo.atrapame.app-main-49:/mipmap-xhdpi/ic_launcher_round.xml"
+        "merged": "com.equipo.atrapame.app-debug-48:/layout_activity_game.xml.flat",
+        "source": "com.equipo.atrapame.app-main-50:/layout/activity_game.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-debug-47:/drawable_tron_button_bg.xml.flat",
-        "source": "com.equipo.atrapame.app-main-49:/drawable/tron_button_bg.xml"
+        "merged": "com.equipo.atrapame.app-debug-48:/drawable_tron_button_bg.xml.flat",
+        "source": "com.equipo.atrapame.app-main-50:/drawable/tron_button_bg.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-debug-47:/layout_activity_main.xml.flat",
-        "source": "com.equipo.atrapame.app-main-49:/layout/activity_main.xml"
+        "merged": "com.equipo.atrapame.app-debug-48:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.equipo.atrapame.app-main-50:/drawable/ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-debug-47:/layout_activity_config.xml.flat",
-        "source": "com.equipo.atrapame.app-main-49:/layout/activity_config.xml"
+        "merged": "com.equipo.atrapame.app-debug-48:/mipmap-xxhdpi_ic_launcher_round.xml.flat",
+        "source": "com.equipo.atrapame.app-main-50:/mipmap-xxhdpi/ic_launcher_round.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-debug-47:/mipmap-xxhdpi_ic_launcher.xml.flat",
-        "source": "com.equipo.atrapame.app-main-49:/mipmap-xxhdpi/ic_launcher.xml"
+        "merged": "com.equipo.atrapame.app-debug-48:/layout_activity_score.xml.flat",
+        "source": "com.equipo.atrapame.app-main-50:/layout/activity_score.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-debug-47:/layout_item_score.xml.flat",
-        "source": "com.equipo.atrapame.app-main-49:/layout/item_score.xml"
+        "merged": "com.equipo.atrapame.app-debug-48:/mipmap-mdpi_ic_launcher.xml.flat",
+        "source": "com.equipo.atrapame.app-main-50:/mipmap-mdpi/ic_launcher.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-debug-47:/mipmap-mdpi_ic_launcher.xml.flat",
-        "source": "com.equipo.atrapame.app-main-49:/mipmap-mdpi/ic_launcher.xml"
+        "merged": "com.equipo.atrapame.app-debug-48:/xml_backup_rules.xml.flat",
+        "source": "com.equipo.atrapame.app-main-50:/xml/backup_rules.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-debug-47:/layout_activity_score.xml.flat",
-        "source": "com.equipo.atrapame.app-main-49:/layout/activity_score.xml"
+        "merged": "com.equipo.atrapame.app-debug-48:/mipmap-xxxhdpi_ic_launcher_round.xml.flat",
+        "source": "com.equipo.atrapame.app-main-50:/mipmap-xxxhdpi/ic_launcher_round.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-debug-47:/mipmap-xxxhdpi_ic_launcher_round.xml.flat",
-        "source": "com.equipo.atrapame.app-main-49:/mipmap-xxxhdpi/ic_launcher_round.xml"
+        "merged": "com.equipo.atrapame.app-debug-48:/mipmap-hdpi_ic_launcher.xml.flat",
+        "source": "com.equipo.atrapame.app-main-50:/mipmap-hdpi/ic_launcher.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-debug-47:/layout_activity_game.xml.flat",
-        "source": "com.equipo.atrapame.app-main-49:/layout/activity_game.xml"
+        "merged": "com.equipo.atrapame.app-debug-48:/layout_activity_config.xml.flat",
+        "source": "com.equipo.atrapame.app-main-50:/layout/activity_config.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-debug-47:/mipmap-hdpi_ic_launcher_round.xml.flat",
-        "source": "com.equipo.atrapame.app-main-49:/mipmap-hdpi/ic_launcher_round.xml"
+        "merged": "com.equipo.atrapame.app-debug-48:/xml_data_extraction_rules.xml.flat",
+        "source": "com.equipo.atrapame.app-main-50:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-debug-47:/drawable_tron_button_primary_bg.xml.flat",
-        "source": "com.equipo.atrapame.app-main-49:/drawable/tron_button_primary_bg.xml"
+        "merged": "com.equipo.atrapame.app-debug-48:/mipmap-hdpi_ic_launcher_round.xml.flat",
+        "source": "com.equipo.atrapame.app-main-50:/mipmap-hdpi/ic_launcher_round.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-debug-47:/mipmap-xhdpi_ic_launcher.xml.flat",
-        "source": "com.equipo.atrapame.app-main-49:/mipmap-xhdpi/ic_launcher.xml"
+        "merged": "com.equipo.atrapame.app-debug-48:/mipmap-mdpi_ic_launcher_round.xml.flat",
+        "source": "com.equipo.atrapame.app-main-50:/mipmap-mdpi/ic_launcher_round.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-debug-47:/mipmap-hdpi_ic_launcher.xml.flat",
-        "source": "com.equipo.atrapame.app-main-49:/mipmap-hdpi/ic_launcher.xml"
+        "merged": "com.equipo.atrapame.app-debug-48:/layout_activity_main.xml.flat",
+        "source": "com.equipo.atrapame.app-main-50:/layout/activity_main.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-debug-47:/xml_data_extraction_rules.xml.flat",
-        "source": "com.equipo.atrapame.app-main-49:/xml/data_extraction_rules.xml"
+        "merged": "com.equipo.atrapame.app-debug-48:/mipmap-xxhdpi_ic_launcher.xml.flat",
+        "source": "com.equipo.atrapame.app-main-50:/mipmap-xxhdpi/ic_launcher.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-debug-47:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.equipo.atrapame.app-main-49:/drawable/ic_launcher_foreground.xml"
+        "merged": "com.equipo.atrapame.app-debug-48:/mipmap-xhdpi_ic_launcher_round.xml.flat",
+        "source": "com.equipo.atrapame.app-main-50:/mipmap-xhdpi/ic_launcher_round.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-debug-47:/drawable_status_background.xml.flat",
-        "source": "com.equipo.atrapame.app-main-49:/drawable/status_background.xml"
+        "merged": "com.equipo.atrapame.app-debug-48:/drawable_tron_button_primary_bg.xml.flat",
+        "source": "com.equipo.atrapame.app-main-50:/drawable/tron_button_primary_bg.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-debug-47:/xml_backup_rules.xml.flat",
-        "source": "com.equipo.atrapame.app-main-49:/xml/backup_rules.xml"
+        "merged": "com.equipo.atrapame.app-debug-48:/drawable_status_background.xml.flat",
+        "source": "com.equipo.atrapame.app-main-50:/drawable/status_background.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-debug-47:/mipmap-xxhdpi_ic_launcher_round.xml.flat",
-        "source": "com.equipo.atrapame.app-main-49:/mipmap-xxhdpi/ic_launcher_round.xml"
+        "merged": "com.equipo.atrapame.app-debug-48:/drawable_tron_panel_bg.xml.flat",
+        "source": "com.equipo.atrapame.app-main-50:/drawable/tron_panel_bg.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-debug-47:/mipmap-mdpi_ic_launcher_round.xml.flat",
-        "source": "com.equipo.atrapame.app-main-49:/mipmap-mdpi/ic_launcher_round.xml"
+        "merged": "com.equipo.atrapame.app-debug-48:/mipmap-xhdpi_ic_launcher.xml.flat",
+        "source": "com.equipo.atrapame.app-main-50:/mipmap-xhdpi/ic_launcher.xml"
     }
 ]

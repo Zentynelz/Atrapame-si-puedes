@@ -23,19 +23,28 @@ class LocalGameRepository(context: Context) {
 
     // ----------- GUARDAR LOCAL & SINCRONIZAR ----------
     suspend fun saveScore(score: Score) = withContext(Dispatchers.IO) {
+        android.util.Log.d("LocalGameRepository", "=== GUARDANDO SCORE ===")
+        android.util.Log.d("LocalGameRepository", "Score: ${score.playerName}, ${score.moves} movimientos, ${score.difficulty}")
+        
         // Primero intentar guardar directamente en Firebase
         try {
+            android.util.Log.d("LocalGameRepository", "Intentando guardar en Firebase...")
+            
+            val dataToSave = mapOf(
+                "playerName" to score.playerName,
+                "moves" to score.moves,
+                "timeElapsed" to score.timeElapsed,
+                "difficulty" to score.difficulty.name,
+                "timestamp" to score.timestamp
+            )
+            
+            android.util.Log.d("LocalGameRepository", "Datos a guardar: $dataToSave")
+            
             val firebaseDoc = firestore.collection("scores")
-                .add(
-                    mapOf(
-                        "playerName" to score.playerName,
-                        "moves" to score.moves,
-                        "timeElapsed" to score.timeElapsed,
-                        "difficulty" to score.difficulty.name,
-                        "timestamp" to score.timestamp
-                    )
-                )
+                .add(dataToSave)
                 .await()
+
+            android.util.Log.d("LocalGameRepository", "✅ Firebase guardado exitosamente! ID: ${firebaseDoc.id}")
 
             // Si Firebase funciona, guardar local con ID de Firebase
             val localEntity = LocalScoreEntity(
@@ -48,8 +57,12 @@ class LocalGameRepository(context: Context) {
                 synced = true
             )
             scoreDao.insert(localEntity)
+            
+            android.util.Log.d("LocalGameRepository", "✅ También guardado localmente con sync=true")
 
         } catch (e: Exception) {
+            android.util.Log.e("LocalGameRepository", "❌ Error guardando en Firebase: ${e.message}", e)
+            
             // Si Firebase falla, guardar solo local para sincronizar después
             val localEntity = LocalScoreEntity(
                 playerName = score.playerName,
@@ -60,6 +73,8 @@ class LocalGameRepository(context: Context) {
                 synced = false
             )
             scoreDao.insert(localEntity)
+            
+            android.util.Log.d("LocalGameRepository", "Guardado localmente con sync=false, intentando sincronizar...")
             
             // Intentar sincronizar scores pendientes
             syncPendingScores()
@@ -104,9 +119,12 @@ class LocalGameRepository(context: Context) {
     // ----------- SINCRONIZACIÓN AUTOMÁTICA A FIREBASE ----------
     private suspend fun syncPendingScores() = withContext(Dispatchers.IO) {
         val pending = scoreDao.getPendingSyncScores()
+        android.util.Log.d("LocalGameRepository", "Sincronizando ${pending.size} scores pendientes...")
 
         for (item in pending) {
             try {
+                android.util.Log.d("LocalGameRepository", "Sincronizando score ID ${item.localId}: ${item.playerName}")
+                
                 val firebaseDoc = firestore.collection("scores")
                     .add(
                         mapOf(
@@ -120,8 +138,10 @@ class LocalGameRepository(context: Context) {
                     .await()
 
                 scoreDao.markAsSynced(item.localId, firebaseDoc.id)
+                android.util.Log.d("LocalGameRepository", "✅ Score ${item.localId} sincronizado con Firebase ID: ${firebaseDoc.id}")
 
-            } catch (_: Exception) {
+            } catch (e: Exception) {
+                android.util.Log.e("LocalGameRepository", "❌ Error sincronizando score ${item.localId}: ${e.message}")
                 // No se marca como synced, se intentará luego automáticamente.
             }
         }

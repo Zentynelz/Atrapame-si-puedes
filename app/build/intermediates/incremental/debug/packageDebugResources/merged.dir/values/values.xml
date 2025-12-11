@@ -61,6 +61,11 @@
     <string name="game_lost">¡Perdiste!</string>
     <string name="game_title">Juego</string>
     <string name="game_won">¡Ganaste!</string>
+    <string name="gcm_defaultSenderId" translatable="false">285909664078</string>
+    <string name="google_api_key" translatable="false">AIzaSyDSn7-iAUW6gGmNFyFlthbZhrn01-ERQ7M</string>
+    <string name="google_app_id" translatable="false">1:285909664078:android:2ab7b8cc5b3b1e74751e1f</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDSn7-iAUW6gGmNFyFlthbZhrn01-ERQ7M</string>
+    <string name="google_storage_bucket" translatable="false">atrapame-si-puedes-30ab4.firebasestorage.app</string>
     <string name="joystick_content_description">Joystick virtual para mover al perseguidor</string>
     <string name="loading">Cargando...</string>
     <string name="main_title">Atrápame Si Puedes</string>
@@ -73,6 +78,7 @@
     <string formatted="false" name="notification_victory_text">¡Ganaste en %d movimientos y %s!</string>
     <string name="notification_victory_title">¡Victoria!</string>
     <string name="player_name">Nombre del Jugador</string>
+    <string name="project_id" translatable="false">atrapame-si-puedes-30ab4</string>
     <string formatted="false" name="score_format">%s - %d movimientos - %s</string>
     <string name="score_title">Puntuaciones</string>
     <string name="time_elapsed">Tiempo: %s</string>
