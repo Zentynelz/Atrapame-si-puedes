@@ -1,29 +1,37 @@
+# Archivos de IntelliJ/Android Studio
 *.iml
-.gradle
-/local.properties
 /.idea/caches
 /.idea/libraries
 /.idea/modules.xml
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+
+# Gradle
+.gradle
+/local.properties
 local.properties
+
+# Carpetas de build (raíz y módulo app)
+/build
+/app/build
+/captures
+/.externalNativeBuild
+/.cxx
+
+# Mac
+.DS_Store
 
 # Firebase
 google-services.json
 
-# APK files
+# APK / bundles
 *.apk
 *.aab
 
-# Keystore files
+# Keystore
 *.jks
 *.keystore
 
-# Log files
+# Logs
 *.log

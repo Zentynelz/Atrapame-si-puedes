@@ -6,29 +6,36 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.equipo.atrapame.R
+import com.equipo.atrapame.data.local.LocalGameRepository
 import com.equipo.atrapame.databinding.ActivityScoreBinding
 
 class ScoreActivity : AppCompatActivity() {
-    
+
     private lateinit var binding: ActivityScoreBinding
-    private val viewModel: ScoreViewModel by viewModels()
     private lateinit var scoreAdapter: ScoreAdapter
-    
+
+    // ✅ Pasamos el applicationContext al repositorio
+    private val viewModel: ScoreViewModel by viewModels {
+        ScoreViewModelFactory(
+            LocalGameRepository(applicationContext)
+        )
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityScoreBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        
+
         setupUI()
         setupRecyclerView()
         setupObservers()
     }
-    
+
     private fun setupUI() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = getString(R.string.score_title)
     }
-    
+
     private fun setupRecyclerView() {
         scoreAdapter = ScoreAdapter()
         binding.rvScores.apply {
@@ -36,7 +43,7 @@ class ScoreActivity : AppCompatActivity() {
             adapter = scoreAdapter
         }
     }
-    
+
     private fun setupObservers() {
         viewModel.scores.observe(this) { scores ->
             if (scores.isEmpty()) {
@@ -61,7 +68,7 @@ class ScoreActivity : AppCompatActivity() {
             }
         }
     }
-    
+
     override fun onSupportNavigateUp(): Boolean {
         finish()
         return true
