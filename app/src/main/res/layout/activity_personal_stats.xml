@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@color/tron_dark_bg">
+
+    <TextView
+        android:id="@+id/tvPlayerNameHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mis Estadísticas"
+        style="@style/TronTextTitle"
+        android:gravity="center"
+        android:layout_marginBottom="8dp" />
+
+    <View
+        android:layout_width="200dp"
+        android:layout_height="2dp"
+        android:background="@color/tron_cyan"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Summary Panel -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/tron_panel_bg"
+        android:padding="16dp"
+        android:layout_marginBottom="24dp">
+
+        <TextView
+            android:id="@+id/tvTotalTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tiempo Total Jugado: 00:00"
+            style="@style/TronTextBody"
+            android:textColor="@color/tron_cyan"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvPlayedCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Partidas Totales: 0"
+            style="@style/TronTextBody"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="8dp"/>
+            
+        <TextView
+            android:id="@+id/tvWins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Partidas Ganadas: 0"
+            style="@style/TronTextBody"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="8dp"/>
+            
+        <TextView
+            android:id="@+id/tvQuits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Abandono o Salida Temprana: 0"
+            style="@style/TronTextBody"
+            android:textColor="@color/tron_orange"/>
+    </LinearLayout>
+
+    <!-- Emotion Graphs -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Perfil Emocional"
+        style="@style/TronTextTitle"
+        android:textSize="20sp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Frustration/Stress -->
+    <TextView
+        android:id="@+id/tvStressedCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tensión / Frustración (0%)"
+        style="@style/TronTextBody"
+        android:textColor="@color/tron_orange" />
+    <ProgressBar
+        android:id="@+id/progressStressed"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="0"
+        android:progressTint="@color/tron_orange"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Joy/Happiness -->
+    <TextView
+        android:id="@+id/tvHappyCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Diversión / Relajación (0%)"
+        style="@style/TronTextBody"
+        android:textColor="@color/tron_cyan" />
+    <ProgressBar
+        android:id="@+id/progressHappy"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="0"
+        android:progressTint="@color/tron_cyan"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Bored/Sad -->
+    <TextView
+        android:id="@+id/tvBoredCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Desinterés / Tristeza (0%)"
+        style="@style/TronTextBody"
+        android:textColor="@android:color/darker_gray" />
+    <ProgressBar
+        android:id="@+id/progressBored"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="0"
+        android:progressTint="@android:color/darker_gray"
+        android:layout_marginBottom="24dp"/>
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Volver al Menú"
+        style="@style/GameButton" />
+
+</LinearLayout>
