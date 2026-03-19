@@ -53,8 +53,16 @@
     <Button
         android:id="@+id/btnScores"
         style="@style/GameButton"
-        android:text="@string/btn_scores"
+        android:text="Puntuaciones Globales"
         android:drawableStart="@android:drawable/ic_menu_sort_by_size"
+        android:drawableTint="@color/tron_cyan"
+        android:drawablePadding="8dp" />
+
+    <Button
+        android:id="@+id/btnMyStats"
+        style="@style/GameButton"
+        android:text="Mis Estadísticas"
+        android:drawableStart="@android:drawable/ic_menu_myplaces"
         android:drawableTint="@color/tron_cyan"
         android:drawablePadding="8dp" />
 
@@ -66,6 +74,34 @@
         android:textColor="@color/tron_orange"
         android:drawableStart="@android:drawable/ic_menu_close_clear_cancel"
         android:drawableTint="@color/tron_orange"
-        android:drawablePadding="8dp" />
+        android:drawablePadding="8dp"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Debug Stress Meter Panel (Admin View) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/tron_panel_bg"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stress Meter (Debug):"
+            style="@style/TronTextStats"
+            android:textColor="@color/tron_orange"
+            android:layout_marginEnd="12dp" />
+
+        <ProgressBar
+            android:id="@+id/progressMainStress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:max="100"
+            android:progress="0"
+            android:progressTint="@color/tron_orange" />
+    </LinearLayout>
 
 </LinearLayout>

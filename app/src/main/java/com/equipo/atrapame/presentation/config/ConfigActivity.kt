@@ -43,6 +43,7 @@ class ConfigActivity : AppCompatActivity() {
             Difficulty.EASY -> binding.rbEasy.isChecked = true
             Difficulty.MEDIUM -> binding.rbMedium.isChecked = true
             Difficulty.HARD -> binding.rbHard.isChecked = true
+            Difficulty.DYNAMIC -> binding.rbDynamic.isChecked = true
         }
     }
     
@@ -106,6 +107,7 @@ class ConfigActivity : AppCompatActivity() {
         val difficulty = when (binding.rgDifficulty.checkedRadioButtonId) {
             R.id.rbEasy -> Difficulty.EASY
             R.id.rbHard -> Difficulty.HARD
+            R.id.rbDynamic -> Difficulty.DYNAMIC
             else -> Difficulty.MEDIUM
         }
         

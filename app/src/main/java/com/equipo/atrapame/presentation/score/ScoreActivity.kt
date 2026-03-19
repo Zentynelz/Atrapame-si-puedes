@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.equipo.atrapame.R
 import com.equipo.atrapame.data.local.LocalGameRepository
 import com.equipo.atrapame.databinding.ActivityScoreBinding
+import com.equipo.atrapame.presentation.game.GameDialogs
 
 class ScoreActivity : AppCompatActivity() {
 
@@ -37,7 +38,11 @@ class ScoreActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
-        scoreAdapter = ScoreAdapter()
+        scoreAdapter = ScoreAdapter { score ->
+            GameDialogs.showSurveyDialog(this) { stressScore ->
+                viewModel.updateScoreStress(score.id, stressScore)
+            }.show()
+        }
         binding.rvScores.apply {
             layoutManager = LinearLayoutManager(this@ScoreActivity)
             adapter = scoreAdapter

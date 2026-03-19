@@ -1,22 +1,38 @@
 [
     {
-        "merged": "com.equipo.atrapame.app-mergeDebugResources-47:/layout/activity_config.xml",
-        "source": "com.equipo.atrapame.app-main-50:/layout/activity_config.xml"
+        "merged": "C:\\Users\\diego\\.gradle\\daemon\\8.13\\com.equipo.atrapame.app-mergeDebugResources-52:\\layout\\activity_score.xml",
+        "source": "C:\\Users\\diego\\.gradle\\daemon\\8.13\\com.equipo.atrapame.app-main-55:\\layout\\activity_score.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-mergeDebugResources-47:/layout/activity_game.xml",
-        "source": "com.equipo.atrapame.app-main-50:/layout/activity_game.xml"
+        "merged": "com.equipo.atrapame.app-mergeDebugResources-52:/layout/activity_main.xml",
+        "source": "com.equipo.atrapame.app-main-55:/layout/activity_main.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-mergeDebugResources-47:/layout/activity_main.xml",
-        "source": "com.equipo.atrapame.app-main-50:/layout/activity_main.xml"
+        "merged": "C:\\Users\\diego\\.gradle\\daemon\\8.13\\com.equipo.atrapame.app-mergeDebugResources-52:\\layout\\dialog_survey.xml",
+        "source": "C:\\Users\\diego\\.gradle\\daemon\\8.13\\com.equipo.atrapame.app-main-55:\\layout\\dialog_survey.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-mergeDebugResources-47:/layout/activity_score.xml",
-        "source": "com.equipo.atrapame.app-main-50:/layout/activity_score.xml"
+        "merged": "C:\\Users\\diego\\.gradle\\daemon\\8.13\\com.equipo.atrapame.app-mergeDebugResources-52:\\layout\\item_score.xml",
+        "source": "C:\\Users\\diego\\.gradle\\daemon\\8.13\\com.equipo.atrapame.app-main-55:\\layout\\item_score.xml"
     },
     {
-        "merged": "com.equipo.atrapame.app-mergeDebugResources-47:/layout/item_score.xml",
-        "source": "com.equipo.atrapame.app-main-50:/layout/item_score.xml"
+        "merged": "C:\\Users\\diego\\.gradle\\daemon\\8.13\\com.equipo.atrapame.app-mergeDebugResources-52:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\diego\\.gradle\\daemon\\8.13\\com.equipo.atrapame.app-main-55:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "com.equipo.atrapame.app-mergeDebugResources-52:/layout/activity_config.xml",
+        "source": "com.equipo.atrapame.app-main-55:/layout/activity_config.xml"
+    },
+    {
+        "merged": "C:\\Users\\diego\\.gradle\\daemon\\8.13\\com.equipo.atrapame.app-mergeDebugResources-52:\\layout\\activity_config.xml",
+        "source": "C:\\Users\\diego\\.gradle\\daemon\\8.13\\com.equipo.atrapame.app-main-55:\\layout\\activity_config.xml"
+    },
+    {
+        "merged": "com.equipo.atrapame.app-mergeDebugResources-52:/layout/activity_personal_stats.xml",
+        "source": "com.equipo.atrapame.app-main-55:/layout/activity_personal_stats.xml"
+    },
+    {
+        "merged": "C:\\Users\\diego\\.gradle\\daemon\\8.13\\com.equipo.atrapame.app-mergeDebugResources-52:\\layout\\activity_game.xml",
+        "source": "C:\\Users\\diego\\.gradle\\daemon\\8.13\\com.equipo.atrapame.app-main-55:\\layout\\activity_game.xml"
     }
 ]

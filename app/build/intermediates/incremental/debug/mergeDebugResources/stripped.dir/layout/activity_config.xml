@@ -96,6 +96,16 @@
                 android:textColor="@color/tron_cyan"
                 android:buttonTint="@color/tron_cyan" />
 
+            <RadioButton
+                android:id="@+id/rbDynamic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dinámica (Biofeedback Afectivo)"
+                android:textSize="16sp"
+                android:padding="12dp"
+                android:textColor="@color/tron_orange"
+                android:buttonTint="@color/tron_orange" />
+
         </RadioGroup>
 
         <LinearLayout

@@ -13,6 +13,7 @@ import androidx.room.util.DBUtil;
 import androidx.sqlite.db.SupportSQLiteStatement;
 import java.lang.Class;
 import java.lang.Exception;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
@@ -34,13 +35,15 @@ public final class ScoreDao_Impl implements ScoreDao {
 
   private final SharedSQLiteStatement __preparedStmtOfMarkAsSynced;
 
+  private final SharedSQLiteStatement __preparedStmtOfUpdateStressScore;
+
   public ScoreDao_Impl(@NonNull final RoomDatabase __db) {
     this.__db = __db;
     this.__insertionAdapterOfLocalScoreEntity = new EntityInsertionAdapter<LocalScoreEntity>(__db) {
       @Override
       @NonNull
       protected String createQuery() {
-        return "INSERT OR REPLACE INTO `scores` (`localId`,`idFirebase`,`playerName`,`moves`,`timeElapsed`,`difficulty`,`timestamp`,`synced`) VALUES (nullif(?, 0),?,?,?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `scores` (`localId`,`idFirebase`,`playerName`,`moves`,`timeElapsed`,`difficulty`,`timestamp`,`avgSmilingProb`,`avgRightEyeOpenProb`,`maxAudioAmplitude`,`perceivedStressScore`,`finalEmotion`,`exitReason`,`synced`) VALUES (nullif(?, 0),?,?,?,?,?,?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -57,8 +60,14 @@ public final class ScoreDao_Impl implements ScoreDao {
         statement.bindLong(5, entity.getTimeElapsed());
         statement.bindString(6, entity.getDifficulty());
         statement.bindLong(7, entity.getTimestamp());
+        statement.bindDouble(8, entity.getAvgSmilingProb());
+        statement.bindDouble(9, entity.getAvgRightEyeOpenProb());
+        statement.bindLong(10, entity.getMaxAudioAmplitude());
+        statement.bindLong(11, entity.getPerceivedStressScore());
+        statement.bindString(12, entity.getFinalEmotion());
+        statement.bindString(13, entity.getExitReason());
         final int _tmp = entity.getSynced() ? 1 : 0;
-        statement.bindLong(8, _tmp);
+        statement.bindLong(14, _tmp);
       }
     };
     this.__preparedStmtOfMarkAsSynced = new SharedSQLiteStatement(__db) {
@@ -66,6 +75,14 @@ public final class ScoreDao_Impl implements ScoreDao {
       @NonNull
       public String createQuery() {
         final String _query = "UPDATE scores SET synced = 1, idFirebase = ? WHERE localId = ?";
+        return _query;
+      }
+    };
+    this.__preparedStmtOfUpdateStressScore = new SharedSQLiteStatement(__db) {
+      @Override
+      @NonNull
+      public String createQuery() {
+        final String _query = "UPDATE scores SET perceivedStressScore = ? WHERE idFirebase = ? OR localId = ?";
         return _query;
       }
     };
@@ -118,6 +135,36 @@ public final class ScoreDao_Impl implements ScoreDao {
   }
 
   @Override
+  public Object updateStressScore(final String id, final int stress,
+      final Continuation<? super Unit> $completion) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      @NonNull
+      public Unit call() throws Exception {
+        final SupportSQLiteStatement _stmt = __preparedStmtOfUpdateStressScore.acquire();
+        int _argIndex = 1;
+        _stmt.bindLong(_argIndex, stress);
+        _argIndex = 2;
+        _stmt.bindString(_argIndex, id);
+        _argIndex = 3;
+        _stmt.bindString(_argIndex, id);
+        try {
+          __db.beginTransaction();
+          try {
+            _stmt.executeUpdateDelete();
+            __db.setTransactionSuccessful();
+            return Unit.INSTANCE;
+          } finally {
+            __db.endTransaction();
+          }
+        } finally {
+          __preparedStmtOfUpdateStressScore.release(_stmt);
+        }
+      }
+    }, $completion);
+  }
+
+  @Override
   public Object getTopScores(final int limit,
       final Continuation<? super List<LocalScoreEntity>> $completion) {
     final String _sql = "SELECT * FROM scores ORDER BY moves ASC, timeElapsed ASC LIMIT ?";
@@ -138,6 +185,12 @@ public final class ScoreDao_Impl implements ScoreDao {
           final int _cursorIndexOfTimeElapsed = CursorUtil.getColumnIndexOrThrow(_cursor, "timeElapsed");
           final int _cursorIndexOfDifficulty = CursorUtil.getColumnIndexOrThrow(_cursor, "difficulty");
           final int _cursorIndexOfTimestamp = CursorUtil.getColumnIndexOrThrow(_cursor, "timestamp");
+          final int _cursorIndexOfAvgSmilingProb = CursorUtil.getColumnIndexOrThrow(_cursor, "avgSmilingProb");
+          final int _cursorIndexOfAvgRightEyeOpenProb = CursorUtil.getColumnIndexOrThrow(_cursor, "avgRightEyeOpenProb");
+          final int _cursorIndexOfMaxAudioAmplitude = CursorUtil.getColumnIndexOrThrow(_cursor, "maxAudioAmplitude");
+          final int _cursorIndexOfPerceivedStressScore = CursorUtil.getColumnIndexOrThrow(_cursor, "perceivedStressScore");
+          final int _cursorIndexOfFinalEmotion = CursorUtil.getColumnIndexOrThrow(_cursor, "finalEmotion");
+          final int _cursorIndexOfExitReason = CursorUtil.getColumnIndexOrThrow(_cursor, "exitReason");
           final int _cursorIndexOfSynced = CursorUtil.getColumnIndexOrThrow(_cursor, "synced");
           final List<LocalScoreEntity> _result = new ArrayList<LocalScoreEntity>(_cursor.getCount());
           while (_cursor.moveToNext()) {
@@ -160,12 +213,162 @@ public final class ScoreDao_Impl implements ScoreDao {
             _tmpDifficulty = _cursor.getString(_cursorIndexOfDifficulty);
             final long _tmpTimestamp;
             _tmpTimestamp = _cursor.getLong(_cursorIndexOfTimestamp);
+            final float _tmpAvgSmilingProb;
+            _tmpAvgSmilingProb = _cursor.getFloat(_cursorIndexOfAvgSmilingProb);
+            final float _tmpAvgRightEyeOpenProb;
+            _tmpAvgRightEyeOpenProb = _cursor.getFloat(_cursorIndexOfAvgRightEyeOpenProb);
+            final int _tmpMaxAudioAmplitude;
+            _tmpMaxAudioAmplitude = _cursor.getInt(_cursorIndexOfMaxAudioAmplitude);
+            final int _tmpPerceivedStressScore;
+            _tmpPerceivedStressScore = _cursor.getInt(_cursorIndexOfPerceivedStressScore);
+            final String _tmpFinalEmotion;
+            _tmpFinalEmotion = _cursor.getString(_cursorIndexOfFinalEmotion);
+            final String _tmpExitReason;
+            _tmpExitReason = _cursor.getString(_cursorIndexOfExitReason);
             final boolean _tmpSynced;
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfSynced);
             _tmpSynced = _tmp != 0;
-            _item = new LocalScoreEntity(_tmpLocalId,_tmpIdFirebase,_tmpPlayerName,_tmpMoves,_tmpTimeElapsed,_tmpDifficulty,_tmpTimestamp,_tmpSynced);
+            _item = new LocalScoreEntity(_tmpLocalId,_tmpIdFirebase,_tmpPlayerName,_tmpMoves,_tmpTimeElapsed,_tmpDifficulty,_tmpTimestamp,_tmpAvgSmilingProb,_tmpAvgRightEyeOpenProb,_tmpMaxAudioAmplitude,_tmpPerceivedStressScore,_tmpFinalEmotion,_tmpExitReason,_tmpSynced);
             _result.add(_item);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
+        }
+      }
+    }, $completion);
+  }
+
+  @Override
+  public Object getAllLocalScores(final Continuation<? super List<LocalScoreEntity>> $completion) {
+    final String _sql = "SELECT * FROM scores ORDER BY timestamp DESC";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
+    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<List<LocalScoreEntity>>() {
+      @Override
+      @NonNull
+      public List<LocalScoreEntity> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final int _cursorIndexOfLocalId = CursorUtil.getColumnIndexOrThrow(_cursor, "localId");
+          final int _cursorIndexOfIdFirebase = CursorUtil.getColumnIndexOrThrow(_cursor, "idFirebase");
+          final int _cursorIndexOfPlayerName = CursorUtil.getColumnIndexOrThrow(_cursor, "playerName");
+          final int _cursorIndexOfMoves = CursorUtil.getColumnIndexOrThrow(_cursor, "moves");
+          final int _cursorIndexOfTimeElapsed = CursorUtil.getColumnIndexOrThrow(_cursor, "timeElapsed");
+          final int _cursorIndexOfDifficulty = CursorUtil.getColumnIndexOrThrow(_cursor, "difficulty");
+          final int _cursorIndexOfTimestamp = CursorUtil.getColumnIndexOrThrow(_cursor, "timestamp");
+          final int _cursorIndexOfAvgSmilingProb = CursorUtil.getColumnIndexOrThrow(_cursor, "avgSmilingProb");
+          final int _cursorIndexOfAvgRightEyeOpenProb = CursorUtil.getColumnIndexOrThrow(_cursor, "avgRightEyeOpenProb");
+          final int _cursorIndexOfMaxAudioAmplitude = CursorUtil.getColumnIndexOrThrow(_cursor, "maxAudioAmplitude");
+          final int _cursorIndexOfPerceivedStressScore = CursorUtil.getColumnIndexOrThrow(_cursor, "perceivedStressScore");
+          final int _cursorIndexOfFinalEmotion = CursorUtil.getColumnIndexOrThrow(_cursor, "finalEmotion");
+          final int _cursorIndexOfExitReason = CursorUtil.getColumnIndexOrThrow(_cursor, "exitReason");
+          final int _cursorIndexOfSynced = CursorUtil.getColumnIndexOrThrow(_cursor, "synced");
+          final List<LocalScoreEntity> _result = new ArrayList<LocalScoreEntity>(_cursor.getCount());
+          while (_cursor.moveToNext()) {
+            final LocalScoreEntity _item;
+            final int _tmpLocalId;
+            _tmpLocalId = _cursor.getInt(_cursorIndexOfLocalId);
+            final String _tmpIdFirebase;
+            if (_cursor.isNull(_cursorIndexOfIdFirebase)) {
+              _tmpIdFirebase = null;
+            } else {
+              _tmpIdFirebase = _cursor.getString(_cursorIndexOfIdFirebase);
+            }
+            final String _tmpPlayerName;
+            _tmpPlayerName = _cursor.getString(_cursorIndexOfPlayerName);
+            final int _tmpMoves;
+            _tmpMoves = _cursor.getInt(_cursorIndexOfMoves);
+            final long _tmpTimeElapsed;
+            _tmpTimeElapsed = _cursor.getLong(_cursorIndexOfTimeElapsed);
+            final String _tmpDifficulty;
+            _tmpDifficulty = _cursor.getString(_cursorIndexOfDifficulty);
+            final long _tmpTimestamp;
+            _tmpTimestamp = _cursor.getLong(_cursorIndexOfTimestamp);
+            final float _tmpAvgSmilingProb;
+            _tmpAvgSmilingProb = _cursor.getFloat(_cursorIndexOfAvgSmilingProb);
+            final float _tmpAvgRightEyeOpenProb;
+            _tmpAvgRightEyeOpenProb = _cursor.getFloat(_cursorIndexOfAvgRightEyeOpenProb);
+            final int _tmpMaxAudioAmplitude;
+            _tmpMaxAudioAmplitude = _cursor.getInt(_cursorIndexOfMaxAudioAmplitude);
+            final int _tmpPerceivedStressScore;
+            _tmpPerceivedStressScore = _cursor.getInt(_cursorIndexOfPerceivedStressScore);
+            final String _tmpFinalEmotion;
+            _tmpFinalEmotion = _cursor.getString(_cursorIndexOfFinalEmotion);
+            final String _tmpExitReason;
+            _tmpExitReason = _cursor.getString(_cursorIndexOfExitReason);
+            final boolean _tmpSynced;
+            final int _tmp;
+            _tmp = _cursor.getInt(_cursorIndexOfSynced);
+            _tmpSynced = _tmp != 0;
+            _item = new LocalScoreEntity(_tmpLocalId,_tmpIdFirebase,_tmpPlayerName,_tmpMoves,_tmpTimeElapsed,_tmpDifficulty,_tmpTimestamp,_tmpAvgSmilingProb,_tmpAvgRightEyeOpenProb,_tmpMaxAudioAmplitude,_tmpPerceivedStressScore,_tmpFinalEmotion,_tmpExitReason,_tmpSynced);
+            _result.add(_item);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
+        }
+      }
+    }, $completion);
+  }
+
+  @Override
+  public Object getBetterScoresCount(final String diff, final long time,
+      final Continuation<? super Integer> $completion) {
+    final String _sql = "SELECT COUNT(*) FROM scores WHERE difficulty = ? AND exitReason = 'WON' AND timeElapsed < ?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 2);
+    int _argIndex = 1;
+    _statement.bindString(_argIndex, diff);
+    _argIndex = 2;
+    _statement.bindLong(_argIndex, time);
+    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
+    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<Integer>() {
+      @Override
+      @NonNull
+      public Integer call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final Integer _result;
+          if (_cursor.moveToFirst()) {
+            final int _tmp;
+            _tmp = _cursor.getInt(0);
+            _result = _tmp;
+          } else {
+            _result = 0;
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
+        }
+      }
+    }, $completion);
+  }
+
+  @Override
+  public Object getTotalWonScores(final String diff,
+      final Continuation<? super Integer> $completion) {
+    final String _sql = "SELECT COUNT(*) FROM scores WHERE difficulty = ? AND exitReason = 'WON'";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    _statement.bindString(_argIndex, diff);
+    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
+    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<Integer>() {
+      @Override
+      @NonNull
+      public Integer call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final Integer _result;
+          if (_cursor.moveToFirst()) {
+            final int _tmp;
+            _tmp = _cursor.getInt(0);
+            _result = _tmp;
+          } else {
+            _result = 0;
           }
           return _result;
         } finally {
@@ -197,6 +400,12 @@ public final class ScoreDao_Impl implements ScoreDao {
           final int _cursorIndexOfTimeElapsed = CursorUtil.getColumnIndexOrThrow(_cursor, "timeElapsed");
           final int _cursorIndexOfDifficulty = CursorUtil.getColumnIndexOrThrow(_cursor, "difficulty");
           final int _cursorIndexOfTimestamp = CursorUtil.getColumnIndexOrThrow(_cursor, "timestamp");
+          final int _cursorIndexOfAvgSmilingProb = CursorUtil.getColumnIndexOrThrow(_cursor, "avgSmilingProb");
+          final int _cursorIndexOfAvgRightEyeOpenProb = CursorUtil.getColumnIndexOrThrow(_cursor, "avgRightEyeOpenProb");
+          final int _cursorIndexOfMaxAudioAmplitude = CursorUtil.getColumnIndexOrThrow(_cursor, "maxAudioAmplitude");
+          final int _cursorIndexOfPerceivedStressScore = CursorUtil.getColumnIndexOrThrow(_cursor, "perceivedStressScore");
+          final int _cursorIndexOfFinalEmotion = CursorUtil.getColumnIndexOrThrow(_cursor, "finalEmotion");
+          final int _cursorIndexOfExitReason = CursorUtil.getColumnIndexOrThrow(_cursor, "exitReason");
           final int _cursorIndexOfSynced = CursorUtil.getColumnIndexOrThrow(_cursor, "synced");
           final List<LocalScoreEntity> _result = new ArrayList<LocalScoreEntity>(_cursor.getCount());
           while (_cursor.moveToNext()) {
@@ -219,11 +428,23 @@ public final class ScoreDao_Impl implements ScoreDao {
             _tmpDifficulty = _cursor.getString(_cursorIndexOfDifficulty);
             final long _tmpTimestamp;
             _tmpTimestamp = _cursor.getLong(_cursorIndexOfTimestamp);
+            final float _tmpAvgSmilingProb;
+            _tmpAvgSmilingProb = _cursor.getFloat(_cursorIndexOfAvgSmilingProb);
+            final float _tmpAvgRightEyeOpenProb;
+            _tmpAvgRightEyeOpenProb = _cursor.getFloat(_cursorIndexOfAvgRightEyeOpenProb);
+            final int _tmpMaxAudioAmplitude;
+            _tmpMaxAudioAmplitude = _cursor.getInt(_cursorIndexOfMaxAudioAmplitude);
+            final int _tmpPerceivedStressScore;
+            _tmpPerceivedStressScore = _cursor.getInt(_cursorIndexOfPerceivedStressScore);
+            final String _tmpFinalEmotion;
+            _tmpFinalEmotion = _cursor.getString(_cursorIndexOfFinalEmotion);
+            final String _tmpExitReason;
+            _tmpExitReason = _cursor.getString(_cursorIndexOfExitReason);
             final boolean _tmpSynced;
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfSynced);
             _tmpSynced = _tmp != 0;
-            _item = new LocalScoreEntity(_tmpLocalId,_tmpIdFirebase,_tmpPlayerName,_tmpMoves,_tmpTimeElapsed,_tmpDifficulty,_tmpTimestamp,_tmpSynced);
+            _item = new LocalScoreEntity(_tmpLocalId,_tmpIdFirebase,_tmpPlayerName,_tmpMoves,_tmpTimeElapsed,_tmpDifficulty,_tmpTimestamp,_tmpAvgSmilingProb,_tmpAvgRightEyeOpenProb,_tmpMaxAudioAmplitude,_tmpPerceivedStressScore,_tmpFinalEmotion,_tmpExitReason,_tmpSynced);
             _result.add(_item);
           }
           return _result;
@@ -254,6 +475,12 @@ public final class ScoreDao_Impl implements ScoreDao {
           final int _cursorIndexOfTimeElapsed = CursorUtil.getColumnIndexOrThrow(_cursor, "timeElapsed");
           final int _cursorIndexOfDifficulty = CursorUtil.getColumnIndexOrThrow(_cursor, "difficulty");
           final int _cursorIndexOfTimestamp = CursorUtil.getColumnIndexOrThrow(_cursor, "timestamp");
+          final int _cursorIndexOfAvgSmilingProb = CursorUtil.getColumnIndexOrThrow(_cursor, "avgSmilingProb");
+          final int _cursorIndexOfAvgRightEyeOpenProb = CursorUtil.getColumnIndexOrThrow(_cursor, "avgRightEyeOpenProb");
+          final int _cursorIndexOfMaxAudioAmplitude = CursorUtil.getColumnIndexOrThrow(_cursor, "maxAudioAmplitude");
+          final int _cursorIndexOfPerceivedStressScore = CursorUtil.getColumnIndexOrThrow(_cursor, "perceivedStressScore");
+          final int _cursorIndexOfFinalEmotion = CursorUtil.getColumnIndexOrThrow(_cursor, "finalEmotion");
+          final int _cursorIndexOfExitReason = CursorUtil.getColumnIndexOrThrow(_cursor, "exitReason");
           final int _cursorIndexOfSynced = CursorUtil.getColumnIndexOrThrow(_cursor, "synced");
           final List<LocalScoreEntity> _result = new ArrayList<LocalScoreEntity>(_cursor.getCount());
           while (_cursor.moveToNext()) {
@@ -276,11 +503,23 @@ public final class ScoreDao_Impl implements ScoreDao {
             _tmpDifficulty = _cursor.getString(_cursorIndexOfDifficulty);
             final long _tmpTimestamp;
             _tmpTimestamp = _cursor.getLong(_cursorIndexOfTimestamp);
+            final float _tmpAvgSmilingProb;
+            _tmpAvgSmilingProb = _cursor.getFloat(_cursorIndexOfAvgSmilingProb);
+            final float _tmpAvgRightEyeOpenProb;
+            _tmpAvgRightEyeOpenProb = _cursor.getFloat(_cursorIndexOfAvgRightEyeOpenProb);
+            final int _tmpMaxAudioAmplitude;
+            _tmpMaxAudioAmplitude = _cursor.getInt(_cursorIndexOfMaxAudioAmplitude);
+            final int _tmpPerceivedStressScore;
+            _tmpPerceivedStressScore = _cursor.getInt(_cursorIndexOfPerceivedStressScore);
+            final String _tmpFinalEmotion;
+            _tmpFinalEmotion = _cursor.getString(_cursorIndexOfFinalEmotion);
+            final String _tmpExitReason;
+            _tmpExitReason = _cursor.getString(_cursorIndexOfExitReason);
             final boolean _tmpSynced;
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfSynced);
             _tmpSynced = _tmp != 0;
-            _item = new LocalScoreEntity(_tmpLocalId,_tmpIdFirebase,_tmpPlayerName,_tmpMoves,_tmpTimeElapsed,_tmpDifficulty,_tmpTimestamp,_tmpSynced);
+            _item = new LocalScoreEntity(_tmpLocalId,_tmpIdFirebase,_tmpPlayerName,_tmpMoves,_tmpTimeElapsed,_tmpDifficulty,_tmpTimestamp,_tmpAvgSmilingProb,_tmpAvgRightEyeOpenProb,_tmpMaxAudioAmplitude,_tmpPerceivedStressScore,_tmpFinalEmotion,_tmpExitReason,_tmpSynced);
             _result.add(_item);
           }
           return _result;

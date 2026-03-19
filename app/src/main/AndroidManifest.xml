@@ -5,6 +5,10 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    
+    <!-- Permissions for Affective Computing / Multimodal Telemetry -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
         android:allowBackup="true"
@@ -31,13 +35,19 @@
             android:name=".presentation.game.GameActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
-            
+
         <activity
             android:name=".presentation.config.ConfigActivity"
             android:exported="false" />
             
         <activity
             android:name=".presentation.score.ScoreActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".presentation.score.PersonalStatsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
     </application>
 </manifest>

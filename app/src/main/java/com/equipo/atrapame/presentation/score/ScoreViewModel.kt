@@ -62,4 +62,12 @@ class ScoreViewModel(
     fun retry() {
         loadTopScores()
     }
+
+    fun updateScoreStress(scoreId: String, stressScore: Int) {
+        viewModelScope.launch {
+            repository.updatePerceivedStress(scoreId, stressScore)
+            // Recargar la lista para reflejar el cambio
+            loadTopScores()
+        }
+    }
 }

@@ -6,10 +6,16 @@ data class Score(
     val moves: Int = 0,
     val timeElapsed: Long = 0L,
     val difficulty: Difficulty = Difficulty.MEDIUM,
-    val timestamp: Long = System.currentTimeMillis()
+    val timestamp: Long = System.currentTimeMillis(),
+    val avgSmilingProb: Float = 0f,
+    val avgRightEyeOpenProb: Float = 0f,
+    val maxAudioAmplitude: Int = 0,
+    val perceivedStressScore: Int = 0,
+    val finalEmotion: String = "NEUTRAL",
+    val exitReason: String = "FINISHED"
 ) {
     // Constructor sin argumentos requerido por Firebase
-    constructor() : this("", "", 0, 0L, Difficulty.MEDIUM, System.currentTimeMillis())
+    constructor() : this("", "", 0, 0L, Difficulty.MEDIUM, System.currentTimeMillis(), 0f, 0f, 0, 0, "NEUTRAL", "FINISHED")
 
     fun getFormattedTime(): String {
         val seconds = timeElapsed / 1000

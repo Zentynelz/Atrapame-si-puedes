@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.equipo.atrapame.app-mergeDebugResources-46:/values-small-v4/values-small-v4.xml",
+            "outputFile": "com.equipo.atrapame.app-mergeDebugResources-51:/values-small-v4/values-small-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\diego\\.gradle\\caches\\8.13\\transforms\\356646a86c77c2950de9e3dbd4b5ad05\\transformed\\material-1.11.0\\res\\values-small-v4\\values-small-v4.xml",
+                    "source": "C:\\Users\\diego\\.gradle\\caches\\8.13\\transforms\\2c9d227ad9ba8a40b50b0aa1d866f1ac\\transformed\\material-1.11.0\\res\\values-small-v4\\values-small-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

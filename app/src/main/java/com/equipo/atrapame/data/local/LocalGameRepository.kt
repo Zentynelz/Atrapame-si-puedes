@@ -2,6 +2,7 @@ package com.equipo.atrapame.data.local
 
 import android.content.Context
 import androidx.room.Room
+import android.provider.Settings
 import com.equipo.atrapame.data.models.Score
 import com.equipo.atrapame.data.models.Difficulty
 import com.google.firebase.firestore.FirebaseFirestore
@@ -20,6 +21,7 @@ class LocalGameRepository(context: Context) {
 
     private val scoreDao = db.scoreDao()
     private val firestore = FirebaseFirestore.getInstance()
+    private val deviceId = Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID)
 
     // ----------- GUARDAR LOCAL & SINCRONIZAR ----------
     suspend fun saveScore(score: Score) = withContext(Dispatchers.IO) {
@@ -35,7 +37,14 @@ class LocalGameRepository(context: Context) {
                 "moves" to score.moves,
                 "timeElapsed" to score.timeElapsed,
                 "difficulty" to score.difficulty.name,
-                "timestamp" to score.timestamp
+                "timestamp" to score.timestamp,
+                "avgSmilingProb" to score.avgSmilingProb,
+                "avgRightEyeOpenProb" to score.avgRightEyeOpenProb,
+                "maxAudioAmplitude" to score.maxAudioAmplitude,
+                "perceivedStressScore" to score.perceivedStressScore,
+                "finalEmotion" to score.finalEmotion,
+                "exitReason" to score.exitReason,
+                "deviceId" to deviceId
             )
             
             android.util.Log.d("LocalGameRepository", "Datos a guardar: $dataToSave")
@@ -54,6 +63,12 @@ class LocalGameRepository(context: Context) {
                 timeElapsed = score.timeElapsed,
                 difficulty = score.difficulty.name,
                 timestamp = score.timestamp,
+                avgSmilingProb = score.avgSmilingProb,
+                avgRightEyeOpenProb = score.avgRightEyeOpenProb,
+                maxAudioAmplitude = score.maxAudioAmplitude,
+                perceivedStressScore = score.perceivedStressScore,
+                finalEmotion = score.finalEmotion,
+                exitReason = score.exitReason,
                 synced = true
             )
             scoreDao.insert(localEntity)
@@ -70,6 +85,12 @@ class LocalGameRepository(context: Context) {
                 timeElapsed = score.timeElapsed,
                 difficulty = score.difficulty.name,
                 timestamp = score.timestamp,
+                avgSmilingProb = score.avgSmilingProb,
+                avgRightEyeOpenProb = score.avgRightEyeOpenProb,
+                maxAudioAmplitude = score.maxAudioAmplitude,
+                perceivedStressScore = score.perceivedStressScore,
+                finalEmotion = score.finalEmotion,
+                exitReason = score.exitReason,
                 synced = false
             )
             scoreDao.insert(localEntity)
@@ -94,7 +115,11 @@ class LocalGameRepository(context: Context) {
                 } catch (_: Exception) { 
                     com.equipo.atrapame.data.models.Difficulty.MEDIUM 
                 },
-                timestamp = e.timestamp
+                timestamp = e.timestamp,
+                avgSmilingProb = e.avgSmilingProb,
+                avgRightEyeOpenProb = e.avgRightEyeOpenProb,
+                maxAudioAmplitude = e.maxAudioAmplitude,
+                perceivedStressScore = e.perceivedStressScore
             )
         }
     }
@@ -111,9 +136,47 @@ class LocalGameRepository(context: Context) {
                 } catch (_: Exception) { 
                     com.equipo.atrapame.data.models.Difficulty.MEDIUM 
                 },
-                timestamp = e.timestamp
+                timestamp = e.timestamp,
+                avgSmilingProb = e.avgSmilingProb,
+                avgRightEyeOpenProb = e.avgRightEyeOpenProb,
+                maxAudioAmplitude = e.maxAudioAmplitude,
+                perceivedStressScore = e.perceivedStressScore
             )
         }
+    }
+
+    suspend fun getAllLocalScores(): List<Score> = withContext(Dispatchers.IO) {
+        scoreDao.getAllLocalScores().map { e ->
+            Score(
+                id = e.idFirebase ?: e.localId.toString(),
+                playerName = e.playerName,
+                moves = e.moves,
+                timeElapsed = e.timeElapsed,
+                difficulty = try { 
+                    com.equipo.atrapame.data.models.Difficulty.valueOf(e.difficulty) 
+                } catch (_: Exception) { 
+                    com.equipo.atrapame.data.models.Difficulty.MEDIUM 
+                },
+                timestamp = e.timestamp,
+                avgSmilingProb = e.avgSmilingProb,
+                avgRightEyeOpenProb = e.avgRightEyeOpenProb,
+                maxAudioAmplitude = e.maxAudioAmplitude,
+                perceivedStressScore = e.perceivedStressScore,
+                finalEmotion = e.finalEmotion,
+                exitReason = e.exitReason
+            )
+        }
+    }
+
+    suspend fun getPerformanceRank(difficulty: Difficulty, timeElapsed: Long): Pair<Int, Int> = withContext(Dispatchers.IO) {
+        val diffString = difficulty.name
+        val betterCount = scoreDao.getBetterScoresCount(diffString, timeElapsed)
+        val totalCount = scoreDao.getTotalWonScores(diffString)
+        
+        // Puesto = los que son mejores que yo + 1
+        // Si acabamos de ganar y guardar, el totalCount nos incluye.
+        val rank = betterCount + 1
+        Pair(rank, totalCount)
     }
 
     // ----------- SINCRONIZACIÓN AUTOMÁTICA A FIREBASE ----------
@@ -132,7 +195,14 @@ class LocalGameRepository(context: Context) {
                             "moves" to item.moves,
                             "timeElapsed" to item.timeElapsed,
                             "difficulty" to item.difficulty,
-                            "timestamp" to item.timestamp
+                            "timestamp" to item.timestamp,
+                            "avgSmilingProb" to item.avgSmilingProb,
+                            "avgRightEyeOpenProb" to item.avgRightEyeOpenProb,
+                            "maxAudioAmplitude" to item.maxAudioAmplitude,
+                            "perceivedStressScore" to item.perceivedStressScore,
+                            "finalEmotion" to item.finalEmotion,
+                            "exitReason" to item.exitReason,
+                            "deviceId" to deviceId
                         )
                     )
                     .await()
@@ -145,5 +215,21 @@ class LocalGameRepository(context: Context) {
                 // No se marca como synced, se intentará luego automáticamente.
             }
         }
+    }
+
+    // ----------- ACTUALIZAR ENCUESTA ----------
+    suspend fun updatePerceivedStress(scoreId: String, stressScore: Int) = withContext(Dispatchers.IO) {
+        try {
+            // Intenta en Firebase
+            firestore.collection("scores").document(scoreId)
+                .update("perceivedStressScore", stressScore)
+                .await()
+            android.util.Log.d("LocalGameRepository", "✅ Firebase Survey actualizado ID: $scoreId")
+        } catch (e: Exception) {
+            android.util.Log.e("LocalGameRepository", "❌ Error actualizando Firebase Survey: ${e.message}")
+        }
+        
+        // Actualiza Local
+        scoreDao.updateStressScore(scoreId, stressScore)
     }
 }

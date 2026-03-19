@@ -15,7 +15,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
-data class GameResult(val moves: Int, val timeElapsed: Long)
+data class GameResult(val moves: Int, val timeElapsed: Long, val rank: Int = 0, val totalRanked: Int = 0)
 
 class GameViewModel(
     private val gameRepository: LocalGameRepository,
@@ -23,6 +23,9 @@ class GameViewModel(
 ) : ViewModel() {
     private val _gameState = MutableLiveData<GameState>()
     val gameState: LiveData<GameState> = _gameState
+
+    private val _currentStressLevel = MutableLiveData<Int>()
+    val currentStressLevel: LiveData<Int> = _currentStressLevel
 
     private val _showVictoryDialog = MutableLiveData<GameResult?>()
     val showVictoryDialog: LiveData<GameResult?> = _showVictoryDialog
@@ -38,6 +41,16 @@ class GameViewModel(
     private var totalPausedTime: Long = 0L
 
     private var isPaused: Boolean = false
+
+    // DDA Tracking
+    private var currentEnemySpeedDelay: Long = 750L
+
+    // Telemetry tracking
+    private var telemetryCount = 0
+    private var totalSmilingProb = 0f
+    private var totalEyeOpenProb = 0f
+    private var maxAmplitude = 0
+    private var finalPerceivedStress = 0
 
     init {
         initializeGame()
@@ -55,6 +68,14 @@ class GameViewModel(
         gameStartTime = System.currentTimeMillis()
         totalPausedTime = 0L
         isPaused = false
+        
+        telemetryCount = 0
+        totalSmilingProb = 0f
+        totalEyeOpenProb = 0f
+        maxAmplitude = 0
+        finalPerceivedStress = 0
+
+        currentEnemySpeedDelay = configRepository.getPlayerConfig().difficulty.enemySpeed.toLong()
 
         startTimerLoop()
         startEnemyMovementLoop()
@@ -97,13 +118,12 @@ class GameViewModel(
     }
 
     private fun startEnemyMovementLoop() {
-        val enemySpeed = configRepository.getPlayerConfig().difficulty.enemySpeed.toLong()
-
         enemyMovementJob = viewModelScope.launch {
             while (isActive) {
                 val shouldContinue = stepEnemy()
                 if (!shouldContinue) break
-                delay(enemySpeed)
+                // Use currentEnemySpeedDelay which can change dynamically
+                delay(currentEnemySpeedDelay)
             }
         }
     }
@@ -129,7 +149,8 @@ class GameViewModel(
         
         return when (difficulty) {
             com.equipo.atrapame.data.models.Difficulty.EASY -> createEasyMap(rows, cols)
-            com.equipo.atrapame.data.models.Difficulty.MEDIUM -> createMediumMap(rows, cols)
+            com.equipo.atrapame.data.models.Difficulty.MEDIUM,
+            com.equipo.atrapame.data.models.Difficulty.DYNAMIC -> createMediumMap(rows, cols)
             com.equipo.atrapame.data.models.Difficulty.HARD -> createHardMap(rows, cols)
         }
     }
@@ -254,23 +275,104 @@ class GameViewModel(
 
     fun onGameWon() {
         val state = _gameState.value ?: return
-        _showVictoryDialog.value = GameResult(state.moves, state.timeElapsed)
+        
+        viewModelScope.launch {
+            val difficulty = configRepository.getPlayerConfig().difficulty
+            // Calculate rank using the repository
+            val (rank, total) = gameRepository.getPerformanceRank(difficulty, state.timeElapsed)
+            // Add +1 to total because the current score hasn't been saved yet when this dialog pops up usually
+            _showVictoryDialog.value = GameResult(state.moves, state.timeElapsed, rank, total + 1)
+        }
     }
 
     fun onGameLost() {
         _showDefeatDialog.value = true
     }
 
+    fun updateTelemetry(smiling: Float, eyeOpen: Float, amplitude: Int) {
+        if (isPaused) return
+        telemetryCount++
+        totalSmilingProb += smiling
+        totalEyeOpenProb += eyeOpen
+        if (amplitude > maxAmplitude) {
+            maxAmplitude = amplitude
+        }
+
+        // Calcula un medidor de estrés en tiempo real (0 a 100) heurístico
+        // Ojos muy abiertos (tensión) aumenta, sonreír disminuye, ruido alto aumenta
+        var stress = (eyeOpen * 50f) + (amplitude / 100f) - (smiling * 50f)
+        if (stress < 0f) stress = 0f
+        if (stress > 100f) stress = 100f
+        _currentStressLevel.postValue(stress.toInt())
+
+        // DDA (Dynamic Difficulty Adjustment) Logic
+        if (configRepository.getPlayerConfig().difficulty == com.equipo.atrapame.data.models.Difficulty.DYNAMIC) {
+            adjustDifficultyDynamically(stress.toInt(), smiling)
+        }
+    }
+
+    private fun adjustDifficultyDynamically(stressLevel: Int, smiling: Float) {
+        // Base delay is 750ms. (Lower = faster/harder, Higher = slower/easier)
+        // Max delay (Easiest): 1500ms
+        // Min delay (Hardest): 400ms
+        
+        when {
+            // Very Stressed/Frustrated -> Make it significantly easier (slower enemy)
+            stressLevel > 70 -> {
+                currentEnemySpeedDelay += 100L
+            }
+            // Moderately Stressed -> Make it slightly easier
+            stressLevel in 50..70 -> {
+                currentEnemySpeedDelay += 50L
+            }
+            // Enjoying/Happy -> Make it harder (faster enemy) to maintain flow
+            smiling > 0.4f && stressLevel < 30 -> {
+                currentEnemySpeedDelay -= 100L
+            }
+            // Bored/Too Easy -> Make it slightly harder
+            stressLevel < 10 -> {
+                currentEnemySpeedDelay -= 50L
+            }
+        }
+        
+        // Clamp speed
+        currentEnemySpeedDelay = currentEnemySpeedDelay.coerceIn(400L, 1500L)
+    }
+
+    fun setPerceivedStress(score: Int) {
+        finalPerceivedStress = score
+    }
+
+    private fun calculateFinalEmotion(avgSmile: Float, avgEye: Float, maxAmp: Int): String {
+        return when {
+            avgSmile > 0.4f -> "HAPPY_ENJOYING" // Alta sonrisa, implica relajación o diversión
+            avgSmile < 0.1f && avgEye > 0.5f && maxAmp >= 2000 -> "STRESSED_FRUSTRATED" // Ojos abiertos (alarma), alta amplitud (quejido) y nula sonrisa
+            avgSmile < 0.1f && avgEye < 0.3f && maxAmp < 1000 -> "BORED_SAD" // Expresión caída, poco ruido
+            else -> "NEUTRAL_FOCUSED"
+        }
+    }
+
     // ✔ Ahora usa el repositorio que se pasó al constructor
-    suspend fun saveCurrentScore(): Result<String> {
+    suspend fun saveCurrentScore(exitReason: String = "FINISHED"): Result<String> {
         val state = _gameState.value ?: return Result.failure(Exception("No game state"))
         val config = configRepository.getPlayerConfig()
+
+        val avgSmile = if (telemetryCount > 0) totalSmilingProb / telemetryCount else 0f
+        val avgEye = if (telemetryCount > 0) totalEyeOpenProb / telemetryCount else 0f
+        val emotionDetected = calculateFinalEmotion(avgSmile, avgEye, maxAmplitude)
 
         val score = Score(
             playerName = config.name,
             moves = state.moves,
             timeElapsed = state.timeElapsed,
-            difficulty = config.difficulty
+            difficulty = config.difficulty,
+            timestamp = System.currentTimeMillis(),
+            avgSmilingProb = avgSmile,
+            avgRightEyeOpenProb = avgEye,
+            maxAudioAmplitude = maxAmplitude,
+            perceivedStressScore = finalPerceivedStress,
+            finalEmotion = emotionDetected,
+            exitReason = exitReason
         )
 
         return try {

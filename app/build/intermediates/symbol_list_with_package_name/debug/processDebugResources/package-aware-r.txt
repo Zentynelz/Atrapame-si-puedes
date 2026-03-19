@@ -647,6 +647,7 @@ attr imagePanX
 attr imagePanY
 attr imageRotate
 attr imageZoom
+attr implementationMode
 attr indeterminateAnimationType
 attr indeterminateProgressStyle
 attr indicatorColor
@@ -1013,6 +1014,7 @@ attr round
 attr roundPercent
 attr saturation
 attr scaleFromTextSize
+attr scaleType
 attr scopeUris
 attr scrimAnimationDuration
 attr scrimBackground
@@ -3249,14 +3251,17 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id btnBack
 id btnCancel
 id btnConfig
 id btnExit
+id btnMyStats
 id btnPause
 id btnPlay
 id btnRestart
 id btnSave
 id btnScores
+id btnSurvey
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3280,6 +3285,7 @@ id clip_vertical
 id clockwise
 id closest
 id collapseActionView
+id compatible
 id compress
 id confirm_button
 id constraint
@@ -3345,6 +3351,9 @@ id expand_activities_button
 id expanded_menu
 id fade
 id fill
+id fillCenter
+id fillEnd
+id fillStart
 id fill_horizontal
 id fill_vertical
 id filled
@@ -3515,15 +3524,21 @@ id path
 id pathRelative
 id peekHeight
 id percent
+id performance
 id pin
 id position
 id postLayout
 id pressed
 id progressBar
+id progressBored
+id progressHappy
+id progressMainStress
+id progressStressed
 id progress_circular
 id progress_horizontal
 id radio
 id ratio
+id rbDynamic
 id rbEasy
 id rbHard
 id rbMedium
@@ -3558,6 +3573,7 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
+id seekStress
 id select_dialog_listview
 id selected
 id selection_type
@@ -3645,13 +3661,24 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvBoredCount
 id tvDifficulty
 id tvGameStatus
+id tvHappyCount
 id tvMoves
 id tvNoScores
+id tvPlayedCount
 id tvPlayerName
+id tvPlayerNameHeader
 id tvPosition
+id tvQuits
+id tvStressValue
+id tvStressedCount
+id tvSurvey
+id tvTelemetry
 id tvTime
+id tvTotalTime
+id tvWins
 id unchecked
 id uniform
 id unlabeled
@@ -3794,6 +3821,7 @@ layout abc_tooltip
 layout activity_config
 layout activity_game
 layout activity_main
+layout activity_personal_stats
 layout activity_score
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -3811,6 +3839,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout dialog_survey
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout item_score
@@ -5355,6 +5384,7 @@ styleable OnClick clickAction targetId
 styleable OnSwipe autoCompleteMode dragDirection dragScale dragThreshold limitBoundsTo maxAcceleration maxVelocity moveWhenScrollAtTop nestedScrollFlags onTouchUp rotationCenterId springBoundary springDamping springMass springStiffness springStopThreshold touchAnchorId touchAnchorSide touchRegionId
 styleable PopupWindow android_popupBackground android_popupAnimationStyle overlapAnchor
 styleable PopupWindowBackgroundState state_above_anchor
+styleable PreviewView implementationMode scaleType
 styleable PropertySet android_visibility android_alpha layout_constraintTag motionProgress visibilityMode
 styleable RadialViewGroup materialCircleRadius
 styleable RangeSlider minSeparation values

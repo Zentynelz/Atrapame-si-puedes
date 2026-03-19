@@ -10,6 +10,12 @@ import com.equipo.atrapame.R
 import com.equipo.atrapame.databinding.ActivityGameBinding
 import com.equipo.atrapame.presentation.NotificationHelper
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.Job
+import android.Manifest
+import android.content.pm.PackageManager
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import java.util.Locale
 import java.util.concurrent.TimeUnit
 
@@ -20,8 +26,15 @@ class GameActivity : AppCompatActivity() {
         GameViewModelFactory(this)
     }
     private lateinit var notificationHelper: NotificationHelper
+    private lateinit var affectiveManager: AffectiveManager
+    private var telemetryJob: Job? = null
+    
     private var gameEnded = false
     private var isPaused = false
+
+    companion object {
+        private const val PERMISSION_REQUEST_CODE = 1001
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,8 +48,54 @@ class GameActivity : AppCompatActivity() {
             notificationHelper.requestNotificationPermission(this)
         }
         
+        affectiveManager = AffectiveManager(this, this)
+        requestAffectivePermissions()
+        
         setupUI()
         setupObservers()
+    }
+    
+    private fun requestAffectivePermissions() {
+        val permissions = arrayOf(
+            Manifest.permission.CAMERA,
+            Manifest.permission.RECORD_AUDIO
+        )
+        if (permissions.any { ContextCompat.checkSelfPermission(this, it) != PackageManager.PERMISSION_GRANTED }) {
+            ActivityCompat.requestPermissions(this, permissions, PERMISSION_REQUEST_CODE)
+        } else {
+            startTelemetry()
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            if (grantResults.isNotEmpty() && grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
+                startTelemetry()
+            }
+        }
+    }
+
+    private fun startTelemetry() {
+        affectiveManager.start()
+        telemetryJob = lifecycleScope.launch {
+            while (true) {
+                delay(500)
+                if (!isPaused && !gameEnded) {
+                    viewModel.updateTelemetry(
+                        affectiveManager.currentSmilingProbability,
+                        affectiveManager.currentEyeOpenProbability,
+                        affectiveManager.currentAudioAmplitude
+                    )
+                }
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        telemetryJob?.cancel()
+        affectiveManager.stop()
     }
     
     private fun setupUI() {
@@ -90,7 +149,7 @@ class GameActivity : AppCompatActivity() {
 
         viewModel.showVictoryDialog.observe(this) { result ->
             result?.let {
-                showVictoryDialog(it.moves, it.timeElapsed)
+                showVictoryDialog(it)
             }
         }
 
@@ -101,40 +160,21 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
-    private fun showVictoryDialog(moves: Int, timeElapsed: Long) {
-        val timeStr = formatElapsedTime(timeElapsed)
+    private fun showVictoryDialog(result: GameResult) {
+        val timeStr = formatElapsedTime(result.timeElapsed)
         
         // Mostrar notificación de victoria
-        notificationHelper.showVictoryNotification(moves, timeStr)
+        notificationHelper.showVictoryNotification(result.moves, timeStr)
 
         GameDialogs.showVictoryDialog(
             context = this,
-            moves = moves,
+            moves = result.moves,
             time = timeStr,
-            onPlayAgain = { restartGame() },
-            onMainMenu = { finish() }
+            rank = result.rank,
+            totalRanked = result.totalRanked,
+            onPlayAgain = { handleGameEnd(playAgain = true, reason = "WON") },
+            onMainMenu = { handleGameEnd(playAgain = false, reason = "WON") }
         ).show()
-
-        // Guardar puntuación
-        lifecycleScope.launch {
-            val result = viewModel.saveCurrentScore()
-            result.fold(
-                onSuccess = { message ->
-                    // Mostrar notificación de éxito
-                    notificationHelper.showCustomNotification(
-                        "Puntuación Guardada", 
-                        "Tu puntuación se guardó correctamente en Firebase"
-                    )
-                },
-                onFailure = { error ->
-                    // Mostrar notificación de error
-                    notificationHelper.showCustomNotification(
-                        "Error al Guardar", 
-                        "No se pudo guardar en Firebase: ${error.message}"
-                    )
-                }
-            )
-        }
     }
 
     private fun showDefeatDialog() {
@@ -143,9 +183,36 @@ class GameActivity : AppCompatActivity() {
         
         GameDialogs.showDefeatDialog(
             context = this,
-            onPlayAgain = { restartGame() },
-            onMainMenu = { finish() }
+            onPlayAgain = { handleGameEnd(playAgain = true, reason = "LOST") },
+            onMainMenu = { handleGameEnd(playAgain = false, reason = "LOST") }
         ).show()
+    }
+
+    private fun handleGameEnd(playAgain: Boolean, reason: String) {
+        // Guardar puntuación directamente SIN interrumpir con encuesta
+        lifecycleScope.launch {
+            val result = viewModel.saveCurrentScore(reason)
+            result.fold(
+                onSuccess = {
+                    notificationHelper.showCustomNotification(
+                        "Partida Finalizada", 
+                        "La telemetría fue enviada en segundo plano."
+                    )
+                },
+                onFailure = { error ->
+                    notificationHelper.showCustomNotification(
+                        "Error al Guardar", 
+                        "No se pudo guardar la telemetría: ${error.message}"
+                    )
+                }
+            )
+            
+            if (playAgain) {
+                restartGame()
+            } else {
+                finish()
+            }
+        }
     }
 
     private fun restartGame() {
@@ -175,7 +242,10 @@ class GameActivity : AppCompatActivity() {
     }
     
     override fun onSupportNavigateUp(): Boolean {
-        finish()
+        lifecycleScope.launch {
+            viewModel.saveCurrentScore("QUIT_MIDGAME")
+            finish()
+        }
         return true
     }
 }

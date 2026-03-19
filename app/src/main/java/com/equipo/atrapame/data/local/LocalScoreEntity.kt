@@ -12,5 +12,11 @@ data class LocalScoreEntity(
     val timeElapsed: Long,
     val difficulty: String = "MEDIUM", // Guardamos como String para Room
     val timestamp: Long,
+    val avgSmilingProb: Float = 0f,
+    val avgRightEyeOpenProb: Float = 0f,
+    val maxAudioAmplitude: Int = 0,
+    val perceivedStressScore: Int = 0,
+    val finalEmotion: String = "NEUTRAL",
+    val exitReason: String = "FINISHED",
     val synced: Boolean = false // Indica si ya se envió a Firebase
 )
