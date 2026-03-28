@@ -12,10 +12,11 @@ data class Score(
     val maxAudioAmplitude: Int = 0,
     val perceivedStressScore: Int = 0,
     val finalEmotion: String = "NEUTRAL",
-    val exitReason: String = "FINISHED"
+    val exitReason: String = "FINISHED",
+    val emotionTimeline: List<Map<String, Any>> = emptyList()
 ) {
     // Constructor sin argumentos requerido por Firebase
-    constructor() : this("", "", 0, 0L, Difficulty.MEDIUM, System.currentTimeMillis(), 0f, 0f, 0, 0, "NEUTRAL", "FINISHED")
+    constructor() : this("", "", 0, 0L, Difficulty.MEDIUM, System.currentTimeMillis(), 0f, 0f, 0, 0, "NEUTRAL", "FINISHED", emptyList())
 
     fun getFormattedTime(): String {
         val seconds = timeElapsed / 1000

@@ -44,6 +44,7 @@ class LocalGameRepository(context: Context) {
                 "perceivedStressScore" to score.perceivedStressScore,
                 "finalEmotion" to score.finalEmotion,
                 "exitReason" to score.exitReason,
+                "emotionTimeline" to score.emotionTimeline,
                 "deviceId" to deviceId
             )
             
@@ -202,6 +203,7 @@ class LocalGameRepository(context: Context) {
                             "perceivedStressScore" to item.perceivedStressScore,
                             "finalEmotion" to item.finalEmotion,
                             "exitReason" to item.exitReason,
+                            "emotionTimeline" to emptyList<Map<String, Any>>(), // Modo offline fallback no tiene grafo
                             "deviceId" to deviceId
                         )
                     )

@@ -51,6 +51,9 @@ class GameViewModel(
     private var totalEyeOpenProb = 0f
     private var maxAmplitude = 0
     private var finalPerceivedStress = 0
+    
+    // Timeline para la graficación en Firebase
+    private val emotionTimeline = mutableListOf<Map<String, Any>>()
 
     init {
         initializeGame()
@@ -74,6 +77,7 @@ class GameViewModel(
         totalEyeOpenProb = 0f
         maxAmplitude = 0
         finalPerceivedStress = 0
+        emotionTimeline.clear()
 
         currentEnemySpeedDelay = configRepository.getPlayerConfig().difficulty.enemySpeed.toLong()
 
@@ -303,11 +307,20 @@ class GameViewModel(
         var stress = (eyeOpen * 50f) + (amplitude / 100f) - (smiling * 50f)
         if (stress < 0f) stress = 0f
         if (stress > 100f) stress = 100f
-        _currentStressLevel.postValue(stress.toInt())
+        val stressInt = stress.toInt()
+        _currentStressLevel.postValue(stressInt)
+
+        val timeMs = System.currentTimeMillis() - gameStartTime - totalPausedTime
+        emotionTimeline.add(mapOf(
+            "timeMs" to timeMs,
+            "stressLevel" to stressInt,
+            "smiling" to smiling,
+            "difficultyDelayMs" to currentEnemySpeedDelay
+        ))
 
         // DDA (Dynamic Difficulty Adjustment) Logic
         if (configRepository.getPlayerConfig().difficulty == com.equipo.atrapame.data.models.Difficulty.DYNAMIC) {
-            adjustDifficultyDynamically(stress.toInt(), smiling)
+            adjustDifficultyDynamically(stressInt, smiling)
         }
     }
 
@@ -372,7 +385,8 @@ class GameViewModel(
             maxAudioAmplitude = maxAmplitude,
             perceivedStressScore = finalPerceivedStress,
             finalEmotion = emotionDetected,
-            exitReason = exitReason
+            exitReason = exitReason,
+            emotionTimeline = emotionTimeline.toList()
         )
 
         return try {
