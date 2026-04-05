@@ -1,0 +1,19 @@
+{
+    "playerName": "Diego",
+    "difficulty": "DYNAMIC",
+    "moves": 24,
+    "timeElapsed": 12000,
+    "emotionTimeline": [
+        {"timeMs": 0, "stressLevel": 10, "smiling": 0.5, "pitchHz": 0, "isSpeech": false, "difficultyDelayMs": 750},
+        {"timeMs": 1000, "stressLevel": 15, "smiling": 0.4, "pitchHz": 0, "isSpeech": false, "difficultyDelayMs": 750},
+        {"timeMs": 2000, "stressLevel": 35, "smiling": 0.2, "pitchHz": 0, "isSpeech": false, "difficultyDelayMs": 750},
+        {"timeMs": 3000, "stressLevel": 55, "smiling": 0.0, "pitchHz": 0, "isSpeech": false, "difficultyDelayMs": 700},
+        {"timeMs": 4000, "stressLevel": 85, "smiling": 0.0, "pitchHz": 220, "isSpeech": true, "difficultyDelayMs": 650},
+        {"timeMs": 5000, "stressLevel": 90, "smiling": 0.0, "pitchHz": 240, "isSpeech": true, "difficultyDelayMs": 550},
+        {"timeMs": 6000, "stressLevel": 75, "smiling": 0.1, "pitchHz": 0, "isSpeech": false, "difficultyDelayMs": 650},
+        {"timeMs": 7000, "stressLevel": 50, "smiling": 0.2, "pitchHz": 0, "isSpeech": false, "difficultyDelayMs": 700},
+        {"timeMs": 8000, "stressLevel": 30, "smiling": 0.5, "pitchHz": 0, "isSpeech": false, "difficultyDelayMs": 750},
+        {"timeMs": 9000, "stressLevel": 15, "smiling": 0.6, "pitchHz": 0, "isSpeech": false, "difficultyDelayMs": 850},
+        {"timeMs": 10000, "stressLevel": 20, "smiling": 0.4, "pitchHz": 0, "isSpeech": false, "difficultyDelayMs": 850}
+    ]
+}

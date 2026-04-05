@@ -8,7 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.equipo.atrapame.data.models.Score
 import com.equipo.atrapame.databinding.ItemScoreBinding
 
-class ScoreAdapter(private val onSurveyClick: (Score) -> Unit) : ListAdapter<Score, ScoreAdapter.ScoreViewHolder>(ScoreDiffCallback()) {
+class ScoreAdapter(
+    private val isInteractive: Boolean = false,
+    private val onSurveyClick: (Score) -> Unit = {}
+) : ListAdapter<Score, ScoreAdapter.ScoreViewHolder>(ScoreDiffCallback()) {
     
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScoreViewHolder {
         val binding = ItemScoreBinding.inflate(
@@ -16,7 +19,7 @@ class ScoreAdapter(private val onSurveyClick: (Score) -> Unit) : ListAdapter<Sco
             parent, 
             false
         )
-        return ScoreViewHolder(binding, onSurveyClick)
+        return ScoreViewHolder(binding, isInteractive, onSurveyClick)
     }
     
     override fun onBindViewHolder(holder: ScoreViewHolder, position: Int) {
@@ -25,6 +28,7 @@ class ScoreAdapter(private val onSurveyClick: (Score) -> Unit) : ListAdapter<Sco
     
     class ScoreViewHolder(
         private val binding: ItemScoreBinding,
+        private val isInteractive: Boolean,
         private val onSurveyClick: (Score) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
         
@@ -45,9 +49,13 @@ class ScoreAdapter(private val onSurveyClick: (Score) -> Unit) : ListAdapter<Sco
                 binding.btnSurvey.visibility = android.view.View.GONE
             } else {
                 binding.tvSurvey.text = "Estrés Percibido: N/A"
-                binding.btnSurvey.visibility = android.view.View.VISIBLE
-                binding.btnSurvey.setOnClickListener {
-                    onSurveyClick(score)
+                if (isInteractive) {
+                    binding.btnSurvey.visibility = android.view.View.VISIBLE
+                    binding.btnSurvey.setOnClickListener {
+                        onSurveyClick(score)
+                    }
+                } else {
+                    binding.btnSurvey.visibility = android.view.View.GONE
                 }
             }
         }

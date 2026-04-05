@@ -283,22 +283,26 @@ class GameViewModel(
         isSpeech: Boolean = false
     ) {
         if (isPaused) return
+        val safeSmile = if (smiling.isNaN()) 0f else smiling
+        val safeEye = if (eyeOpen.isNaN()) 0f else eyeOpen
+        val safePitch = if (pitchHz.isNaN()) 0f else pitchHz
+
         telemetryCount++
-        totalSmilingProb += smiling
-        totalEyeOpenProb += eyeOpen
+        totalSmilingProb += safeSmile
+        totalEyeOpenProb += safeEye
         if (amplitude > maxAmplitude) maxAmplitude = amplitude
 
         // Solo considerar datos de voz cuando hay habla real
-        val voiceStressComponent = if (isSpeech && pitchHz > 0f) {
-            val pitchFactor = ((pitchHz - 120f) / 200f).coerceIn(0f, 1f)
-            val variabilityFactor = (pitchVariability / 40f).coerceIn(0f, 1f)
+        val voiceStressComponent = if (isSpeech && safePitch > 0f) {
+            val pitchFactor = ((safePitch - 120f) / 200f).coerceIn(0f, 1f)
+            val variabilityFactor = (if (pitchVariability.isNaN()) 0f else pitchVariability / 40f).coerceIn(0f, 1f)
             val volumeFactor = (amplitude / 100f).coerceIn(0f, 1f)
             (pitchFactor * 0.4f + variabilityFactor * 0.35f + volumeFactor * 0.25f) * 100f
         } else {
             0f
         }
         // Combinar cara + voz
-        val faceStress = (eyeOpen * 40f) - (smiling * 40f)
+        val faceStress = (safeEye * 40f) - (safeSmile * 40f)
         val stress = (faceStress + (voiceStressComponent * 0.6f)).coerceIn(0f, 100f)
         val stressInt = stress.toInt()
         _currentStressLevel.postValue(stressInt)
@@ -308,14 +312,14 @@ class GameViewModel(
         emotionTimeline.add(mapOf(
             "timeMs" to timeMs,
             "stressLevel" to stressInt,
-            "smiling" to smiling,
-            "pitchHz" to pitchHz,
+            "smiling" to safeSmile,
+            "pitchHz" to safePitch,
             "isSpeech" to isSpeech,
             "difficultyDelayMs" to currentEnemySpeedDelay
         ))
 
         if (configRepository.getPlayerConfig().difficulty == com.equipo.atrapame.data.models.Difficulty.DYNAMIC) {
-            adjustDifficultyDynamically(stressInt, smiling)
+            adjustDifficultyDynamically(stressInt, safeSmile)
         }
     }
 

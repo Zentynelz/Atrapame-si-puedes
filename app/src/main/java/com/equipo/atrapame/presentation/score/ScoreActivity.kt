@@ -38,11 +38,7 @@ class ScoreActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
-        scoreAdapter = ScoreAdapter { score ->
-            GameDialogs.showSurveyDialog(this) { stressScore ->
-                viewModel.updateScoreStress(score.id, stressScore)
-            }.show()
-        }
+        scoreAdapter = ScoreAdapter(isInteractive = false)
         binding.rvScores.apply {
             layoutManager = LinearLayoutManager(this@ScoreActivity)
             adapter = scoreAdapter

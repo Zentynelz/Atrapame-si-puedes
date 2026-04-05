@@ -12,6 +12,8 @@ class PersonalStatsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPersonalStatsBinding
     private lateinit var repository: LocalGameRepository
 
+    private lateinit var scoreAdapter: ScoreAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPersonalStatsBinding.inflate(layoutInflater)
@@ -21,7 +23,23 @@ class PersonalStatsActivity : AppCompatActivity() {
 
         binding.btnBack.setOnClickListener { finish() }
 
+        setupRecyclerView()
         loadPersonalData()
+    }
+    
+    private fun setupRecyclerView() {
+        scoreAdapter = ScoreAdapter(isInteractive = true) { score ->
+            com.equipo.atrapame.presentation.game.GameDialogs.showSurveyDialog(this) { stressScore ->
+                lifecycleScope.launch {
+                    repository.updatePerceivedStress(score.id, stressScore)
+                    loadPersonalData() // Reload to reflect changes
+                }
+            }.show()
+        }
+        binding.rvLocalScores.apply {
+            layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@PersonalStatsActivity)
+            adapter = scoreAdapter
+        }
     }
 
     private fun loadPersonalData() {
@@ -87,6 +105,10 @@ class PersonalStatsActivity : AppCompatActivity() {
                 binding.tvBoredCount.text = "Aburrimiento / Tristeza ($boredPct%)"
                 binding.progressBored.progress = boredPct
             }
+            
+            // Render local rounds sorted by newest to oldest
+            val sortedScores = scores.sortedByDescending { it.timestamp }
+            scoreAdapter.submitList(sortedScores)
         }
     }
 }

@@ -44,7 +44,8 @@ class NotificationHelper(private val context: Context) {
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setContentTitle(context.getString(R.string.notification_victory_title))
             .setContentText(context.getString(R.string.notification_victory_text, moves, time))
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setPriority(NotificationCompat.PRIORITY_LOW) // Usa baja prioridad para que no vibre/suene
+            .setSilent(true) // Fuerza a que sea silente y tranquilizadora
             .setAutoCancel(true)
             .build()
 

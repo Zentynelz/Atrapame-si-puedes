@@ -9,6 +9,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class LocalGameRepository(context: Context) {
 
@@ -21,7 +23,7 @@ class LocalGameRepository(context: Context) {
 
     private val scoreDao = db.scoreDao()
     private val firestore = FirebaseFirestore.getInstance()
-    private val deviceId = Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID)
+    private val deviceId = Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID) ?: "EMULATOR_OR_UNKNOWN"
 
     // ----------- GUARDAR LOCAL & SINCRONIZAR ----------
     suspend fun saveScore(score: Score) = withContext(Dispatchers.IO) {
@@ -50,9 +52,13 @@ class LocalGameRepository(context: Context) {
             
             android.util.Log.d("LocalGameRepository", "Datos a guardar: $dataToSave")
             
-            val firebaseDoc = firestore.collection("scores")
-                .add(dataToSave)
-                .await()
+            // Usamos un Timeout de 2.5s. Si Firebase no responde (como en el emulador sin wifi), 
+            // no se quedará colgado para siempre y caerá en el catch para guardar offline.
+            val firebaseDoc = kotlinx.coroutines.withTimeout(2500L) {
+                firestore.collection("scores")
+                    .add(dataToSave)
+                    .await()
+            }
 
             android.util.Log.d("LocalGameRepository", "✅ Firebase guardado exitosamente! ID: ${firebaseDoc.id}")
 
@@ -97,9 +103,10 @@ class LocalGameRepository(context: Context) {
             scoreDao.insert(localEntity)
             
             android.util.Log.d("LocalGameRepository", "Guardado localmente con sync=false, intentando sincronizar...")
-            
-            // Intentar sincronizar scores pendientes
-            syncPendingScores()
+            // Intentar sincronizar scores pendientes en segundo plano sin bloquear
+            kotlinx.coroutines.GlobalScope.launch {
+                syncPendingScores()
+            }
         }
     }
 

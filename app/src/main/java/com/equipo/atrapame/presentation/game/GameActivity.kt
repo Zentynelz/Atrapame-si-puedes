@@ -170,26 +170,29 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun handleGameEnd(playAgain: Boolean, reason: String) {
-        kotlinx.coroutines.GlobalScope.launch(kotlinx.coroutines.Dispatchers.IO) {
-            val result = viewModel.saveCurrentScore(reason)
-            lifecycleScope.launch(kotlinx.coroutines.Dispatchers.Main) {
-                result.fold(
-                    onSuccess = {
-                        notificationHelper.showCustomNotification(
-                            "Partida Finalizada", "La telemetría fue enviada en segundo plano.")
-                    },
-                    onFailure = { error ->
-                        notificationHelper.showCustomNotification(
-                            "Error al Guardar", "No se pudo guardar: ${error.message}")
-                    }
-                )
+        // Ejecucutarlo ligado al lifecycle de forma asíncrona, pero secuencial en lectura
+        lifecycleScope.launch {
+            // Guardar en Background para no congelar la UI
+            val result = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
+                viewModel.saveCurrentScore(reason)
             }
-        }
-        // Se ejecuta Inmediatamente (El finish nos devuelve el usuario al MainMenu al cerrar esta ventana)
-        if (playAgain) {
-            restartGame()
-        } else {
-            finish()
+            // Mostrar notificación una vez termine
+            result.fold(
+                onSuccess = {
+                    notificationHelper.showCustomNotification(
+                        "Partida Finalizada", "La telemetría fue guardada con éxito.")
+                },
+                onFailure = { error ->
+                    notificationHelper.showCustomNotification(
+                        "Error al Guardar", "No se pudo guardar: ${error.message}")
+                }
+            )
+            // LUEGO de extraer la data y guardada, ya es seguro reiniciar/limpiar
+            if (playAgain) {
+                restartGame()
+            } else {
+                finish()
+            }
         }
     }
 
@@ -220,10 +223,12 @@ class GameActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        kotlinx.coroutines.GlobalScope.launch(kotlinx.coroutines.Dispatchers.IO) {
-            viewModel.saveCurrentScore("QUIT_MIDGAME")
+        lifecycleScope.launch {
+            kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
+                viewModel.saveCurrentScore("QUIT_MIDGAME")
+            }
+            finish()
         }
-        finish()
         return true
     }
 }

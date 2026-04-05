@@ -1,55 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="32dp"
-    android:background="@android:color/white">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="🎉 ¡VICTORIA! 🎉"
-        android:textStyle="bold"
-        android:textSize="26sp"
-        android:textColor="#3F51B5"
-        android:layout_marginBottom="16dp"/>
-
-    <TextView
-        android:id="@+id/tvVictoryMessage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="..."
-        android:textSize="18sp"
-        android:lineSpacingExtra="4dp"
-        android:textAlignment="center"
-        android:textColor="#424242"
-        android:layout_marginBottom="24dp"/>
+    android:background="#0A0A0A">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnMenu"
-            android:layout_width="0dp"
-            android:layout_height="54dp"
-            android:layout_weight="1"
-            android:layout_marginEnd="8dp"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            app:cornerRadius="12dp"
-            android:textColor="#3F51B5"
-            android:text="MENÚ PRINCIPAL" />
-            
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnRepetir"
-            android:layout_width="0dp"
-            android:layout_height="54dp"
-            android:layout_weight="1"
-            android:layout_marginStart="8dp"
-            app:cornerRadius="12dp"
-            android:text="JUGAR DE NUEVO" />
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="20dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
+            android:src="@android:drawable/btn_star_big_on"
+            app:tint="#00F4FF" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¡SISTEMA HACKEADO!"
+            android:typeface="monospace"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:textColor="#00F4FF"
+            android:shadowColor="#00F4FF"
+            android:shadowRadius="15"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvVictoryMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="..."
+            android:textSize="16sp"
+            android:lineSpacingExtra="2dp"
+            android:textAlignment="center"
+            android:textColor="#E0E0E0"
+            android:typeface="monospace"
+            android:layout_marginBottom="16dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                app:cornerRadius="4dp"
+                android:textColor="#00F4FF"
+                app:strokeColor="#00F4FF"
+                android:text="VOLVER AL INICIO" />
+                
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRepetir"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                app:cornerRadius="4dp"
+                app:backgroundTint="#00F4FF"
+                android:textColor="#0A0A0A"
+                android:text="REINICIAR RED" />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</ScrollView>
