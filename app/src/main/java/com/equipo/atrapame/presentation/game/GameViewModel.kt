@@ -149,11 +149,14 @@ class GameViewModel(
         timerJob = viewModelScope.launch {
             while (isActive) {
                 val state = _gameState.value
+                val diff = configRepository.getPlayerConfig().difficulty
                 if (state != null && !state.isGameWon && !state.isGameLost && !isPaused) {
                     val elapsed = System.currentTimeMillis() - gameStartTime - totalPausedTime
-                    if (elapsed >= 60000L) {
+                    
+                    val isTimeLimited = diff == com.equipo.atrapame.data.models.Difficulty.EASY || diff == com.equipo.atrapame.data.models.Difficulty.MEDIUM
+                    if (isTimeLimited && elapsed >= 60000L) {
                         _gameState.postValue(state.copy(timeElapsed = 60000L))
-                        onGameLost() // Perder automáticamente tras 1 minuto
+                        onGameLost() // Perder automáticamente tras 1 minuto solo en modos bajos
                     } else {
                         _gameState.postValue(state.copy(timeElapsed = elapsed))
                     }
