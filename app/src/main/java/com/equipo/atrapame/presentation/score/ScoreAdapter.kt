@@ -58,6 +58,14 @@ class ScoreAdapter(
                     binding.btnSurvey.visibility = android.view.View.GONE
                 }
             }
+
+            // Bind Timeline Graph
+            if (score.emotionTimeline.isNotEmpty()) {
+                binding.layoutGraph.visibility = android.view.View.VISIBLE
+                binding.stressGraph.setData(score.emotionTimeline)
+            } else {
+                binding.layoutGraph.visibility = android.view.View.GONE
+            }
         }
     }
     

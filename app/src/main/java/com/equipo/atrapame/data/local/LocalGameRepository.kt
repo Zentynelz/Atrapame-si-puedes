@@ -76,6 +76,7 @@ class LocalGameRepository(context: Context) {
                 perceivedStressScore = score.perceivedStressScore,
                 finalEmotion = score.finalEmotion,
                 exitReason = score.exitReason,
+                emotionTimelineJson = encodeTimeline(score.emotionTimeline),
                 synced = true
             )
             scoreDao.insert(localEntity)
@@ -98,6 +99,7 @@ class LocalGameRepository(context: Context) {
                 perceivedStressScore = score.perceivedStressScore,
                 finalEmotion = score.finalEmotion,
                 exitReason = score.exitReason,
+                emotionTimelineJson = encodeTimeline(score.emotionTimeline),
                 synced = false
             )
             scoreDao.insert(localEntity)
@@ -171,7 +173,8 @@ class LocalGameRepository(context: Context) {
                 maxAudioAmplitude = e.maxAudioAmplitude,
                 perceivedStressScore = e.perceivedStressScore,
                 finalEmotion = e.finalEmotion,
-                exitReason = e.exitReason
+                exitReason = e.exitReason,
+                emotionTimeline = decodeTimeline(e.emotionTimelineJson)
             )
         }
     }
@@ -210,7 +213,7 @@ class LocalGameRepository(context: Context) {
                             "perceivedStressScore" to item.perceivedStressScore,
                             "finalEmotion" to item.finalEmotion,
                             "exitReason" to item.exitReason,
-                            "emotionTimeline" to emptyList<Map<String, Any>>(), // Modo offline fallback no tiene grafo
+                            "emotionTimeline" to decodeTimeline(item.emotionTimelineJson), // Subir graph al recovery
                             "deviceId" to deviceId
                         )
                     )
@@ -240,5 +243,31 @@ class LocalGameRepository(context: Context) {
         
         // Actualiza Local
         scoreDao.updateStressScore(scoreId, stressScore)
+    }
+
+    private fun encodeTimeline(timeline: List<Map<String, Any>>): String {
+        val arr = org.json.JSONArray()
+        for (m in timeline) {
+            arr.put(org.json.JSONObject(m))
+        }
+        return arr.toString()
+    }
+
+    private fun decodeTimeline(json: String): List<Map<String, Any>> {
+        val list = mutableListOf<Map<String, Any>>()
+        try {
+            val arr = org.json.JSONArray(json)
+            for (i in 0 until arr.length()) {
+                val obj = arr.getJSONObject(i)
+                val map = mutableMapOf<String, Any>()
+                val keys = obj.keys()
+                while (keys.hasNext()) {
+                    val key = keys.next()
+                    map[key] = obj.get(key)
+                }
+                list.add(map)
+            }
+        } catch (e: Exception) {}
+        return list
     }
 }

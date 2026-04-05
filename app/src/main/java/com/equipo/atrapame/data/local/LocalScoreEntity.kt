@@ -18,5 +18,6 @@ data class LocalScoreEntity(
     val perceivedStressScore: Int = 0,
     val finalEmotion: String = "NEUTRAL",
     val exitReason: String = "FINISHED",
+    val emotionTimelineJson: String = "[]",
     val synced: Boolean = false // Indica si ya se envió a Firebase
 )

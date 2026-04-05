@@ -129,6 +129,30 @@
                 style="@style/GameButton" />
         </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/layoutGraph"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#22000000"
+        android:padding="8dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Línea de Estrés Algorítmica durante Juego:"
+            android:textSize="10sp"
+            android:textColor="@color/tron_orange"
+            android:layout_marginBottom="4dp"/>
+
+        <com.equipo.atrapame.presentation.components.StressGraphView
+            android:id="@+id/stressGraph"
+            android:layout_width="match_parent"
+            android:layout_height="80dp" />
+
+    </LinearLayout>
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
