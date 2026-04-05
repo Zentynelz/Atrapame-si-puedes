@@ -184,66 +184,77 @@ class GameViewModel(
 
     private fun createDefaultObstacles(rows: Int, cols: Int): List<Position> {
         if (rows < 3 || cols < 3) return emptyList()
-        return when (configRepository.getPlayerConfig().difficulty) {
-            com.equipo.atrapame.data.models.Difficulty.EASY    -> createEasyMap(rows, cols)
+        val difficulty = configRepository.getPlayerConfig().difficulty
+        return createProceduralSolvableMap(rows, cols, difficulty)
+    }
+
+    private fun createProceduralSolvableMap(rows: Int, cols: Int, difficulty: com.equipo.atrapame.data.models.Difficulty): List<Position> {
+        var attempts = 0
+        while (attempts < 20) { // Limit attempts to prevent infinite loops
+            val positions = generateRandomObstacles(rows, cols, difficulty)
+            if (hasPathFromStartToEnd(rows, cols, positions)) {
+                return positions.toList()
+            }
+            attempts++
+        }
+        return emptyList() // Fallback to an empty map if it fails too many times
+    }
+
+    private fun generateRandomObstacles(rows: Int, cols: Int, difficulty: com.equipo.atrapame.data.models.Difficulty): Set<Position> {
+        val positions = mutableSetOf<Position>()
+        val density = when(difficulty) {
+            com.equipo.atrapame.data.models.Difficulty.EASY -> 0.15
             com.equipo.atrapame.data.models.Difficulty.MEDIUM,
-            com.equipo.atrapame.data.models.Difficulty.DYNAMIC -> createMediumMap(rows, cols)
-            com.equipo.atrapame.data.models.Difficulty.HARD    -> createHardMap(rows, cols)
+            com.equipo.atrapame.data.models.Difficulty.DYNAMIC -> 0.25
+            com.equipo.atrapame.data.models.Difficulty.HARD -> 0.35
         }
-    }
+        val maxObstacles = (rows * cols * density).toInt()
+        val random = java.util.Random()
+        var placed = 0
 
-    private fun createEasyMap(rows: Int, cols: Int): List<Position> {
-        val positions = mutableSetOf<Position>()
-        val centerRow = rows / 2; val centerCol = cols / 2
-        if (rows >= 5 && cols >= 5) {
-            positions.add(Position(centerRow, centerCol))
-            if (centerRow + 1 < rows - 1) positions.add(Position(centerRow + 1, centerCol - 1))
-            if (centerCol + 1 < cols - 1) positions.add(Position(centerRow - 1, centerCol + 1))
-        }
-        clearStartAndEndPositions(positions, rows, cols)
-        return positions.toList()
-    }
-
-    private fun createMediumMap(rows: Int, cols: Int): List<Position> {
-        val positions = mutableSetOf<Position>()
-        for (row in 2 until rows - 2 step 2) {
-            for (col in 2 until cols - 2 step 2) {
-                positions.add(Position(row, col))
-                if (row + 1 < rows - 1) positions.add(Position(row + 1, col))
-                if (col + 1 < cols - 1) positions.add(Position(row, col + 1))
+        while (placed < maxObstacles) {
+            val r = random.nextInt(rows)
+            val c = random.nextInt(cols)
+            val p = Position(r, c)
+            
+            // Do not block start and end areas completely
+            if (p == Position(0,0) || p == Position(0,1) || p == Position(1,0)) continue
+            if (p == Position(rows-1, cols-1) || p == Position(rows-1, cols-2) || p == Position(rows-2, cols-1)) continue
+            
+            if (positions.add(p)) {
+                placed++
             }
         }
-        for (row in 1 until rows - 1 step 3) {
-            val col = (rows - row) % (cols - 2) + 1
-            if (col < cols - 1) positions.add(Position(row, col))
-        }
-        clearStartAndEndPositions(positions, rows, cols)
-        return positions.toList()
+        return positions
     }
 
-    private fun createHardMap(rows: Int, cols: Int): List<Position> {
-        val positions = mutableSetOf<Position>()
-        for (row in 1 until rows - 1) {
-            for (col in 1 until cols - 1) {
-                if ((row + col) % 2 == 0 || (row % 3 == 1 && col % 3 == 1))
-                    positions.add(Position(row, col))
+    private fun hasPathFromStartToEnd(rows: Int, cols: Int, obstacles: Set<Position>): Boolean {
+        val visited = Array(rows) { BooleanArray(cols) }
+        val queue = java.util.LinkedList<Position>()
+        val start = Position(0,0)
+        
+        queue.add(start)
+        visited[0][0] = true
+
+        // Directions: Right, Down, Left, Up
+        val dirs = arrayOf(Position(0,1), Position(1,0), Position(0,-1), Position(-1,0))
+
+        while (queue.isNotEmpty()) {
+            val curr = queue.poll()!!
+            if (curr.row == rows - 1 && curr.col == cols - 1) return true
+
+            for (d in dirs) {
+                val nr = curr.row + d.row
+                val nc = curr.col + d.col
+                val nPos = Position(nr, nc)
+                
+                if (nr in 0 until rows && nc in 0 until cols && !obstacles.contains(nPos) && !visited[nr][nc]) {
+                    visited[nr][nc] = true
+                    queue.add(nPos)
+                }
             }
         }
-        val cr = rows / 2; val cc = cols / 2
-        for (i in 1 until rows - 1) { if (i != cr) positions.add(Position(i, cc)) }
-        for (j in 1 until cols - 1) { if (j != cc) positions.add(Position(cr, j)) }
-        for (i in 0 until minOf(rows, cols)) positions.remove(Position(i, i))
-        for (i in 0 until rows) { if (i < cols) positions.remove(Position(i, 0)) }
-        for (j in 0 until cols) { if (j < rows) positions.remove(Position(rows - 1, j)) }
-        clearStartAndEndPositions(positions, rows, cols)
-        return positions.toList()
-    }
-
-    private fun clearStartAndEndPositions(positions: MutableSet<Position>, rows: Int, cols: Int) {
-        positions.remove(Position(0, 0));         positions.remove(Position(0, 1))
-        positions.remove(Position(1, 0));         positions.remove(Position(1, 1))
-        positions.remove(Position(rows-1, cols-1)); positions.remove(Position(rows-2, cols-1))
-        positions.remove(Position(rows-1, cols-2)); positions.remove(Position(rows-2, cols-2))
+        return false
     }
 
     // ─── Victoria / Derrota ───────────────────────────────────────────────────

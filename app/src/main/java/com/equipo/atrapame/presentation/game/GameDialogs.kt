@@ -15,30 +15,37 @@ object GameDialogs {
         onPlayAgain: () -> Unit,
         onMainMenu: () -> Unit
     ): AlertDialog {
-        
         var baseMessage = context.getString(R.string.dialog_victory_message, moves, time)
         
         if (totalRanked > 0) {
             val percentile = 100 - ((rank.toFloat() / totalRanked.toFloat()) * 100).toInt()
             baseMessage += "\n\n🏆 ¡Eres el #$rank de $totalRanked en esta dificultad!"
             if (percentile > 0) {
-                baseMessage += "\n(Mejor que el $percentile% de los jugadores locales)"
+                baseMessage += "\n(Mejor que el $percentile% de los jugadores)"
             }
         }
 
-        return AlertDialog.Builder(context)
-            .setTitle(R.string.dialog_victory_title)
-            .setMessage(baseMessage)
-            .setPositiveButton(R.string.btn_play_again) { dialog, _ ->
-                dialog.dismiss()
-                onPlayAgain()
-            }
-            .setNegativeButton(R.string.btn_main_menu) { dialog, _ ->
-                dialog.dismiss()
-                onMainMenu()
-            }
+        val view = android.view.LayoutInflater.from(context).inflate(R.layout.dialog_victory_custom, null)
+        val tvMessage = view.findViewById<android.widget.TextView>(R.id.tvVictoryMessage)
+        tvMessage.text = baseMessage
+
+        val dialog = AlertDialog.Builder(context)
+            .setView(view)
             .setCancelable(false)
             .create()
+
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        view.findViewById<android.view.View>(R.id.btnRepetir).setOnClickListener {
+            dialog.dismiss()
+            onPlayAgain()
+        }
+        view.findViewById<android.view.View>(R.id.btnMenu).setOnClickListener {
+            dialog.dismiss()
+            onMainMenu()
+        }
+
+        return dialog
     }
     
     fun showDefeatDialog(

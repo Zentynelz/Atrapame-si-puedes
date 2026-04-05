@@ -170,18 +170,26 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun handleGameEnd(playAgain: Boolean, reason: String) {
-        lifecycleScope.launch {
-            viewModel.saveCurrentScore(reason).fold(
-                onSuccess = {
-                    notificationHelper.showCustomNotification(
-                        "Partida Finalizada", "La telemetría fue enviada en segundo plano.")
-                },
-                onFailure = { error ->
-                    notificationHelper.showCustomNotification(
-                        "Error al Guardar", "No se pudo guardar: ${error.message}")
-                }
-            )
-            if (playAgain) restartGame() else finish()
+        kotlinx.coroutines.GlobalScope.launch(kotlinx.coroutines.Dispatchers.IO) {
+            val result = viewModel.saveCurrentScore(reason)
+            lifecycleScope.launch(kotlinx.coroutines.Dispatchers.Main) {
+                result.fold(
+                    onSuccess = {
+                        notificationHelper.showCustomNotification(
+                            "Partida Finalizada", "La telemetría fue enviada en segundo plano.")
+                    },
+                    onFailure = { error ->
+                        notificationHelper.showCustomNotification(
+                            "Error al Guardar", "No se pudo guardar: ${error.message}")
+                    }
+                )
+            }
+        }
+        // Se ejecuta Inmediatamente (El finish nos devuelve el usuario al MainMenu al cerrar esta ventana)
+        if (playAgain) {
+            restartGame()
+        } else {
+            finish()
         }
     }
 
@@ -212,10 +220,10 @@ class GameActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        lifecycleScope.launch {
+        kotlinx.coroutines.GlobalScope.launch(kotlinx.coroutines.Dispatchers.IO) {
             viewModel.saveCurrentScore("QUIT_MIDGAME")
-            finish()
         }
+        finish()
         return true
     }
 }

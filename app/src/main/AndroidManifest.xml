@@ -33,8 +33,7 @@
         
         <activity
             android:name=".presentation.game.GameActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
+            android:exported="false" />
 
         <activity
             android:name=".presentation.config.ConfigActivity"
@@ -42,12 +41,10 @@
             
         <activity
             android:name=".presentation.score.ScoreActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
+            android:exported="false" />
 
         <activity
             android:name=".presentation.score.PersonalStatsActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
+            android:exported="false" />
     </application>
 </manifest>
