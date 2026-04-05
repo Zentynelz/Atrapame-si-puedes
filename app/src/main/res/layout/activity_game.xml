@@ -81,7 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp">
 
-    <com.equipo.atrapame.presentation.game.VirtualJoystickView
+    <com.equipo.atrapame.presentation.game.VirtualDPadView
         android:id="@+id/joystick"
         android:layout_width="150dp"
         android:layout_height="150dp"

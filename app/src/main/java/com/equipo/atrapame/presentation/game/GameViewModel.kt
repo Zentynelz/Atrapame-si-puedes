@@ -36,6 +36,12 @@ class GameViewModel(
     private var enemyMovementJob: Job? = null
     private var timerJob: Job? = null
 
+    // ─── Movimiento continuo ──────────────────────────────────────────────────
+    private var heldDirection: Direction? = null
+    private var movementJob: Job? = null
+    private val MOVEMENT_REPEAT_DELAY_MS = 160L
+    // ──────────────────────────────────────────────────────────────────────────
+
     private var gameStartTime: Long = 0L
     private var pauseStartTime: Long = 0L
     private var totalPausedTime: Long = 0L
@@ -60,18 +66,17 @@ class GameViewModel(
     }
 
     fun initializeGame(rows: Int = GameState.DEFAULT_ROWS, cols: Int = GameState.DEFAULT_COLS) {
-
         timerJob?.cancel()
         enemyMovementJob?.cancel()
+        stopMovementLoop()
 
         val obstacles = createDefaultObstacles(rows, cols)
-
         _gameState.value = GameState.createInitialState(rows, cols, obstacles)
 
         gameStartTime = System.currentTimeMillis()
         totalPausedTime = 0L
         isPaused = false
-        
+
         telemetryCount = 0
         totalSmilingProb = 0f
         totalEyeOpenProb = 0f
@@ -85,20 +90,50 @@ class GameViewModel(
         startEnemyMovementLoop()
     }
 
+    // ─── Input del D-Pad ──────────────────────────────────────────────────────
+
     fun onDirectionInput(direction: Direction?) {
-        if (direction == null || isPaused) return
+        if (isPaused) return
+
+        heldDirection = direction
+
+        if (direction != null) {
+            performMove(direction)
+
+            if (movementJob?.isActive != true) {
+                movementJob = viewModelScope.launch {
+                    delay(MOVEMENT_REPEAT_DELAY_MS)
+                    while (isActive) {
+                        val currentDir = heldDirection ?: break
+                        performMove(currentDir)
+                        delay(MOVEMENT_REPEAT_DELAY_MS)
+                    }
+                }
+            }
+        } else {
+            stopMovementLoop()
+        }
+    }
+
+    private fun performMove(direction: Direction) {
         val current = _gameState.value ?: return
-
-        val result = runCatching { current.movePlayer(direction) }
-        if (result.isFailure) return
-
-        val newState = result.getOrNull()!!
+        if (current.isGameWon || current.isGameLost) return
+        val newState = runCatching { current.movePlayer(direction) }.getOrNull() ?: return
         if (newState != current) _gameState.value = newState
     }
+
+    private fun stopMovementLoop() {
+        movementJob?.cancel()
+        movementJob = null
+        heldDirection = null
+    }
+
+    // ─── Pausa ────────────────────────────────────────────────────────────────
 
     fun pauseGame() {
         isPaused = true
         pauseStartTime = System.currentTimeMillis()
+        stopMovementLoop()
     }
 
     fun resumeGame() {
@@ -107,6 +142,8 @@ class GameViewModel(
             isPaused = false
         }
     }
+
+    // ─── Loops internos ───────────────────────────────────────────────────────
 
     private fun startTimerLoop() {
         timerJob = viewModelScope.launch {
@@ -126,7 +163,6 @@ class GameViewModel(
             while (isActive) {
                 val shouldContinue = stepEnemy()
                 if (!shouldContinue) break
-                // Use currentEnemySpeedDelay which can change dynamically
                 delay(currentEnemySpeedDelay)
             }
         }
@@ -134,7 +170,6 @@ class GameViewModel(
 
     private fun stepEnemy(): Boolean {
         val current = _gameState.value ?: return true
-
         if (isPaused || current.isGameWon || current.isGameLost) return true
 
         val result = runCatching { current.advanceEnemy() }
@@ -142,149 +177,82 @@ class GameViewModel(
 
         val updated = result.getOrNull()!!
         _gameState.value = updated
-
         return !(updated.isGameWon || updated.isGameLost)
     }
 
+    // ─── Mapas ────────────────────────────────────────────────────────────────
+
     private fun createDefaultObstacles(rows: Int, cols: Int): List<Position> {
         if (rows < 3 || cols < 3) return emptyList()
-
-        val difficulty = configRepository.getPlayerConfig().difficulty
-        
-        return when (difficulty) {
-            com.equipo.atrapame.data.models.Difficulty.EASY -> createEasyMap(rows, cols)
+        return when (configRepository.getPlayerConfig().difficulty) {
+            com.equipo.atrapame.data.models.Difficulty.EASY    -> createEasyMap(rows, cols)
             com.equipo.atrapame.data.models.Difficulty.MEDIUM,
             com.equipo.atrapame.data.models.Difficulty.DYNAMIC -> createMediumMap(rows, cols)
-            com.equipo.atrapame.data.models.Difficulty.HARD -> createHardMap(rows, cols)
+            com.equipo.atrapame.data.models.Difficulty.HARD    -> createHardMap(rows, cols)
         }
     }
-    
+
     private fun createEasyMap(rows: Int, cols: Int): List<Position> {
         val positions = mutableSetOf<Position>()
-        
-        // Muy pocos obstáculos dispersos - solo algunos en el centro
-        val centerRow = rows / 2
-        val centerCol = cols / 2
-        
-        // Agregar 2-3 obstáculos simples
+        val centerRow = rows / 2; val centerCol = cols / 2
         if (rows >= 5 && cols >= 5) {
             positions.add(Position(centerRow, centerCol))
-            if (centerRow + 1 < rows - 1) {
-                positions.add(Position(centerRow + 1, centerCol - 1))
-            }
-            if (centerCol + 1 < cols - 1) {
-                positions.add(Position(centerRow - 1, centerCol + 1))
-            }
+            if (centerRow + 1 < rows - 1) positions.add(Position(centerRow + 1, centerCol - 1))
+            if (centerCol + 1 < cols - 1) positions.add(Position(centerRow - 1, centerCol + 1))
         }
-        
-        // Asegurar que inicio y fin estén libres
         clearStartAndEndPositions(positions, rows, cols)
-        
         return positions.toList()
     }
-    
+
     private fun createMediumMap(rows: Int, cols: Int): List<Position> {
         val positions = mutableSetOf<Position>()
-        
-        // Patrón de laberinto moderado - paredes en forma de L
         for (row in 2 until rows - 2 step 2) {
             for (col in 2 until cols - 2 step 2) {
-                // Crear formas de L
                 positions.add(Position(row, col))
-                if (row + 1 < rows - 1) {
-                    positions.add(Position(row + 1, col))
-                }
-                if (col + 1 < cols - 1) {
-                    positions.add(Position(row, col + 1))
-                }
+                if (row + 1 < rows - 1) positions.add(Position(row + 1, col))
+                if (col + 1 < cols - 1) positions.add(Position(row, col + 1))
             }
         }
-        
-        // Agregar algunas paredes verticales
         for (row in 1 until rows - 1 step 3) {
             val col = (rows - row) % (cols - 2) + 1
-            if (col < cols - 1) {
-                positions.add(Position(row, col))
-            }
+            if (col < cols - 1) positions.add(Position(row, col))
         }
-        
         clearStartAndEndPositions(positions, rows, cols)
-        
         return positions.toList()
     }
-    
+
     private fun createHardMap(rows: Int, cols: Int): List<Position> {
         val positions = mutableSetOf<Position>()
-        
-        // Laberinto muy denso con múltiples patrones
         for (row in 1 until rows - 1) {
             for (col in 1 until cols - 1) {
-                // Patrón de cuadrícula muy densa
-                if ((row + col) % 2 == 0 || (row % 3 == 1 && col % 3 == 1)) {
+                if ((row + col) % 2 == 0 || (row % 3 == 1 && col % 3 == 1))
                     positions.add(Position(row, col))
-                }
             }
         }
-        
-        // Agregar más obstáculos en patrón de cruz
-        val centerRow = rows / 2
-        val centerCol = cols / 2
-        for (i in 1 until rows - 1) {
-            if (i != centerRow) {
-                positions.add(Position(i, centerCol))
-            }
-        }
-        for (j in 1 until cols - 1) {
-            if (j != centerCol) {
-                positions.add(Position(centerRow, j))
-            }
-        }
-        
-        // Crear corredores mínimos para que sea jugable
-        // Corredor diagonal principal
-        for (i in 0 until minOf(rows, cols)) {
-            positions.remove(Position(i, i))
-        }
-        
-        // Corredor alternativo
-        for (i in 0 until rows) {
-            if (i < cols) {
-                positions.remove(Position(i, 0))
-            }
-        }
-        for (j in 0 until cols) {
-            if (j < rows) {
-                positions.remove(Position(rows - 1, j))
-            }
-        }
-        
+        val cr = rows / 2; val cc = cols / 2
+        for (i in 1 until rows - 1) { if (i != cr) positions.add(Position(i, cc)) }
+        for (j in 1 until cols - 1) { if (j != cc) positions.add(Position(cr, j)) }
+        for (i in 0 until minOf(rows, cols)) positions.remove(Position(i, i))
+        for (i in 0 until rows) { if (i < cols) positions.remove(Position(i, 0)) }
+        for (j in 0 until cols) { if (j < rows) positions.remove(Position(rows - 1, j)) }
         clearStartAndEndPositions(positions, rows, cols)
-        
         return positions.toList()
     }
-    
+
     private fun clearStartAndEndPositions(positions: MutableSet<Position>, rows: Int, cols: Int) {
-        // Limpiar área alrededor del inicio (0,0)
-        positions.remove(Position(0, 0))
-        positions.remove(Position(0, 1))
-        positions.remove(Position(1, 0))
-        positions.remove(Position(1, 1))
-        
-        // Limpiar área alrededor del final (rows-1, cols-1)
-        positions.remove(Position(rows - 1, cols - 1))
-        positions.remove(Position(rows - 2, cols - 1))
-        positions.remove(Position(rows - 1, cols - 2))
-        positions.remove(Position(rows - 2, cols - 2))
+        positions.remove(Position(0, 0));         positions.remove(Position(0, 1))
+        positions.remove(Position(1, 0));         positions.remove(Position(1, 1))
+        positions.remove(Position(rows-1, cols-1)); positions.remove(Position(rows-2, cols-1))
+        positions.remove(Position(rows-1, cols-2)); positions.remove(Position(rows-2, cols-2))
     }
+
+    // ─── Victoria / Derrota ───────────────────────────────────────────────────
 
     fun onGameWon() {
         val state = _gameState.value ?: return
-        
         viewModelScope.launch {
             val difficulty = configRepository.getPlayerConfig().difficulty
-            // Calculate rank using the repository
             val (rank, total) = gameRepository.getPerformanceRank(difficulty, state.timeElapsed)
-            // Add +1 to total because the current score hasn't been saved yet when this dialog pops up usually
             _showVictoryDialog.value = GameResult(state.moves, state.timeElapsed, rank, total + 1)
         }
     }
@@ -293,100 +261,98 @@ class GameViewModel(
         _showDefeatDialog.value = true
     }
 
-    fun updateTelemetry(smiling: Float, eyeOpen: Float, amplitude: Int) {
+    // ─── Telemetría / DDA ─────────────────────────────────────────────────────
+
+    fun updateTelemetry(
+        smiling: Float,
+        eyeOpen: Float,
+        amplitude: Int,
+        pitchHz: Float = 0f,
+        pitchVariability: Float = 0f,
+        isSpeech: Boolean = false
+    ) {
         if (isPaused) return
         telemetryCount++
         totalSmilingProb += smiling
         totalEyeOpenProb += eyeOpen
-        if (amplitude > maxAmplitude) {
-            maxAmplitude = amplitude
-        }
+        if (amplitude > maxAmplitude) maxAmplitude = amplitude
 
-        // Calcula un medidor de estrés en tiempo real (0 a 100) heurístico
-        // Ojos muy abiertos (tensión) aumenta, sonreír disminuye, ruido alto aumenta
-        var stress = (eyeOpen * 50f) + (amplitude / 100f) - (smiling * 50f)
-        if (stress < 0f) stress = 0f
-        if (stress > 100f) stress = 100f
+        // Solo considerar datos de voz cuando hay habla real
+        val voiceStressComponent = if (isSpeech && pitchHz > 0f) {
+            val pitchFactor = ((pitchHz - 120f) / 200f).coerceIn(0f, 1f)
+            val variabilityFactor = (pitchVariability / 40f).coerceIn(0f, 1f)
+            val volumeFactor = (amplitude / 100f).coerceIn(0f, 1f)
+            (pitchFactor * 0.4f + variabilityFactor * 0.35f + volumeFactor * 0.25f) * 100f
+        } else {
+            0f
+        }
+        // Combinar cara + voz
+        val faceStress = (eyeOpen * 40f) - (smiling * 40f)
+        val stress = (faceStress + (voiceStressComponent * 0.6f)).coerceIn(0f, 100f)
         val stressInt = stress.toInt()
         _currentStressLevel.postValue(stressInt)
 
+        // Timeline para gráfica
         val timeMs = System.currentTimeMillis() - gameStartTime - totalPausedTime
         emotionTimeline.add(mapOf(
             "timeMs" to timeMs,
             "stressLevel" to stressInt,
             "smiling" to smiling,
+            "pitchHz" to pitchHz,
+            "isSpeech" to isSpeech,
             "difficultyDelayMs" to currentEnemySpeedDelay
         ))
 
-        // DDA (Dynamic Difficulty Adjustment) Logic
         if (configRepository.getPlayerConfig().difficulty == com.equipo.atrapame.data.models.Difficulty.DYNAMIC) {
             adjustDifficultyDynamically(stressInt, smiling)
         }
     }
 
     private fun adjustDifficultyDynamically(stressLevel: Int, smiling: Float) {
-        // Base delay is 750ms. (Lower = faster/harder, Higher = slower/easier)
-        // Max delay (Easiest): 1500ms
-        // Min delay (Hardest): 400ms
-        
         when {
-            // Very Stressed/Frustrated -> Make it significantly easier (slower enemy)
-            stressLevel > 70 -> {
-                currentEnemySpeedDelay += 100L
-            }
-            // Moderately Stressed -> Make it slightly easier
-            stressLevel in 50..70 -> {
-                currentEnemySpeedDelay += 50L
-            }
-            // Enjoying/Happy -> Make it harder (faster enemy) to maintain flow
-            smiling > 0.4f && stressLevel < 30 -> {
-                currentEnemySpeedDelay -= 100L
-            }
-            // Bored/Too Easy -> Make it slightly harder
-            stressLevel < 10 -> {
-                currentEnemySpeedDelay -= 50L
-            }
+            stressLevel > 70                      -> currentEnemySpeedDelay += 100L
+            stressLevel in 50..70                 -> currentEnemySpeedDelay += 50L
+            smiling > 0.4f && stressLevel < 30   -> currentEnemySpeedDelay -= 100L
+            stressLevel < 10                      -> currentEnemySpeedDelay -= 50L
         }
-        
-        // Clamp speed
         currentEnemySpeedDelay = currentEnemySpeedDelay.coerceIn(400L, 1500L)
     }
 
-    fun setPerceivedStress(score: Int) {
-        finalPerceivedStress = score
-    }
+    fun setPerceivedStress(score: Int) { finalPerceivedStress = score }
 
     private fun calculateFinalEmotion(avgSmile: Float, avgEye: Float, maxAmp: Int): String {
         return when {
-            avgSmile > 0.4f -> "HAPPY_ENJOYING" // Alta sonrisa, implica relajación o diversión
-            avgSmile < 0.1f && avgEye > 0.5f && maxAmp >= 2000 -> "STRESSED_FRUSTRATED" // Ojos abiertos (alarma), alta amplitud (quejido) y nula sonrisa
-            avgSmile < 0.1f && avgEye < 0.3f && maxAmp < 1000 -> "BORED_SAD" // Expresión caída, poco ruido
-            else -> "NEUTRAL_FOCUSED"
+            avgSmile > 0.4f                                     -> "HAPPY_ENJOYING"
+            avgSmile < 0.1f && avgEye > 0.5f && maxAmp >= 2000 -> "STRESSED_FRUSTRATED"
+            avgSmile < 0.1f && avgEye < 0.3f && maxAmp < 1000  -> "BORED_SAD"
+            else                                                -> "NEUTRAL_FOCUSED"
         }
     }
 
     // ✔ Ahora usa el repositorio que se pasó al constructor
+    // ─── Puntuación ───────────────────────────────────────────────────────────
+
     suspend fun saveCurrentScore(exitReason: String = "FINISHED"): Result<String> {
-        val state = _gameState.value ?: return Result.failure(Exception("No game state"))
+        val state  = _gameState.value ?: return Result.failure(Exception("No game state"))
         val config = configRepository.getPlayerConfig()
 
-        val avgSmile = if (telemetryCount > 0) totalSmilingProb / telemetryCount else 0f
-        val avgEye = if (telemetryCount > 0) totalEyeOpenProb / telemetryCount else 0f
+        val avgSmile        = if (telemetryCount > 0) totalSmilingProb / telemetryCount else 0f
+        val avgEye          = if (telemetryCount > 0) totalEyeOpenProb / telemetryCount else 0f
         val emotionDetected = calculateFinalEmotion(avgSmile, avgEye, maxAmplitude)
 
         val score = Score(
-            playerName = config.name,
-            moves = state.moves,
-            timeElapsed = state.timeElapsed,
-            difficulty = config.difficulty,
-            timestamp = System.currentTimeMillis(),
-            avgSmilingProb = avgSmile,
-            avgRightEyeOpenProb = avgEye,
-            maxAudioAmplitude = maxAmplitude,
+            playerName           = config.name,
+            moves                = state.moves,
+            timeElapsed          = state.timeElapsed,
+            difficulty           = config.difficulty,
+            timestamp            = System.currentTimeMillis(),
+            avgSmilingProb       = avgSmile,
+            avgRightEyeOpenProb  = avgEye,
+            maxAudioAmplitude    = maxAmplitude,
             perceivedStressScore = finalPerceivedStress,
-            finalEmotion = emotionDetected,
-            exitReason = exitReason,
-            emotionTimeline = emotionTimeline.toList()
+            finalEmotion         = emotionDetected,
+            exitReason           = exitReason,
+            emotionTimeline      = emotionTimeline.toList()
         )
 
         return try {
@@ -396,17 +362,13 @@ class GameViewModel(
             Result.failure(Exception("Error al guardar: ${e.message}"))
         }
     }
-    
-    // Función para probar Firebase directamente
+
     suspend fun testFirebaseConnection(): Result<String> {
         return try {
-            val testScore = Score(
-                playerName = "TEST_USER",
-                moves = 999,
-                timeElapsed = 60000L,
+            gameRepository.saveScore(Score(
+                playerName = "TEST_USER", moves = 999, timeElapsed = 60000L,
                 difficulty = com.equipo.atrapame.data.models.Difficulty.EASY
-            )
-            gameRepository.saveScore(testScore)
+            ))
             Result.success("Firebase funciona correctamente")
         } catch (e: Exception) {
             Result.failure(Exception("Firebase falló: ${e.message}"))
@@ -415,12 +377,15 @@ class GameViewModel(
 
     fun resetDialogEvents() {
         _showVictoryDialog.value = null
-        _showDefeatDialog.value = false
+        _showDefeatDialog.value  = false
     }
+
+    // ─── Lifecycle ────────────────────────────────────────────────────────────
 
     override fun onCleared() {
         enemyMovementJob?.cancel()
         timerJob?.cancel()
+        movementJob?.cancel()
         super.onCleared()
     }
 
