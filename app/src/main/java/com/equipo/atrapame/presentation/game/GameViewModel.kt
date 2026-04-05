@@ -58,6 +58,9 @@ class GameViewModel(
     private var maxAmplitude = 0
     private var finalPerceivedStress = 0
 
+    // Timeline para la graficación en Firebase
+    private val emotionTimeline = mutableListOf<Map<String, Any>>()
+
     init {
         initializeGame()
     }
@@ -79,6 +82,7 @@ class GameViewModel(
         totalEyeOpenProb = 0f
         maxAmplitude = 0
         finalPerceivedStress = 0
+        emotionTimeline.clear()
 
         currentEnemySpeedDelay = configRepository.getPlayerConfig().difficulty.enemySpeed.toLong()
 
@@ -259,16 +263,45 @@ class GameViewModel(
 
     // ─── Telemetría / DDA ─────────────────────────────────────────────────────
 
-    fun updateTelemetry(smiling: Float, eyeOpen: Float, amplitude: Int) {
+    fun updateTelemetry(
+        smiling: Float,
+        eyeOpen: Float,
+        amplitude: Int,
+        pitchHz: Float = 0f,
+        pitchVariability: Float = 0f,
+        isSpeech: Boolean = false
+    ) {
         if (isPaused) return
         telemetryCount++
         totalSmilingProb += smiling
         totalEyeOpenProb += eyeOpen
         if (amplitude > maxAmplitude) maxAmplitude = amplitude
 
-        var stress = (eyeOpen * 50f) + (amplitude / 100f) - (smiling * 50f)
+        // Solo considerar datos de voz cuando hay habla real
+        val voiceStressComponent = if (isSpeech && pitchHz > 0f) {
+            val pitchFactor = ((pitchHz - 120f) / 200f).coerceIn(0f, 1f)
+            val variabilityFactor = (pitchVariability / 40f).coerceIn(0f, 1f)
+            val volumeFactor = (amplitude / 100f).coerceIn(0f, 1f)
+            (pitchFactor * 0.4f + variabilityFactor * 0.35f + volumeFactor * 0.25f) * 100f
+        } else {
+            0f
+        }
+        // Combinar cara + voz
+        val faceStress = (eyeOpen * 40f) - (smiling * 40f)
+        var stress = faceStress + (voiceStressComponent * 0.6f)
         stress = stress.coerceIn(0f, 100f)
         _currentStressLevel.postValue(stress.toInt())
+
+        // Timeline para gráfica
+        val timeMs = System.currentTimeMillis() - gameStartTime - totalPausedTime
+        emotionTimeline.add(mapOf(
+            "timeMs" to timeMs,
+            "stressLevel" to stress.toInt(),
+            "smiling" to smiling,
+            "pitchHz" to pitchHz,
+            "isSpeech" to isSpeech,
+            "difficultyDelayMs" to currentEnemySpeedDelay
+        ))
 
         if (configRepository.getPlayerConfig().difficulty == com.equipo.atrapame.data.models.Difficulty.DYNAMIC) {
             adjustDifficultyDynamically(stress.toInt(), smiling)
@@ -318,7 +351,8 @@ class GameViewModel(
             maxAudioAmplitude    = maxAmplitude,
             perceivedStressScore = finalPerceivedStress,
             finalEmotion         = emotionDetected,
-            exitReason           = exitReason
+            exitReason           = exitReason,
+            emotionTimeline      = emotionTimeline.toList()
         )
 
         return try {

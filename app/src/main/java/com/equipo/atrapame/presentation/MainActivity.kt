@@ -90,11 +90,20 @@ class MainActivity : AppCompatActivity() {
                 val smiling = affectiveManager.currentSmilingProbability
                 val eyeOpen = affectiveManager.currentEyeOpenProbability
                 val amplitude = affectiveManager.currentAudioAmplitude
-                
-                var stress = (eyeOpen * 50f) + (amplitude / 100f) - (smiling * 50f)
-                if (stress < 0f) stress = 0f
-                if (stress > 100f) stress = 100f
-                
+                val pitchHz = affectiveManager.currentPitchHz
+                val pitchVar = affectiveManager.pitchVariability
+                val isSpeech = affectiveManager.isSpeechDetected
+
+                val voiceStress = if (isSpeech && pitchHz > 0f) {
+                    val pitchFactor = ((pitchHz - 120f) / 200f).coerceIn(0f, 1f)
+                    val varFactor = (pitchVar / 40f).coerceIn(0f, 1f)
+                    val volFactor = (amplitude / 100f).coerceIn(0f, 1f)
+                    (pitchFactor * 0.4f + varFactor * 0.35f + volFactor * 0.25f) * 100f
+                } else 0f
+
+                val faceStress = (eyeOpen * 40f) - (smiling * 40f)
+                var stress = (faceStress + voiceStress * 0.6f).coerceIn(0f, 100f)
+
                 binding.progressMainStress.progress = stress.toInt()
             }
         }

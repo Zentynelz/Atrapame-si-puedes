@@ -86,9 +86,12 @@ class GameActivity : AppCompatActivity() {
                 delay(500)
                 if (!isPaused && !gameEnded) {
                     viewModel.updateTelemetry(
-                        affectiveManager.currentSmilingProbability,
-                        affectiveManager.currentEyeOpenProbability,
-                        affectiveManager.currentAudioAmplitude
+                        smiling = affectiveManager.currentSmilingProbability,
+                        eyeOpen = affectiveManager.currentEyeOpenProbability,
+                        amplitude = affectiveManager.currentAudioAmplitude,
+                        pitchHz = affectiveManager.currentPitchHz,
+                        pitchVariability = affectiveManager.pitchVariability,
+                        isSpeech = affectiveManager.isSpeechDetected
                     )
                 }
             }

@@ -11,6 +11,7 @@ dependencyResolutionManagement {
     repositories {
         google()       // repositorio principal de Android
         mavenCentral() // librerías Kotlin, Room, etc.
+        maven { url 'https://jitpack.io' }
     }
 }
 
