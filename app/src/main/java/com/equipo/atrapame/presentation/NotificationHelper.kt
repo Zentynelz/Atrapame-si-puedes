@@ -13,10 +13,15 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import com.equipo.atrapame.R
 
+import android.media.AudioManager
+import android.media.ToneGenerator
+import android.os.Handler
+import android.os.Looper
+
 class NotificationHelper(private val context: Context) {
 
     companion object {
-        const val CHANNEL_ID = "game_notifications"
+        const val CHANNEL_ID = "game_notifications_v3"
         const val CHANNEL_NAME = "Game Notifications"
         private const val NOTIFICATION_ID_WIN = 1
         private const val NOTIFICATION_ID_LOSE = 2
@@ -25,7 +30,7 @@ class NotificationHelper(private val context: Context) {
 
     fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val importance = NotificationManager.IMPORTANCE_LOW // Silenciar notificacion de sistema
             val channel = NotificationChannel(CHANNEL_ID, CHANNEL_NAME, importance).apply {
                 description = context.getString(R.string.notification_channel_description)
             }
@@ -52,6 +57,16 @@ class NotificationHelper(private val context: Context) {
         with(NotificationManagerCompat.from(context)) {
             notify(NOTIFICATION_ID_WIN, notification)
         }
+        
+        // Reproducir sonido relajante caracteristico
+        try {
+            val toneGen = ToneGenerator(AudioManager.STREAM_NOTIFICATION, 60)
+            toneGen.startTone(ToneGenerator.TONE_PROP_BEEP, 100) // Suave beep
+            Handler(Looper.getMainLooper()).postDelayed({
+                toneGen.startTone(ToneGenerator.TONE_PROP_PROMPT, 200) // Segundo beep aciendo acorde
+                Handler(Looper.getMainLooper()).postDelayed({ toneGen.release() }, 250)
+            }, 120)
+        } catch(e: Exception) {}
     }
 
     fun showDefeatNotification() {

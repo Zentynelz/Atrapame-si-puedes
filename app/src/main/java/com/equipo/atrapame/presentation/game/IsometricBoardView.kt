@@ -53,24 +53,28 @@ class IsometricBoardView @JvmOverloads constructor(
     }
 
     private val obstacleTopPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = ContextCompat.getColor(context, R.color.tron_grid)
+        color = ColorUtils.blendARGB(
+            ContextCompat.getColor(context, R.color.tron_cyan),
+            Color.BLACK,
+            0.3f // Color techo cyan brillante
+        )
         style = Paint.Style.FILL
     }
 
     private val obstacleLeftPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = ColorUtils.blendARGB(
-            ContextCompat.getColor(context, R.color.tron_grid),
+            ContextCompat.getColor(context, R.color.tron_cyan),
             Color.BLACK,
-            0.3f
+            0.5f // Color pared izquierda cyan oscuro
         )
         style = Paint.Style.FILL
     }
 
     private val obstacleRightPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = ColorUtils.blendARGB(
-            ContextCompat.getColor(context, R.color.tron_grid),
+            ContextCompat.getColor(context, R.color.tron_cyan),
             Color.BLACK,
-            0.5f
+            0.7f // Color pared derecha un poco más oscura para 3D
         )
         style = Paint.Style.FILL
     }
@@ -299,7 +303,7 @@ class IsometricBoardView @JvmOverloads constructor(
         val tileHeightFromHeight = availableHeight * 2f / (rows + cols + 2f)
         tileWidth = min(tileWidthFromWidth, tileHeightFromHeight * 2f)
         tileHeight = tileWidth / 2f
-        obstacleHeight = tileHeight
+        obstacleHeight = tileHeight * 1.5f // Hacer paredes un 50% más altas para que no se pierdan
 
         val boardWidth = (rows + cols) * tileWidth / 2f
         val boardHeight = (rows + cols) * tileHeight / 2f
