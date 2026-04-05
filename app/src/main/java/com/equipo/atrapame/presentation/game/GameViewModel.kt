@@ -324,12 +324,16 @@ class GameViewModel(
 
     private fun adjustDifficultyDynamically(stressLevel: Int, smiling: Float) {
         when {
-            stressLevel > 70                      -> currentEnemySpeedDelay += 100L
-            stressLevel in 50..70                 -> currentEnemySpeedDelay += 50L
-            smiling > 0.4f && stressLevel < 30   -> currentEnemySpeedDelay -= 100L
-            stressLevel < 10                      -> currentEnemySpeedDelay -= 50L
+            // Jugador hiper-estresado y frustrado (aliviarle muchísimo quitando velocidad el enemigo)
+            stressLevel > 65                      -> currentEnemySpeedDelay += 150L
+            stressLevel in 45..65                 -> currentEnemySpeedDelay += 75L
+            // Jugador disfrutando un montón (subir dificultad drásticamente para agobiarlo)
+            smiling > 0.35f                       -> currentEnemySpeedDelay -= 120L
+            // Jugador aburrido o hiper-relajado (subir la velocidad sigilosamente)
+            stressLevel < 20                      -> currentEnemySpeedDelay -= 80L
         }
-        currentEnemySpeedDelay = currentEnemySpeedDelay.coerceIn(400L, 1500L)
+        // Permitirle llegar hasta unos infernales 150ms de persecución si va muy feliz 
+        currentEnemySpeedDelay = currentEnemySpeedDelay.coerceIn(150L, 1800L)
     }
 
     fun setPerceivedStress(score: Int) { finalPerceivedStress = score }
