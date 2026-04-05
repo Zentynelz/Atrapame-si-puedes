@@ -284,27 +284,26 @@ class GameViewModel(
     ) {
         if (isPaused) return
         val safeSmile = if (smiling.isNaN()) 0f else smiling
-        val safeEye = if (eyeOpen.isNaN()) 0f else eyeOpen
-        val safePitch = if (pitchHz.isNaN()) 0f else pitchHz
-
+        
         telemetryCount++
         totalSmilingProb += safeSmile
-        totalEyeOpenProb += safeEye
         if (amplitude > maxAmplitude) maxAmplitude = amplitude
 
-        // Solo considerar datos de voz cuando hay habla real
-        val voiceStressComponent = if (isSpeech && safePitch > 0f) {
-            val pitchFactor = ((safePitch - 120f) / 200f).coerceIn(0f, 1f)
-            val variabilityFactor = (if (pitchVariability.isNaN()) 0f else pitchVariability / 40f).coerceIn(0f, 1f)
-            val volumeFactor = (amplitude / 100f).coerceIn(0f, 1f)
-            (pitchFactor * 0.4f + variabilityFactor * 0.35f + volumeFactor * 0.25f) * 100f
+        // 1. VOZ: Si hay un ruido notorio (quejido, bufido), sube drásticamente el estrés
+        val voiceStressComponent = if (amplitude > 20) {
+            (amplitude / 100f) * 60f
         } else {
             0f
         }
-        // Combinar cara + voz
-        val faceStress = (safeEye * 40f) - (safeSmile * 40f)
-        val stress = (faceStress + (voiceStressComponent * 0.6f)).coerceIn(0f, 100f)
+
+        // 2. CARA: Personas con gafas fallan en la detección de ojos (RightEye = 0.0 constante).
+        // Las cejas juntas (frustración) reducen drásticamente la "sonrisa" a 0.0.
+        // Asignaremos estrés basal alto cuando la persona está con la ceja fruncida / seria (0% sonrisa).
+        val nonSmileFactor = (1f - safeSmile.coerceIn(0f, 1f)) * 50f
+
+        val stress = (nonSmileFactor + voiceStressComponent).coerceIn(0f, 100f)
         val stressInt = stress.toInt()
+        
         _currentStressLevel.postValue(stressInt)
 
         // Timeline para gráfica
@@ -336,11 +335,13 @@ class GameViewModel(
     fun setPerceivedStress(score: Int) { finalPerceivedStress = score }
 
     private fun calculateFinalEmotion(avgSmile: Float, avgEye: Float, maxAmp: Int): String {
+        // En vez de usar el ojo (que falla con las gafas) nos basamos fuertemente en la falta de sonrisa 
+        // y los quejidos audibles (amplitud).
         return when {
-            avgSmile > 0.4f                                     -> "HAPPY_ENJOYING"
-            avgSmile < 0.1f && avgEye > 0.5f && maxAmp >= 2000 -> "STRESSED_FRUSTRATED"
-            avgSmile < 0.1f && avgEye < 0.3f && maxAmp < 1000  -> "BORED_SAD"
-            else                                                -> "NEUTRAL_FOCUSED"
+            avgSmile > 0.35f -> "HAPPY_ENJOYING" // Claramente el tester se estaba riendo o pasando bien
+            avgSmile < 0.15f && maxAmp >= 45 -> "STRESSED_FRUSTRATED" // Estaba serio/fruncido y bufó o exclamó
+            avgSmile < 0.10f && maxAmp < 20 -> "BORED_SAD" // Muy serio todo el tiempo y en completo silencio
+            else -> "NEUTRAL_FOCUSED"
         }
     }
 

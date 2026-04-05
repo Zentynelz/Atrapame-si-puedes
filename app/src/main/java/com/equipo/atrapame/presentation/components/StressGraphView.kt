@@ -41,14 +41,13 @@ class StressGraphView @JvmOverloads constructor(
         // Generaremos el Stress Score a base de (audio + anti-sonrisa) o directamente de un campo.
         // Simularemos o calcularemos un valor general 0f - 1f por cada segundo.
         for (item in timelineMapList) {
-            val smile = (item["smilingProb"] as? Number)?.toFloat() ?: 0f
-            val audio = (item["audioAmplitude"] as? Number)?.toFloat() ?: 0f
-            // Fórmula simple: Mucho audio y poca sonrisa = Alto estrés (maximo audio ~25000 ref, limitémoslo)
-            var stress = 0f
-            if (audio > 2000) stress += 0.5f else stress += (audio / 4000f)
-            stress += (1f - smile) * 0.5f
-            if (stress > 1f) stress = 1f
-            dataPoints.add(stress)
+            // Utilizamos directamente el StressLevel [0-100] calculado matemáticamente en el ViewModel
+            // lo normalizamos de 0.0 a 1.0 para que quepa en el Canvas
+            val stressInt = (item["stressLevel"] as? Number)?.toFloat() ?: 0f
+            var normalizedStress = stressInt / 100f
+            
+            if (normalizedStress > 1f) normalizedStress = 1f
+            dataPoints.add(normalizedStress)
         }
         
         postInvalidate() // Redibujar
