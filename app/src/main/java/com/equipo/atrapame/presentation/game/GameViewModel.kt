@@ -151,7 +151,12 @@ class GameViewModel(
                 val state = _gameState.value
                 if (state != null && !state.isGameWon && !state.isGameLost && !isPaused) {
                     val elapsed = System.currentTimeMillis() - gameStartTime - totalPausedTime
-                    _gameState.postValue(state.copy(timeElapsed = elapsed))
+                    if (elapsed >= 60000L) {
+                        _gameState.postValue(state.copy(timeElapsed = 60000L))
+                        onGameLost() // Perder automáticamente tras 1 minuto
+                    } else {
+                        _gameState.postValue(state.copy(timeElapsed = elapsed))
+                    }
                 }
                 delay(100)
             }
@@ -203,10 +208,11 @@ class GameViewModel(
     private fun generateRandomObstacles(rows: Int, cols: Int, difficulty: com.equipo.atrapame.data.models.Difficulty): Set<Position> {
         val positions = mutableSetOf<Position>()
         val density = when(difficulty) {
-            com.equipo.atrapame.data.models.Difficulty.EASY -> 0.15
+            com.equipo.atrapame.data.models.Difficulty.EASY -> 0.20
             com.equipo.atrapame.data.models.Difficulty.MEDIUM,
-            com.equipo.atrapame.data.models.Difficulty.DYNAMIC -> 0.25
-            com.equipo.atrapame.data.models.Difficulty.HARD -> 0.35
+            com.equipo.atrapame.data.models.Difficulty.DYNAMIC -> 0.30
+            com.equipo.atrapame.data.models.Difficulty.HARD -> 0.40
+            com.equipo.atrapame.data.models.Difficulty.IMPOSSIBLE -> 0.45
         }
         val maxObstacles = (rows * cols * density).toInt()
         val random = java.util.Random()
@@ -284,6 +290,7 @@ class GameViewModel(
     ) {
         if (isPaused) return
         val safeSmile = if (smiling.isNaN()) 0f else smiling
+        val safePitch = if (pitchHz.isNaN()) 0f else pitchHz
         
         telemetryCount++
         totalSmilingProb += safeSmile

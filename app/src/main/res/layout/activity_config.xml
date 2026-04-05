@@ -105,6 +105,17 @@
                 android:padding="12dp"
                 android:textColor="@color/tron_orange"
                 android:buttonTint="@color/tron_orange" />
+                
+            <RadioButton
+                android:id="@+id/rbImpossible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Imposible (Mortal)"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:padding="12dp"
+                android:textColor="#FF0000"
+                android:buttonTint="#FF0000" />
 
         </RadioGroup>
 

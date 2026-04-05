@@ -23,7 +23,15 @@
         android:layout_height="2dp"
         android:background="@color/tron_cyan"
         android:layout_gravity="center"
-        android:layout_marginBottom="24dp" />
+        android:layout_marginBottom="16dp" />
+
+    <Spinner
+        android:id="@+id/spinDifficulty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/tron_cyan"
+        android:padding="8dp"/>
 
     <FrameLayout
         android:layout_width="match_parent"

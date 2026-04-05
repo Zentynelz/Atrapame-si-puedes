@@ -25,13 +25,13 @@ class ScoreViewModel(
         loadTopScores()
     }
 
-    fun loadTopScores(limit: Int = 10) {
+    fun loadTopScores(difficultyFilter: String? = null) {
         viewModelScope.launch {
             _loading.value = true
             _error.value = null
 
             try {
-                val scoreList = repository.getTopScores().take(limit)
+                val scoreList = repository.getGlobalTopScores(difficultyFilter)
                 _scores.value = scoreList
             } catch (e: Exception) {
                 _error.value = e.message ?: "Error desconocido"

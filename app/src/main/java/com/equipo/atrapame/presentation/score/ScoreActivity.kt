@@ -35,6 +35,29 @@ class ScoreActivity : AppCompatActivity() {
     private fun setupUI() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = getString(R.string.score_title)
+        
+        val difficulties = listOf("Todas", "Fácil", "Medio", "Difícil", "Dinámico", "Imposible")
+        val adapter = android.widget.ArrayAdapter(this, android.R.layout.simple_spinner_item, difficulties)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spinDifficulty.adapter = adapter
+        
+        binding.spinDifficulty.onItemSelectedListener = object : android.widget.AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: android.widget.AdapterView<*>?, view: android.view.View?, pos: Int, id: Long) {
+                // Adjust text color dynamically for dark mode
+                (parent?.getChildAt(0) as? android.widget.TextView)?.setTextColor(android.graphics.Color.CYAN)
+                
+                val hardcodedEnum = when(pos) {
+                    1 -> "EASY"
+                    2 -> "MEDIUM"
+                    3 -> "HARD"
+                    4 -> "DYNAMIC"
+                    5 -> "IMPOSSIBLE"
+                    else -> null
+                }
+                viewModel.loadTopScores(hardcodedEnum)
+            }
+            override fun onNothingSelected(parent: android.widget.AdapterView<*>?) {}
+        }
     }
 
     private fun setupRecyclerView() {

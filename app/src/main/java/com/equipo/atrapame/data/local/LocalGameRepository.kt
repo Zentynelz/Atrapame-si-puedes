@@ -113,24 +113,61 @@ class LocalGameRepository(context: Context) {
     }
 
     // ----------- OBTENER DESDE LOCAL ----------
-    suspend fun getTopScores(): List<Score> = withContext(Dispatchers.IO) {
-        scoreDao.getTopScores(10).map { e ->
-            Score(
-                id = e.idFirebase ?: e.localId.toString(),
-                playerName = e.playerName,
-                moves = e.moves,
-                timeElapsed = e.timeElapsed,
-                difficulty = try { 
-                    com.equipo.atrapame.data.models.Difficulty.valueOf(e.difficulty) 
-                } catch (_: Exception) { 
-                    com.equipo.atrapame.data.models.Difficulty.MEDIUM 
-                },
-                timestamp = e.timestamp,
-                avgSmilingProb = e.avgSmilingProb,
-                avgRightEyeOpenProb = e.avgRightEyeOpenProb,
-                maxAudioAmplitude = e.maxAudioAmplitude,
-                perceivedStressScore = e.perceivedStressScore
-            )
+    suspend fun getGlobalTopScores(difficultyFilter: String? = null): List<Score> = withContext(Dispatchers.IO) {
+        try {
+            // Intentar traer los datos globales directamente de Firebase
+            val snapshot = firestore.collection("scores")
+                .whereEqualTo("exitReason", "WON")
+                .get()
+                .await()
+                
+            val globalScores = snapshot.documents.mapNotNull { doc ->
+                try {
+                    Score(
+                        id = doc.id,
+                        playerName = doc.getString("playerName") ?: "Unknown",
+                        moves = doc.getLong("moves")?.toInt() ?: 0,
+                        timeElapsed = doc.getLong("timeElapsed") ?: 0L,
+                        difficulty = com.equipo.atrapame.data.models.Difficulty.valueOf(doc.getString("difficulty") ?: "MEDIUM"),
+                        timestamp = doc.getLong("timestamp") ?: 0L,
+                        avgSmilingProb = doc.getDouble("avgSmilingProb")?.toFloat() ?: 0f,
+                        avgRightEyeOpenProb = doc.getDouble("avgRightEyeOpenProb")?.toFloat() ?: 0f,
+                        maxAudioAmplitude = doc.getLong("maxAudioAmplitude")?.toInt() ?: 0,
+                        perceivedStressScore = doc.getLong("perceivedStressScore")?.toInt() ?: -1,
+                        finalEmotion = doc.getString("finalEmotion") ?: "NEUTRAL_FOCUSED",
+                        exitReason = doc.getString("exitReason") ?: "WON"
+                    )
+                } catch (e: Exception) { null }
+            }
+            
+            // Filtramos en memoria para evitar error de falta de indice en Firebase
+            val filtered = if (difficultyFilter != null) {
+                globalScores.filter { it.difficulty.name == difficultyFilter }
+            } else {
+                 globalScores
+            }
+            
+            // Ordenamos por mejor tiempo
+            filtered.sortedBy { it.timeElapsed }.take(50)
+            
+        } catch (e: Exception) {
+            android.util.Log.e("LocalGameRepository", "Firebase Falló, regresando a local", e)
+            // Fallback a Local
+            val localDocs = scoreDao.getTopScores(50)
+            localDocs.map { e ->
+                Score(
+                    id = e.idFirebase ?: e.localId.toString(),
+                    playerName = e.playerName,
+                    moves = e.moves,
+                    timeElapsed = e.timeElapsed,
+                    difficulty = try { com.equipo.atrapame.data.models.Difficulty.valueOf(e.difficulty) } catch (_: Exception) { com.equipo.atrapame.data.models.Difficulty.MEDIUM },
+                    timestamp = e.timestamp,
+                    avgSmilingProb = e.avgSmilingProb,
+                    avgRightEyeOpenProb = e.avgRightEyeOpenProb,
+                    maxAudioAmplitude = e.maxAudioAmplitude,
+                    perceivedStressScore = e.perceivedStressScore
+                )
+            }.filter { difficultyFilter == null || it.difficulty.name == difficultyFilter }
         }
     }
 

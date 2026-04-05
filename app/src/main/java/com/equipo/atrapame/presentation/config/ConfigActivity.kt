@@ -44,6 +44,7 @@ class ConfigActivity : AppCompatActivity() {
             Difficulty.MEDIUM -> binding.rbMedium.isChecked = true
             Difficulty.HARD -> binding.rbHard.isChecked = true
             Difficulty.DYNAMIC -> binding.rbDynamic.isChecked = true
+            Difficulty.IMPOSSIBLE -> binding.rbImpossible.isChecked = true
         }
     }
     
@@ -108,6 +109,7 @@ class ConfigActivity : AppCompatActivity() {
             R.id.rbEasy -> Difficulty.EASY
             R.id.rbHard -> Difficulty.HARD
             R.id.rbDynamic -> Difficulty.DYNAMIC
+            R.id.rbImpossible -> Difficulty.IMPOSSIBLE
             else -> Difficulty.MEDIUM
         }
         
