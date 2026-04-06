@@ -6,9 +6,9 @@ data class PlayerConfig(
 )
 
 enum class Difficulty(val displayName: String, val enemySpeed: Int) {
-    EASY("Fácil", 700), // Antes 1000, ahora mucho mas rápido
-    MEDIUM("Medio", 500), // Antes 750
-    HARD("Difícil", 350), // Antes 500
-    DYNAMIC("Dinámico", 500), // Base speed
-    IMPOSSIBLE("Imposible", 200) // Nueva dificultad super frenética
+    EASY("Fácil", 700),
+    MEDIUM("Medio", 500),
+    HARD("Difícil", 250), // Antes 350
+    DYNAMIC("Dinámico", 500), 
+    IMPOSSIBLE("Imposible", 80) // Extremadamente veloz (imposible ganar sin macros)
 }

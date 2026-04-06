@@ -211,11 +211,11 @@ class GameViewModel(
     private fun generateRandomObstacles(rows: Int, cols: Int, difficulty: com.equipo.atrapame.data.models.Difficulty): Set<Position> {
         val positions = mutableSetOf<Position>()
         val density = when(difficulty) {
-            com.equipo.atrapame.data.models.Difficulty.EASY -> 0.20
+            com.equipo.atrapame.data.models.Difficulty.EASY -> 0.10
             com.equipo.atrapame.data.models.Difficulty.MEDIUM,
-            com.equipo.atrapame.data.models.Difficulty.DYNAMIC -> 0.30
-            com.equipo.atrapame.data.models.Difficulty.HARD -> 0.40
-            com.equipo.atrapame.data.models.Difficulty.IMPOSSIBLE -> 0.45
+            com.equipo.atrapame.data.models.Difficulty.DYNAMIC -> 0.15
+            com.equipo.atrapame.data.models.Difficulty.HARD -> 0.20
+            com.equipo.atrapame.data.models.Difficulty.IMPOSSIBLE -> 0.25
         }
         val maxObstacles = (rows * cols * density).toInt()
         val random = java.util.Random()
@@ -340,10 +340,10 @@ class GameViewModel(
             // Jugador disfrutando un montón (subir dificultad drásticamente para agobiarlo)
             smiling > 0.35f                       -> currentEnemySpeedDelay -= 120L
             // Jugador aburrido o hiper-relajado (subir la velocidad sigilosamente)
-            stressLevel < 20                      -> currentEnemySpeedDelay -= 80L
+            stressLevel < 20                      -> currentEnemySpeedDelay -= 120L
         }
-        // Permitirle llegar hasta unos infernales 150ms de persecución si va muy feliz 
-        currentEnemySpeedDelay = currentEnemySpeedDelay.coerceIn(150L, 1800L)
+        // Permitirle llegar hasta unos infernales 80ms de persecución si va muy feliz 
+        currentEnemySpeedDelay = currentEnemySpeedDelay.coerceIn(80L, 1800L)
     }
 
     fun setPerceivedStress(score: Int) { finalPerceivedStress = score }
