@@ -4,6 +4,12 @@ echo =======================================================
 echo    EXTRACTOR DE BIOFEEDBACK - ATRAPAME SI PUEDES
 echo =======================================================
 echo.
+
+:: Ir a la carpeta donde esta este .bat (lo hace funcionar con doble clic)
+cd /d "%~dp0"
+
+echo Carpeta de trabajo: %cd%
+echo.
 echo Comunicandose con la base de datos en la nube...
 echo.
 

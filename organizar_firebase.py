@@ -4,9 +4,13 @@ import subprocess
 import urllib.request
 from datetime import datetime
 
-# Rutas relativas
-GOOGLE_SERVICES_PATH = os.path.join("app", "google-services.json")
-BASE_FOLDER = "resultados_organizados"
+# Directorio donde está este mismo script (funciona con doble clic)
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Rutas ABSOLUTAS para que funcione desde cualquier lugar
+GOOGLE_SERVICES_PATH = os.path.join(SCRIPT_DIR, "app", "google-services.json")
+GRAFICA_SCRIPT = os.path.join(SCRIPT_DIR, "generar_grafica_estres.py")
+BASE_FOLDER = os.path.join(SCRIPT_DIR, "resultados_organizados")
 
 def parse_firestore_value(val):
     if "stringValue" in val:
@@ -100,10 +104,14 @@ def organizar_datos_resto():
             
         print(f"Descargado: {json_path}")
         
-        # Graficar automáticamente
         try:
-            subprocess.run(["python", "generar_grafica_estres.py", "-i", json_path, "-o", img_path], check=True)
+            subprocess.run(
+                ["python", GRAFICA_SCRIPT, "-i", json_path, "-o", img_path],
+                check=True,
+                cwd=SCRIPT_DIR  # Asegurar que el cwd sea el directorio del script
+            )
             count += 1
+            print(f"Grafica generada: {img_path}")
         except Exception as e:
             print(f"No se pudo generar grafica para {json_path}")
 
