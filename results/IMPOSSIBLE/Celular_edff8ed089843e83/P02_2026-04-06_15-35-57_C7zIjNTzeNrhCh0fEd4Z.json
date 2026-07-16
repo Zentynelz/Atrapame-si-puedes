@@ -1,0 +1,48 @@
+{
+    "exitReason": "WON",
+    "difficulty": "IMPOSSIBLE",
+    "perceivedStressScore": 0,
+    "avgRightEyeOpenProb": 0.0,
+    "playerName": "P02",
+    "emotionTimeline": [
+        {
+            "stressLevel": 49,
+            "isSpeech": false,
+            "smiling": 0.004573858808726072,
+            "timeMs": 360,
+            "pitchHz": 152.79681396484375,
+            "difficultyDelayMs": 80
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 49,
+            "smiling": 0.004994028247892857,
+            "pitchHz": 152.79681396484375,
+            "timeMs": 860,
+            "difficultyDelayMs": 80
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 127.92124938964844,
+            "timeMs": 1361,
+            "smiling": 0.004994028247892857,
+            "isSpeech": false,
+            "stressLevel": 49
+        },
+        {
+            "pitchHz": 127.92124938964844,
+            "timeMs": 1863,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 49,
+            "smiling": 0.004994028247892857
+        }
+    ],
+    "deviceId": "edff8ed089843e83",
+    "avgSmilingProb": 0.004888985771685839,
+    "finalEmotion": "BORED_SAD",
+    "moves": 9,
+    "timeElapsed": 1909,
+    "timestamp": 1775507757626,
+    "maxAudioAmplitude": 13
+}

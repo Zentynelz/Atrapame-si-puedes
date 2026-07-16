@@ -1,0 +1,80 @@
+{
+    "emotionTimeline": [
+        {
+            "isSpeech": false,
+            "stressLevel": 30,
+            "smiling": 0.3820083737373352,
+            "pitchHz": 625.188232421875,
+            "timeMs": 26,
+            "difficultyDelayMs": 500
+        },
+        {
+            "stressLevel": 12,
+            "isSpeech": false,
+            "smiling": 0.7531267404556274,
+            "timeMs": 538,
+            "pitchHz": 149.97695922851562,
+            "difficultyDelayMs": 500
+        },
+        {
+            "difficultyDelayMs": 500,
+            "pitchHz": 149.97695922851562,
+            "timeMs": 1039,
+            "smiling": 0.539508044719696,
+            "isSpeech": false,
+            "stressLevel": 23
+        },
+        {
+            "pitchHz": 149.97695922851562,
+            "timeMs": 1545,
+            "difficultyDelayMs": 500,
+            "isSpeech": false,
+            "stressLevel": 28,
+            "smiling": 0.6788913011550903
+        },
+        {
+            "stressLevel": 43,
+            "isSpeech": false,
+            "smiling": 0.3961668908596039,
+            "timeMs": 2067,
+            "pitchHz": 149.97695922851562,
+            "difficultyDelayMs": 500
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 6,
+            "smiling": 0.8775327205657959,
+            "pitchHz": 149.97695922851562,
+            "timeMs": 2587,
+            "difficultyDelayMs": 500
+        },
+        {
+            "smiling": 0.7844081521034241,
+            "stressLevel": 10,
+            "isSpeech": false,
+            "difficultyDelayMs": 500,
+            "timeMs": 3087,
+            "pitchHz": 149.97695922851562
+        },
+        {
+            "smiling": 0.3961668908596039,
+            "isSpeech": false,
+            "stressLevel": 30,
+            "difficultyDelayMs": 500,
+            "pitchHz": 149.97695922851562,
+            "timeMs": 3588
+        }
+    ],
+    "deviceId": "cecb80fb0c0fe514",
+    "avgSmilingProb": 0.6009761691093445,
+    "finalEmotion": "HAPPY_ENJOYING",
+    "timeElapsed": 3984,
+    "moves": 13,
+    "timestamp": 1775506824134,
+    "maxAudioAmplitude": 23,
+    "exitReason": "WON",
+    "difficulty": "MEDIUM",
+    "perceivedStressScore": 5,
+    "avgRightEyeOpenProb": 0.0,
+    "playerName": "P13"
+}

@@ -1,0 +1,72 @@
+{
+    "moves": 16,
+    "timeElapsed": 3552,
+    "maxAudioAmplitude": 17,
+    "timestamp": 1775507153284,
+    "deviceId": "85398d26ef79a8ad",
+    "emotionTimeline": [
+        {
+            "difficultyDelayMs": 500,
+            "pitchHz": 169.5878143310547,
+            "timeMs": 184,
+            "smiling": 0.025413721799850464,
+            "isSpeech": false,
+            "stressLevel": 48
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 48,
+            "smiling": 0.025413721799850464,
+            "pitchHz": 169.5878143310547,
+            "timeMs": 701,
+            "difficultyDelayMs": 575
+        },
+        {
+            "smiling": 0.016065111383795738,
+            "isSpeech": false,
+            "stressLevel": 49,
+            "difficultyDelayMs": 650,
+            "pitchHz": 226.79281616210938,
+            "timeMs": 1207
+        },
+        {
+            "difficultyDelayMs": 725,
+            "timeMs": 1709,
+            "pitchHz": 226.79281616210938,
+            "smiling": 0.029783526435494423,
+            "stressLevel": 48,
+            "isSpeech": false
+        },
+        {
+            "difficultyDelayMs": 800,
+            "pitchHz": 537.7118530273438,
+            "timeMs": 2210,
+            "smiling": 0.03208344429731369,
+            "isSpeech": false,
+            "stressLevel": 48
+        },
+        {
+            "timeMs": 2711,
+            "pitchHz": 537.7118530273438,
+            "difficultyDelayMs": 875,
+            "stressLevel": 35,
+            "isSpeech": false,
+            "smiling": 0.2905569076538086
+        },
+        {
+            "stressLevel": 40,
+            "isSpeech": false,
+            "smiling": 0.1818937361240387,
+            "timeMs": 3212,
+            "pitchHz": 537.7118530273438,
+            "difficultyDelayMs": 875
+        }
+    ],
+    "avgSmilingProb": 0.08588717132806778,
+    "finalEmotion": "BORED_SAD",
+    "perceivedStressScore": 0,
+    "difficulty": "DYNAMIC",
+    "playerName": "P16",
+    "avgRightEyeOpenProb": 0.0,
+    "exitReason": "WON"
+}

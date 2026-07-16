@@ -1,0 +1,96 @@
+{
+    "timeElapsed": 5175,
+    "moves": 17,
+    "timestamp": 1775532513932,
+    "maxAudioAmplitude": 12,
+    "emotionTimeline": [
+        {
+            "stressLevel": 50,
+            "isSpeech": false,
+            "smiling": 0.0,
+            "timeMs": 599,
+            "pitchHz": 0.0,
+            "difficultyDelayMs": 500
+        },
+        {
+            "smiling": 0.0,
+            "isSpeech": false,
+            "stressLevel": 50,
+            "difficultyDelayMs": 575,
+            "pitchHz": 0.0,
+            "timeMs": 1100
+        },
+        {
+            "smiling": 0.14228995144367218,
+            "stressLevel": 42,
+            "isSpeech": false,
+            "difficultyDelayMs": 650,
+            "timeMs": 1602,
+            "pitchHz": 0.0
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 36,
+            "smiling": 0.26047202944755554,
+            "pitchHz": 0.0,
+            "timeMs": 2122,
+            "difficultyDelayMs": 650
+        },
+        {
+            "stressLevel": 46,
+            "isSpeech": false,
+            "smiling": 0.06494977325201035,
+            "timeMs": 2623,
+            "pitchHz": 150.74900817871094,
+            "difficultyDelayMs": 650
+        },
+        {
+            "difficultyDelayMs": 725,
+            "timeMs": 3124,
+            "pitchHz": 448.7688903808594,
+            "smiling": 0.1818937361240387,
+            "stressLevel": 40,
+            "isSpeech": false
+        },
+        {
+            "timeMs": 3632,
+            "pitchHz": 514.4117431640625,
+            "difficultyDelayMs": 725,
+            "stressLevel": 26,
+            "isSpeech": false,
+            "smiling": 0.46985340118408203
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 11,
+            "smiling": 0.772500216960907,
+            "pitchHz": 431.6524658203125,
+            "timeMs": 4133,
+            "difficultyDelayMs": 605
+        },
+        {
+            "stressLevel": 33,
+            "isSpeech": false,
+            "smiling": 0.3273563086986542,
+            "timeMs": 4635,
+            "pitchHz": 431.6524658203125,
+            "difficultyDelayMs": 485
+        },
+        {
+            "difficultyDelayMs": 485,
+            "pitchHz": 431.6524658203125,
+            "timeMs": 5149,
+            "smiling": 0.10511480271816254,
+            "isSpeech": false,
+            "stressLevel": 44
+        }
+    ],
+    "deviceId": "c9d5693d185440a0",
+    "avgSmilingProb": 0.23244301974773407,
+    "finalEmotion": "NEUTRAL_FOCUSED",
+    "difficulty": "DYNAMIC",
+    "perceivedStressScore": 0,
+    "avgRightEyeOpenProb": 0.0,
+    "playerName": "P11",
+    "exitReason": "WON"
+}

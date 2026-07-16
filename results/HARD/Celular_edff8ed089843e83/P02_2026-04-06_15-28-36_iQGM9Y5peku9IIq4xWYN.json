@@ -1,0 +1,80 @@
+{
+    "moves": 22,
+    "timeElapsed": 4113,
+    "maxAudioAmplitude": 22,
+    "timestamp": 1775507316708,
+    "deviceId": "edff8ed089843e83",
+    "emotionTimeline": [
+        {
+            "smiling": 0.10511480271816254,
+            "isSpeech": false,
+            "stressLevel": 44,
+            "difficultyDelayMs": 250,
+            "pitchHz": 190.0845184326172,
+            "timeMs": 418
+        },
+        {
+            "smiling": 0.19892069697380066,
+            "stressLevel": 40,
+            "isSpeech": false,
+            "difficultyDelayMs": 250,
+            "timeMs": 918,
+            "pitchHz": 164.5408477783203
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 34,
+            "smiling": 0.3020227253437042,
+            "pitchHz": 164.5408477783203,
+            "timeMs": 1418,
+            "difficultyDelayMs": 250
+        },
+        {
+            "stressLevel": 33,
+            "isSpeech": false,
+            "smiling": 0.3273563086986542,
+            "timeMs": 1918,
+            "pitchHz": 164.5408477783203,
+            "difficultyDelayMs": 250
+        },
+        {
+            "pitchHz": 164.5408477783203,
+            "timeMs": 2418,
+            "difficultyDelayMs": 250,
+            "isSpeech": false,
+            "stressLevel": 16,
+            "smiling": 0.6712751984596252
+        },
+        {
+            "difficultyDelayMs": 250,
+            "pitchHz": 193.0635223388672,
+            "timeMs": 2918,
+            "smiling": 0.3428768813610077,
+            "isSpeech": false,
+            "stressLevel": 46
+        },
+        {
+            "pitchHz": 186.45396423339844,
+            "timeMs": 3418,
+            "difficultyDelayMs": 250,
+            "isSpeech": false,
+            "stressLevel": 30,
+            "smiling": 0.3961668908596039
+        },
+        {
+            "smiling": 0.49393221735954285,
+            "isSpeech": false,
+            "stressLevel": 25,
+            "difficultyDelayMs": 250,
+            "pitchHz": 164.84690856933594,
+            "timeMs": 3919
+        }
+    ],
+    "avgSmilingProb": 0.3547082245349884,
+    "finalEmotion": "HAPPY_ENJOYING",
+    "perceivedStressScore": 0,
+    "difficulty": "HARD",
+    "playerName": "P02",
+    "avgRightEyeOpenProb": 0.0,
+    "exitReason": "WON"
+}

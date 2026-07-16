@@ -1,0 +1,72 @@
+{
+    "timeElapsed": 3627,
+    "moves": 13,
+    "timestamp": 1775502040150,
+    "maxAudioAmplitude": 13,
+    "emotionTimeline": [
+        {
+            "isSpeech": false,
+            "stressLevel": 48,
+            "smiling": 0.03130638226866722,
+            "pitchHz": 307.4668884277344,
+            "timeMs": 266,
+            "difficultyDelayMs": 500
+        },
+        {
+            "smiling": 0.03208344429731369,
+            "stressLevel": 48,
+            "isSpeech": false,
+            "difficultyDelayMs": 575,
+            "timeMs": 766,
+            "pitchHz": 307.4668884277344
+        },
+        {
+            "difficultyDelayMs": 650,
+            "timeMs": 1266,
+            "pitchHz": 307.4668884277344,
+            "smiling": 0.046644844114780426,
+            "stressLevel": 47,
+            "isSpeech": false
+        },
+        {
+            "pitchHz": 252.54586791992188,
+            "timeMs": 1766,
+            "difficultyDelayMs": 725,
+            "isSpeech": false,
+            "stressLevel": 46,
+            "smiling": 0.06593630462884903
+        },
+        {
+            "stressLevel": 46,
+            "isSpeech": false,
+            "smiling": 0.06494977325201035,
+            "timeMs": 2266,
+            "pitchHz": 252.54586791992188,
+            "difficultyDelayMs": 800
+        },
+        {
+            "smiling": 0.061523858457803726,
+            "stressLevel": 46,
+            "isSpeech": false,
+            "difficultyDelayMs": 875,
+            "timeMs": 2766,
+            "pitchHz": 252.54586791992188
+        },
+        {
+            "difficultyDelayMs": 950,
+            "pitchHz": 252.54586791992188,
+            "timeMs": 3268,
+            "smiling": 0.05568087100982666,
+            "isSpeech": false,
+            "stressLevel": 47
+        }
+    ],
+    "deviceId": "40ec828db87c2c44",
+    "avgSmilingProb": 0.0511607825756073,
+    "finalEmotion": "BORED_SAD",
+    "difficulty": "DYNAMIC",
+    "perceivedStressScore": 0,
+    "avgRightEyeOpenProb": 0.0,
+    "playerName": "P09",
+    "exitReason": "WON"
+}

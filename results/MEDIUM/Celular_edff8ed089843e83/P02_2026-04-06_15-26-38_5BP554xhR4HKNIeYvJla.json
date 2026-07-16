@@ -1,0 +1,56 @@
+{
+    "exitReason": "WON",
+    "playerName": "P02",
+    "avgRightEyeOpenProb": 0.0,
+    "perceivedStressScore": 0,
+    "difficulty": "MEDIUM",
+    "avgSmilingProb": 0.005428276024758816,
+    "finalEmotion": "NEUTRAL_FOCUSED",
+    "deviceId": "edff8ed089843e83",
+    "emotionTimeline": [
+        {
+            "difficultyDelayMs": 500,
+            "timeMs": 368,
+            "pitchHz": 50.441322326660156,
+            "smiling": 0.0037472869735211134,
+            "stressLevel": 63,
+            "isSpeech": false
+        },
+        {
+            "timeMs": 869,
+            "pitchHz": 50.441322326660156,
+            "difficultyDelayMs": 500,
+            "stressLevel": 49,
+            "isSpeech": false,
+            "smiling": 0.0058485232293605804
+        },
+        {
+            "smiling": 0.0058485232293605804,
+            "isSpeech": false,
+            "stressLevel": 49,
+            "difficultyDelayMs": 500,
+            "pitchHz": 50.441322326660156,
+            "timeMs": 1368
+        },
+        {
+            "stressLevel": 49,
+            "isSpeech": false,
+            "smiling": 0.0058485232293605804,
+            "timeMs": 1868,
+            "pitchHz": 50.441322326660156,
+            "difficultyDelayMs": 500
+        },
+        {
+            "difficultyDelayMs": 500,
+            "pitchHz": 50.441322326660156,
+            "timeMs": 2369,
+            "smiling": 0.0058485232293605804,
+            "isSpeech": false,
+            "stressLevel": 49
+        }
+    ],
+    "maxAudioAmplitude": 23,
+    "timestamp": 1775507198465,
+    "moves": 11,
+    "timeElapsed": 2623
+}

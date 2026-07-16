@@ -1,0 +1,80 @@
+{
+    "exitReason": "WON",
+    "difficulty": "HARD",
+    "perceivedStressScore": 0,
+    "avgRightEyeOpenProb": 0.0,
+    "playerName": "P02",
+    "emotionTimeline": [
+        {
+            "difficultyDelayMs": 250,
+            "timeMs": 149,
+            "pitchHz": 159.86349487304688,
+            "smiling": 0.0071668741293251514,
+            "stressLevel": 49,
+            "isSpeech": false
+        },
+        {
+            "pitchHz": 159.86349487304688,
+            "timeMs": 650,
+            "difficultyDelayMs": 250,
+            "isSpeech": false,
+            "stressLevel": 49,
+            "smiling": 0.008996601216495037
+        },
+        {
+            "timeMs": 1151,
+            "pitchHz": 158.6017303466797,
+            "difficultyDelayMs": 250,
+            "stressLevel": 49,
+            "isSpeech": false,
+            "smiling": 0.010426056571304798
+        },
+        {
+            "timeMs": 1651,
+            "pitchHz": 158.6017303466797,
+            "difficultyDelayMs": 250,
+            "stressLevel": 49,
+            "isSpeech": false,
+            "smiling": 0.011907465755939484
+        },
+        {
+            "difficultyDelayMs": 250,
+            "timeMs": 2151,
+            "pitchHz": 158.6017303466797,
+            "smiling": 0.025413721799850464,
+            "stressLevel": 48,
+            "isSpeech": false
+        },
+        {
+            "smiling": 0.00994393602013588,
+            "isSpeech": false,
+            "stressLevel": 49,
+            "difficultyDelayMs": 250,
+            "pitchHz": 158.6017303466797,
+            "timeMs": 2652
+        },
+        {
+            "smiling": 0.011907465755939484,
+            "stressLevel": 49,
+            "isSpeech": false,
+            "difficultyDelayMs": 250,
+            "timeMs": 3152,
+            "pitchHz": 161.51930236816406
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 49,
+            "smiling": 0.01140771247446537,
+            "pitchHz": 161.51930236816406,
+            "timeMs": 3653,
+            "difficultyDelayMs": 250
+        }
+    ],
+    "deviceId": "edff8ed089843e83",
+    "avgSmilingProb": 0.012146228924393654,
+    "finalEmotion": "BORED_SAD",
+    "moves": 22,
+    "timeElapsed": 3614,
+    "timestamp": 1775507295821,
+    "maxAudioAmplitude": 13
+}

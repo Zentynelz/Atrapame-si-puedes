@@ -1,0 +1,216 @@
+{
+    "deviceId": "991f60dcd7aab317",
+    "emotionTimeline": [
+        {
+            "smiling": 0.0,
+            "isSpeech": false,
+            "stressLevel": 50,
+            "difficultyDelayMs": 80,
+            "pitchHz": 0.0,
+            "timeMs": 498
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 49,
+            "smiling": 0.008071166463196278,
+            "pitchHz": 0.0,
+            "timeMs": 999,
+            "difficultyDelayMs": 80
+        },
+        {
+            "timeMs": 1499,
+            "pitchHz": 0.0,
+            "difficultyDelayMs": 80,
+            "stressLevel": 48,
+            "isSpeech": false,
+            "smiling": 0.02065070904791355
+        },
+        {
+            "pitchHz": 0.0,
+            "timeMs": 2000,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 49,
+            "smiling": 0.016065111383795738
+        },
+        {
+            "difficultyDelayMs": 80,
+            "timeMs": 2500,
+            "pitchHz": 0.0,
+            "smiling": 0.025413721799850464,
+            "stressLevel": 48,
+            "isSpeech": false
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 0.0,
+            "timeMs": 3001,
+            "smiling": 0.022218160331249237,
+            "isSpeech": false,
+            "stressLevel": 48
+        },
+        {
+            "timeMs": 3502,
+            "pitchHz": 0.0,
+            "difficultyDelayMs": 80,
+            "stressLevel": 48,
+            "isSpeech": false,
+            "smiling": 0.026149364188313484
+        },
+        {
+            "pitchHz": 0.0,
+            "timeMs": 4001,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 48,
+            "smiling": 0.026149364188313484
+        },
+        {
+            "stressLevel": 49,
+            "isSpeech": false,
+            "smiling": 0.017574554309248924,
+            "timeMs": 4502,
+            "pitchHz": 0.0,
+            "difficultyDelayMs": 80
+        },
+        {
+            "smiling": 0.026149364188313484,
+            "stressLevel": 48,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 5002,
+            "pitchHz": 0.0
+        },
+        {
+            "difficultyDelayMs": 80,
+            "timeMs": 5504,
+            "pitchHz": 0.0,
+            "smiling": 0.022218160331249237,
+            "stressLevel": 48,
+            "isSpeech": false
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 0.0,
+            "timeMs": 6005,
+            "smiling": 0.022218160331249237,
+            "isSpeech": false,
+            "stressLevel": 48
+        },
+        {
+            "timeMs": 6506,
+            "pitchHz": 0.0,
+            "difficultyDelayMs": 80,
+            "stressLevel": 48,
+            "isSpeech": false,
+            "smiling": 0.02757435292005539
+        },
+        {
+            "stressLevel": 48,
+            "isSpeech": false,
+            "smiling": 0.022218160331249237,
+            "timeMs": 7005,
+            "pitchHz": 0.0,
+            "difficultyDelayMs": 80
+        },
+        {
+            "smiling": 0.02757435292005539,
+            "isSpeech": false,
+            "stressLevel": 48,
+            "difficultyDelayMs": 80,
+            "pitchHz": 0.0,
+            "timeMs": 7506
+        },
+        {
+            "smiling": 0.026149364188313484,
+            "stressLevel": 48,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 8005,
+            "pitchHz": 0.0
+        },
+        {
+            "smiling": 0.025413721799850464,
+            "stressLevel": 48,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 8505,
+            "pitchHz": 0.0
+        },
+        {
+            "stressLevel": 49,
+            "isSpeech": false,
+            "smiling": 0.017574554309248924,
+            "timeMs": 9006,
+            "pitchHz": 0.0,
+            "difficultyDelayMs": 80
+        },
+        {
+            "pitchHz": 0.0,
+            "timeMs": 9507,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 48,
+            "smiling": 0.025413721799850464
+        },
+        {
+            "timeMs": 10009,
+            "pitchHz": 0.0,
+            "difficultyDelayMs": 80,
+            "stressLevel": 49,
+            "isSpeech": false,
+            "smiling": 0.017574554309248924
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 0.0,
+            "timeMs": 10509,
+            "smiling": 0.01241330523043871,
+            "isSpeech": false,
+            "stressLevel": 49
+        },
+        {
+            "timeMs": 11009,
+            "pitchHz": 0.0,
+            "difficultyDelayMs": 80,
+            "stressLevel": 49,
+            "isSpeech": false,
+            "smiling": 0.017574554309248924
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 310.4984130859375,
+            "timeMs": 11510,
+            "smiling": 0.017574554309248924,
+            "isSpeech": false,
+            "stressLevel": 49
+        },
+        {
+            "difficultyDelayMs": 80,
+            "timeMs": 12011,
+            "pitchHz": 310.4984130859375,
+            "smiling": 0.02065070904791355,
+            "stressLevel": 48,
+            "isSpeech": false
+        },
+        {
+            "smiling": 0.022218160331249237,
+            "isSpeech": false,
+            "stressLevel": 48,
+            "difficultyDelayMs": 80,
+            "pitchHz": 310.4984130859375,
+            "timeMs": 12511
+        }
+    ],
+    "finalEmotion": "BORED_SAD",
+    "avgSmilingProb": 0.02051207609474659,
+    "moves": 36,
+    "timeElapsed": 12517,
+    "maxAudioAmplitude": 0,
+    "timestamp": 1775609545716,
+    "exitReason": "WON",
+    "perceivedStressScore": 0,
+    "difficulty": "IMPOSSIBLE",
+    "playerName": "P06",
+    "avgRightEyeOpenProb": 0.0
+}

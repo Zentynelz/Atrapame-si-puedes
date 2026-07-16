@@ -1,0 +1,72 @@
+{
+    "deviceId": "85398d26ef79a8ad",
+    "emotionTimeline": [
+        {
+            "difficultyDelayMs": 700,
+            "timeMs": 431,
+            "pitchHz": 170.2619171142578,
+            "smiling": 0.3273563086986542,
+            "stressLevel": 33,
+            "isSpeech": false
+        },
+        {
+            "pitchHz": 170.2619171142578,
+            "timeMs": 932,
+            "difficultyDelayMs": 700,
+            "isSpeech": false,
+            "stressLevel": 46,
+            "smiling": 0.06795352697372437
+        },
+        {
+            "timeMs": 1432,
+            "pitchHz": 170.2619171142578,
+            "difficultyDelayMs": 700,
+            "stressLevel": 41,
+            "isSpeech": false,
+            "smiling": 0.17023080587387085
+        },
+        {
+            "timeMs": 1933,
+            "pitchHz": 170.2619171142578,
+            "difficultyDelayMs": 700,
+            "stressLevel": 35,
+            "isSpeech": false,
+            "smiling": 0.2905569076538086
+        },
+        {
+            "difficultyDelayMs": 700,
+            "timeMs": 2434,
+            "pitchHz": 170.2619171142578,
+            "smiling": 0.06494977325201035,
+            "stressLevel": 46,
+            "isSpeech": false
+        },
+        {
+            "timeMs": 2935,
+            "pitchHz": 170.2619171142578,
+            "difficultyDelayMs": 700,
+            "stressLevel": 43,
+            "isSpeech": false,
+            "smiling": 0.13751231133937836
+        },
+        {
+            "pitchHz": 170.2619171142578,
+            "timeMs": 3435,
+            "difficultyDelayMs": 700,
+            "isSpeech": false,
+            "stressLevel": 43,
+            "smiling": 0.12884750962257385
+        }
+    ],
+    "avgSmilingProb": 0.16962958872318268,
+    "finalEmotion": "NEUTRAL_FOCUSED",
+    "moves": 28,
+    "timeElapsed": 3837,
+    "maxAudioAmplitude": 6,
+    "timestamp": 1775507470736,
+    "exitReason": "WON",
+    "perceivedStressScore": 0,
+    "difficulty": "EASY",
+    "playerName": "P16",
+    "avgRightEyeOpenProb": 0.0
+}

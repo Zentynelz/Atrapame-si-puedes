@@ -1,0 +1,72 @@
+{
+    "difficulty": "MEDIUM",
+    "maxAudioAmplitude": 24,
+    "avgRightEyeOpenProb": 0.0,
+    "deviceId": "edff8ed089843e83",
+    "moves": 20,
+    "playerName": "P02",
+    "avgSmilingProb": 0.0799727812409401,
+    "timestamp": 1775507227311,
+    "perceivedStressScore": 0,
+    "timeElapsed": 3406,
+    "emotionTimeline": [
+        {
+            "timeMs": 417,
+            "isSpeech": false,
+            "smiling": 0.3587360382080078,
+            "stressLevel": 32,
+            "pitchHz": 203.66246032714844,
+            "difficultyDelayMs": 500
+        },
+        {
+            "smiling": 0.07003184407949448,
+            "timeMs": 917,
+            "isSpeech": false,
+            "stressLevel": 46,
+            "difficultyDelayMs": 500,
+            "pitchHz": 203.66246032714844
+        },
+        {
+            "smiling": 0.029783526435494423,
+            "timeMs": 1418,
+            "isSpeech": false,
+            "pitchHz": 231.88790893554688,
+            "difficultyDelayMs": 500,
+            "stressLevel": 61
+        },
+        {
+            "smiling": 0.029783526435494423,
+            "timeMs": 1918,
+            "isSpeech": false,
+            "stressLevel": 48,
+            "pitchHz": 237.2444305419922,
+            "difficultyDelayMs": 500
+        },
+        {
+            "smiling": 0.029783526435494423,
+            "timeMs": 2418,
+            "isSpeech": false,
+            "difficultyDelayMs": 500,
+            "pitchHz": 240.51803588867188,
+            "stressLevel": 62
+        },
+        {
+            "timeMs": 2918,
+            "isSpeech": false,
+            "smiling": 0.029783526435494423,
+            "pitchHz": 240.51803588867188,
+            "difficultyDelayMs": 500,
+            "stressLevel": 48
+        },
+        {
+            "timeMs": 3419,
+            "isSpeech": false,
+            "smiling": 0.011907465755939484,
+            "pitchHz": 186.78762817382812,
+            "difficultyDelayMs": 500,
+            "stressLevel": 49
+        }
+    ],
+    "exitReason": "WON",
+    "finalEmotion": "NEUTRAL_FOCUSED"
+}

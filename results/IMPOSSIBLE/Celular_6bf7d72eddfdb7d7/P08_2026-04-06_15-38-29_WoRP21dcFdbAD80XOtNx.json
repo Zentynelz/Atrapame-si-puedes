@@ -1,0 +1,40 @@
+{
+    "exitReason": "WON",
+    "difficulty": "IMPOSSIBLE",
+    "perceivedStressScore": 0,
+    "avgRightEyeOpenProb": 0.0,
+    "playerName": "P08",
+    "emotionTimeline": [
+        {
+            "smiling": 0.008996601216495037,
+            "isSpeech": false,
+            "stressLevel": 49,
+            "difficultyDelayMs": 80,
+            "pitchHz": 138.33419799804688,
+            "timeMs": 481
+        },
+        {
+            "smiling": 0.008071166463196278,
+            "isSpeech": false,
+            "stressLevel": 49,
+            "difficultyDelayMs": 80,
+            "pitchHz": 138.33419799804688,
+            "timeMs": 981
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 138.33419799804688,
+            "timeMs": 1482,
+            "smiling": 0.00994393602013588,
+            "isSpeech": false,
+            "stressLevel": 49
+        }
+    ],
+    "deviceId": "6bf7d72eddfdb7d7",
+    "finalEmotion": "NEUTRAL_FOCUSED",
+    "avgSmilingProb": 0.009003900922834873,
+    "timeElapsed": 1812,
+    "moves": 11,
+    "timestamp": 1775507909977,
+    "maxAudioAmplitude": 20
+}

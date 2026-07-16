@@ -1,0 +1,56 @@
+{
+    "playerName": "P08",
+    "avgRightEyeOpenProb": 0.0,
+    "perceivedStressScore": 0,
+    "difficulty": "IMPOSSIBLE",
+    "exitReason": "WON",
+    "maxAudioAmplitude": 16,
+    "timestamp": 1775507857737,
+    "moves": 10,
+    "timeElapsed": 2533,
+    "finalEmotion": "BORED_SAD",
+    "avgSmilingProb": 0.01053282804787159,
+    "deviceId": "6bf7d72eddfdb7d7",
+    "emotionTimeline": [
+        {
+            "stressLevel": 49,
+            "isSpeech": false,
+            "smiling": 0.01140771247446537,
+            "timeMs": 169,
+            "pitchHz": 163.43035888671875,
+            "difficultyDelayMs": 80
+        },
+        {
+            "stressLevel": 49,
+            "isSpeech": false,
+            "smiling": 0.01140771247446537,
+            "timeMs": 669,
+            "pitchHz": 115.59359741210938,
+            "difficultyDelayMs": 80
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 49,
+            "smiling": 0.008996601216495037,
+            "pitchHz": 137.7820587158203,
+            "timeMs": 1170,
+            "difficultyDelayMs": 80
+        },
+        {
+            "smiling": 0.010426056571304798,
+            "stressLevel": 49,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 1672,
+            "pitchHz": 153.92945861816406
+        },
+        {
+            "stressLevel": 49,
+            "isSpeech": false,
+            "smiling": 0.010426056571304798,
+            "timeMs": 2173,
+            "pitchHz": 150.65528869628906,
+            "difficultyDelayMs": 80
+        }
+    ]
+}

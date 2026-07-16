@@ -1,0 +1,96 @@
+{
+    "avgRightEyeOpenProb": 0.0,
+    "playerName": "P02",
+    "difficulty": "HARD",
+    "perceivedStressScore": 0,
+    "exitReason": "WON",
+    "timestamp": 1775507311489,
+    "maxAudioAmplitude": 16,
+    "timeElapsed": 5116,
+    "moves": 47,
+    "avgSmilingProb": 0.05754606053233147,
+    "finalEmotion": "BORED_SAD",
+    "emotionTimeline": [
+        {
+            "smiling": 0.05226818844676018,
+            "stressLevel": 47,
+            "isSpeech": false,
+            "difficultyDelayMs": 250,
+            "timeMs": 381,
+            "pitchHz": 154.81739807128906
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 47,
+            "smiling": 0.05568087100982666,
+            "pitchHz": 140.19601440429688,
+            "timeMs": 882,
+            "difficultyDelayMs": 250
+        },
+        {
+            "smiling": 0.10511480271816254,
+            "stressLevel": 44,
+            "isSpeech": false,
+            "difficultyDelayMs": 250,
+            "timeMs": 1382,
+            "pitchHz": 140.19601440429688
+        },
+        {
+            "smiling": 0.06795352697372437,
+            "isSpeech": false,
+            "stressLevel": 46,
+            "difficultyDelayMs": 250,
+            "pitchHz": 140.19601440429688,
+            "timeMs": 1882
+        },
+        {
+            "difficultyDelayMs": 250,
+            "timeMs": 2382,
+            "pitchHz": 140.19601440429688,
+            "smiling": 0.046644844114780426,
+            "stressLevel": 47,
+            "isSpeech": false
+        },
+        {
+            "timeMs": 2883,
+            "pitchHz": 179.30465698242188,
+            "difficultyDelayMs": 250,
+            "stressLevel": 47,
+            "isSpeech": false,
+            "smiling": 0.046644844114780426
+        },
+        {
+            "timeMs": 3383,
+            "pitchHz": 179.30465698242188,
+            "difficultyDelayMs": 250,
+            "stressLevel": 48,
+            "isSpeech": false,
+            "smiling": 0.029783526435494423
+        },
+        {
+            "pitchHz": 179.30465698242188,
+            "timeMs": 3883,
+            "difficultyDelayMs": 250,
+            "isSpeech": false,
+            "stressLevel": 48,
+            "smiling": 0.03130638226866722
+        },
+        {
+            "difficultyDelayMs": 250,
+            "timeMs": 4383,
+            "pitchHz": 123.69799041748047,
+            "smiling": 0.07003184407949448,
+            "stressLevel": 46,
+            "isSpeech": false
+        },
+        {
+            "smiling": 0.07003184407949448,
+            "stressLevel": 46,
+            "isSpeech": false,
+            "difficultyDelayMs": 250,
+            "timeMs": 4883,
+            "pitchHz": 190.0845184326172
+        }
+    ],
+    "deviceId": "edff8ed089843e83"
+}

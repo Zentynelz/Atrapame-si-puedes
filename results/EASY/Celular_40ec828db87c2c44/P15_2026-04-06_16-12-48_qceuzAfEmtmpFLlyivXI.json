@@ -1,0 +1,56 @@
+{
+    "avgSmilingProb": 0.00685530761256814,
+    "finalEmotion": "BORED_SAD",
+    "deviceId": "40ec828db87c2c44",
+    "emotionTimeline": [
+        {
+            "smiling": 0.008071166463196278,
+            "stressLevel": 49,
+            "isSpeech": false,
+            "difficultyDelayMs": 700,
+            "timeMs": 140,
+            "pitchHz": 152.07162475585938
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 49,
+            "smiling": 0.00994393602013588,
+            "pitchHz": 152.07162475585938,
+            "timeMs": 641,
+            "difficultyDelayMs": 700
+        },
+        {
+            "stressLevel": 49,
+            "isSpeech": false,
+            "smiling": 0.004994028247892857,
+            "timeMs": 1141,
+            "pitchHz": 152.07162475585938,
+            "difficultyDelayMs": 700
+        },
+        {
+            "difficultyDelayMs": 700,
+            "timeMs": 1641,
+            "pitchHz": 172.06666564941406,
+            "smiling": 0.00541888689622283,
+            "stressLevel": 49,
+            "isSpeech": false
+        },
+        {
+            "timeMs": 2142,
+            "pitchHz": 172.06666564941406,
+            "difficultyDelayMs": 700,
+            "stressLevel": 49,
+            "isSpeech": false,
+            "smiling": 0.0058485232293605804
+        }
+    ],
+    "maxAudioAmplitude": 9,
+    "timestamp": 1775509968812,
+    "moves": 0,
+    "timeElapsed": 2114,
+    "exitReason": "WON",
+    "playerName": "P15",
+    "avgRightEyeOpenProb": 0.0,
+    "perceivedStressScore": 0,
+    "difficulty": "EASY"
+}

@@ -1,0 +1,72 @@
+{
+    "exitReason": "WON",
+    "perceivedStressScore": 0,
+    "difficulty": "DYNAMIC",
+    "playerName": "P09",
+    "avgRightEyeOpenProb": 0.0,
+    "deviceId": "40ec828db87c2c44",
+    "emotionTimeline": [
+        {
+            "isSpeech": false,
+            "stressLevel": 46,
+            "smiling": 0.06494977325201035,
+            "pitchHz": 499.10003662109375,
+            "timeMs": 256,
+            "difficultyDelayMs": 500
+        },
+        {
+            "smiling": 0.06494977325201035,
+            "isSpeech": false,
+            "stressLevel": 46,
+            "difficultyDelayMs": 575,
+            "pitchHz": 499.10003662109375,
+            "timeMs": 756
+        },
+        {
+            "stressLevel": 47,
+            "isSpeech": false,
+            "smiling": 0.05226818844676018,
+            "timeMs": 1257,
+            "pitchHz": 499.10003662109375,
+            "difficultyDelayMs": 650
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 46,
+            "smiling": 0.061523858457803726,
+            "pitchHz": 499.10003662109375,
+            "timeMs": 1757,
+            "difficultyDelayMs": 725
+        },
+        {
+            "smiling": 0.029783526435494423,
+            "stressLevel": 48,
+            "isSpeech": false,
+            "difficultyDelayMs": 800,
+            "timeMs": 2258,
+            "pitchHz": 499.10003662109375
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 48,
+            "smiling": 0.03130638226866722,
+            "pitchHz": 379.8135070800781,
+            "timeMs": 2758,
+            "difficultyDelayMs": 875
+        },
+        {
+            "smiling": 0.05568087100982666,
+            "stressLevel": 47,
+            "isSpeech": false,
+            "difficultyDelayMs": 950,
+            "timeMs": 3258,
+            "pitchHz": 379.8135070800781
+        }
+    ],
+    "finalEmotion": "BORED_SAD",
+    "avgSmilingProb": 0.051494624465703964,
+    "timeElapsed": 3614,
+    "moves": 11,
+    "maxAudioAmplitude": 13,
+    "timestamp": 1775501991681
+}

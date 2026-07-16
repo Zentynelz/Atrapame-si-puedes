@@ -1,0 +1,72 @@
+{
+    "avgSmilingProb": 0.006243553943932056,
+    "finalEmotion": "STRESSED_FRUSTRATED",
+    "deviceId": "edff8ed089843e83",
+    "emotionTimeline": [
+        {
+            "timeMs": 499,
+            "pitchHz": 161.66873168945312,
+            "difficultyDelayMs": 250,
+            "stressLevel": 78,
+            "isSpeech": false,
+            "smiling": 0.0
+        },
+        {
+            "pitchHz": 151.36083984375,
+            "timeMs": 1001,
+            "difficultyDelayMs": 250,
+            "isSpeech": false,
+            "stressLevel": 49,
+            "smiling": 0.016065111383795738
+        },
+        {
+            "difficultyDelayMs": 250,
+            "timeMs": 1502,
+            "pitchHz": 151.36083984375,
+            "smiling": 0.004573858808726072,
+            "stressLevel": 49,
+            "isSpeech": false
+        },
+        {
+            "difficultyDelayMs": 250,
+            "pitchHz": 136.32998657226562,
+            "timeMs": 2003,
+            "smiling": 0.004158301744610071,
+            "isSpeech": false,
+            "stressLevel": 49
+        },
+        {
+            "smiling": 0.004573858808726072,
+            "stressLevel": 49,
+            "isSpeech": false,
+            "difficultyDelayMs": 250,
+            "timeMs": 2503,
+            "pitchHz": 136.4467010498047
+        },
+        {
+            "stressLevel": 49,
+            "isSpeech": false,
+            "smiling": 0.0071668741293251514,
+            "timeMs": 3004,
+            "pitchHz": 136.4467010498047,
+            "difficultyDelayMs": 250
+        },
+        {
+            "pitchHz": 136.4467010498047,
+            "timeMs": 3505,
+            "difficultyDelayMs": 250,
+            "isSpeech": false,
+            "stressLevel": 49,
+            "smiling": 0.0071668741293251514
+        }
+    ],
+    "maxAudioAmplitude": 47,
+    "timestamp": 1775507291041,
+    "moves": 20,
+    "timeElapsed": 3661,
+    "exitReason": "WON",
+    "playerName": "P02",
+    "avgRightEyeOpenProb": 0.0,
+    "perceivedStressScore": 0,
+    "difficulty": "HARD"
+}

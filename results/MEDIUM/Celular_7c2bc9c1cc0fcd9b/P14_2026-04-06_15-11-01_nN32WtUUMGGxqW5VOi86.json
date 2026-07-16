@@ -1,0 +1,104 @@
+{
+    "emotionTimeline": [
+        {
+            "stressLevel": 50,
+            "isSpeech": false,
+            "smiling": 0.0,
+            "timeMs": 499,
+            "pitchHz": 0.0,
+            "difficultyDelayMs": 500
+        },
+        {
+            "smiling": 0.0,
+            "stressLevel": 50,
+            "isSpeech": false,
+            "difficultyDelayMs": 500,
+            "timeMs": 1000,
+            "pitchHz": 0.0
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 50,
+            "smiling": 0.0,
+            "pitchHz": 0.0,
+            "timeMs": 1501,
+            "difficultyDelayMs": 500
+        },
+        {
+            "stressLevel": 50,
+            "isSpeech": false,
+            "smiling": 0.0,
+            "timeMs": 2002,
+            "pitchHz": 0.0,
+            "difficultyDelayMs": 500
+        },
+        {
+            "difficultyDelayMs": 500,
+            "pitchHz": 0.0,
+            "timeMs": 2502,
+            "smiling": 0.0,
+            "isSpeech": false,
+            "stressLevel": 50
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 50,
+            "smiling": 0.0,
+            "pitchHz": 0.0,
+            "timeMs": 3012,
+            "difficultyDelayMs": 500
+        },
+        {
+            "stressLevel": 50,
+            "isSpeech": false,
+            "smiling": 0.0,
+            "timeMs": 3513,
+            "pitchHz": 0.0,
+            "difficultyDelayMs": 500
+        },
+        {
+            "smiling": 0.0,
+            "isSpeech": false,
+            "stressLevel": 50,
+            "difficultyDelayMs": 500,
+            "pitchHz": 0.0,
+            "timeMs": 4013
+        },
+        {
+            "difficultyDelayMs": 500,
+            "pitchHz": 0.0,
+            "timeMs": 4514,
+            "smiling": 0.0,
+            "isSpeech": false,
+            "stressLevel": 50
+        },
+        {
+            "timeMs": 5015,
+            "pitchHz": 0.0,
+            "difficultyDelayMs": 500,
+            "stressLevel": 50,
+            "isSpeech": false,
+            "smiling": 0.0
+        },
+        {
+            "pitchHz": 0.0,
+            "timeMs": 5517,
+            "difficultyDelayMs": 500,
+            "isSpeech": false,
+            "stressLevel": 50,
+            "smiling": 0.0
+        }
+    ],
+    "deviceId": "7c2bc9c1cc0fcd9b",
+    "avgSmilingProb": 0.0,
+    "finalEmotion": "BORED_SAD",
+    "timeElapsed": 5486,
+    "moves": 14,
+    "timestamp": 1775506261178,
+    "maxAudioAmplitude": 0,
+    "exitReason": "WON",
+    "difficulty": "MEDIUM",
+    "perceivedStressScore": 0,
+    "avgRightEyeOpenProb": 0.0,
+    "playerName": "P14"
+}

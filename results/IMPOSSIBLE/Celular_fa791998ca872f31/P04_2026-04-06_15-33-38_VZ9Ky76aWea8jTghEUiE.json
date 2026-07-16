@@ -1,0 +1,1240 @@
+{
+    "playerName": "P04",
+    "avgRightEyeOpenProb": 0.0,
+    "perceivedStressScore": 0,
+    "difficulty": "IMPOSSIBLE",
+    "exitReason": "WON",
+    "maxAudioAmplitude": 67,
+    "timestamp": 1775507618559,
+    "moves": 258,
+    "timeElapsed": 76863,
+    "finalEmotion": "NEUTRAL_FOCUSED",
+    "avgSmilingProb": 0.17205123603343964,
+    "deviceId": "fa791998ca872f31",
+    "emotionTimeline": [
+        {
+            "timeMs": 499,
+            "pitchHz": 105.71952819824219,
+            "difficultyDelayMs": 80,
+            "stressLevel": 88,
+            "isSpeech": false,
+            "smiling": 0.03208344429731369
+        },
+        {
+            "smiling": 0.03130638226866722,
+            "stressLevel": 48,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 999,
+            "pitchHz": 105.71952819824219
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 44,
+            "smiling": 0.10511480271816254,
+            "pitchHz": 105.71952819824219,
+            "timeMs": 1499,
+            "difficultyDelayMs": 80
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 47,
+            "smiling": 0.046644844114780426,
+            "pitchHz": 105.71952819824219,
+            "timeMs": 1999,
+            "difficultyDelayMs": 80
+        },
+        {
+            "stressLevel": 48,
+            "isSpeech": false,
+            "smiling": 0.028300998732447624,
+            "timeMs": 2500,
+            "pitchHz": 105.71952819824219,
+            "difficultyDelayMs": 80
+        },
+        {
+            "pitchHz": 156.2852020263672,
+            "timeMs": 3000,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 48,
+            "smiling": 0.02757435292005539
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 168.87429809570312,
+            "timeMs": 3501,
+            "smiling": 0.03130638226866722,
+            "isSpeech": false,
+            "stressLevel": 48
+        },
+        {
+            "pitchHz": 168.87429809570312,
+            "timeMs": 4001,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 49,
+            "smiling": 0.011907465755939484
+        },
+        {
+            "timeMs": 4501,
+            "pitchHz": 168.87429809570312,
+            "difficultyDelayMs": 80,
+            "stressLevel": 63,
+            "isSpeech": false,
+            "smiling": 0.011907465755939484
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 203.80453491210938,
+            "timeMs": 5001,
+            "smiling": 0.03130638226866722,
+            "isSpeech": false,
+            "stressLevel": 48
+        },
+        {
+            "smiling": 0.06494977325201035,
+            "isSpeech": false,
+            "stressLevel": 59,
+            "difficultyDelayMs": 80,
+            "pitchHz": 215.1859588623047,
+            "timeMs": 5501
+        },
+        {
+            "stressLevel": 61,
+            "isSpeech": false,
+            "smiling": 0.06593630462884903,
+            "timeMs": 6002,
+            "pitchHz": 215.1859588623047,
+            "difficultyDelayMs": 80
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 61,
+            "smiling": 0.13751231133937836,
+            "pitchHz": 96.76612854003906,
+            "timeMs": 6502,
+            "difficultyDelayMs": 80
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 96.76612854003906,
+            "timeMs": 7003,
+            "smiling": 0.10806591063737869,
+            "isSpeech": false,
+            "stressLevel": 44
+        },
+        {
+            "pitchHz": 96.76612854003906,
+            "timeMs": 7503,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 46,
+            "smiling": 0.06593630462884903
+        },
+        {
+            "smiling": 0.06593630462884903,
+            "isSpeech": false,
+            "stressLevel": 63,
+            "difficultyDelayMs": 80,
+            "pitchHz": 151.69032287597656,
+            "timeMs": 8004
+        },
+        {
+            "difficultyDelayMs": 80,
+            "timeMs": 8504,
+            "pitchHz": 278.5247497558594,
+            "smiling": 0.05226818844676018,
+            "stressLevel": 47,
+            "isSpeech": false
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 278.5247497558594,
+            "timeMs": 9004,
+            "smiling": 0.06593630462884903,
+            "isSpeech": false,
+            "stressLevel": 67
+        },
+        {
+            "smiling": 0.06494977325201035,
+            "stressLevel": 46,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 9504,
+            "pitchHz": 278.5247497558594
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 48,
+            "smiling": 0.029783526435494423,
+            "pitchHz": 278.5247497558594,
+            "timeMs": 10004,
+            "difficultyDelayMs": 80
+        },
+        {
+            "smiling": 0.05226818844676018,
+            "stressLevel": 47,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 10504,
+            "pitchHz": 278.5247497558594
+        },
+        {
+            "smiling": 0.05226818844676018,
+            "isSpeech": false,
+            "stressLevel": 59,
+            "difficultyDelayMs": 80,
+            "pitchHz": 278.5247497558594,
+            "timeMs": 11005
+        },
+        {
+            "difficultyDelayMs": 80,
+            "timeMs": 11505,
+            "pitchHz": 278.5247497558594,
+            "smiling": 0.03208344429731369,
+            "stressLevel": 63,
+            "isSpeech": false
+        },
+        {
+            "timeMs": 12006,
+            "pitchHz": 278.5247497558594,
+            "difficultyDelayMs": 80,
+            "stressLevel": 48,
+            "isSpeech": false,
+            "smiling": 0.026149364188313484
+        },
+        {
+            "timeMs": 12507,
+            "pitchHz": 278.5247497558594,
+            "difficultyDelayMs": 80,
+            "stressLevel": 48,
+            "isSpeech": false,
+            "smiling": 0.025413721799850464
+        },
+        {
+            "pitchHz": 278.5247497558594,
+            "timeMs": 13008,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 48,
+            "smiling": 0.022218160331249237
+        },
+        {
+            "difficultyDelayMs": 80,
+            "timeMs": 13508,
+            "pitchHz": 278.5247497558594,
+            "smiling": 0.022218160331249237,
+            "stressLevel": 48,
+            "isSpeech": false
+        },
+        {
+            "smiling": 0.022218160331249237,
+            "stressLevel": 48,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 14008,
+            "pitchHz": 73.76325225830078
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 48,
+            "smiling": 0.022218160331249237,
+            "pitchHz": 73.76325225830078,
+            "timeMs": 14508,
+            "difficultyDelayMs": 80
+        },
+        {
+            "stressLevel": 48,
+            "isSpeech": false,
+            "smiling": 0.022218160331249237,
+            "timeMs": 15008,
+            "pitchHz": 73.76325225830078,
+            "difficultyDelayMs": 80
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 48,
+            "smiling": 0.022218160331249237,
+            "pitchHz": 73.76325225830078,
+            "timeMs": 15508,
+            "difficultyDelayMs": 80
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 48,
+            "smiling": 0.022218160331249237,
+            "pitchHz": 169.81561279296875,
+            "timeMs": 16008,
+            "difficultyDelayMs": 80
+        },
+        {
+            "stressLevel": 62,
+            "isSpeech": false,
+            "smiling": 0.03130638226866722,
+            "timeMs": 16509,
+            "pitchHz": 169.81561279296875,
+            "difficultyDelayMs": 80
+        },
+        {
+            "pitchHz": 169.81561279296875,
+            "timeMs": 17009,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 48,
+            "smiling": 0.03130638226866722
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 215.72247314453125,
+            "timeMs": 17510,
+            "smiling": 0.0838734582066536,
+            "isSpeech": false,
+            "stressLevel": 45
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 215.72247314453125,
+            "timeMs": 18010,
+            "smiling": 0.4103410542011261,
+            "isSpeech": false,
+            "stressLevel": 48
+        },
+        {
+            "difficultyDelayMs": 80,
+            "timeMs": 18511,
+            "pitchHz": 215.72247314453125,
+            "smiling": 0.4103410542011261,
+            "stressLevel": 43,
+            "isSpeech": false
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 215.72247314453125,
+            "timeMs": 19011,
+            "smiling": 0.4103410542011261,
+            "isSpeech": false,
+            "stressLevel": 29
+        },
+        {
+            "smiling": 0.19892069697380066,
+            "stressLevel": 40,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 19513,
+            "pitchHz": 215.72247314453125
+        },
+        {
+            "stressLevel": 40,
+            "isSpeech": false,
+            "smiling": 0.19892069697380066,
+            "timeMs": 20014,
+            "pitchHz": 63.17829132080078,
+            "difficultyDelayMs": 80
+        },
+        {
+            "smiling": 0.19892069697380066,
+            "stressLevel": 40,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 20515,
+            "pitchHz": 66.1827392578125
+        },
+        {
+            "smiling": 0.3020227253437042,
+            "isSpeech": false,
+            "stressLevel": 34,
+            "difficultyDelayMs": 80,
+            "pitchHz": 66.1827392578125,
+            "timeMs": 21015
+        },
+        {
+            "stressLevel": 40,
+            "isSpeech": false,
+            "smiling": 0.1818937361240387,
+            "timeMs": 21515,
+            "pitchHz": 66.1827392578125,
+            "difficultyDelayMs": 80
+        },
+        {
+            "timeMs": 22016,
+            "pitchHz": 66.1827392578125,
+            "difficultyDelayMs": 80,
+            "stressLevel": 32,
+            "isSpeech": false,
+            "smiling": 0.3587360382080078
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 66.1827392578125,
+            "timeMs": 22517,
+            "smiling": 0.3020227253437042,
+            "isSpeech": false,
+            "stressLevel": 34
+        },
+        {
+            "difficultyDelayMs": 80,
+            "timeMs": 23018,
+            "pitchHz": 66.1827392578125,
+            "smiling": 0.3020227253437042,
+            "stressLevel": 54,
+            "isSpeech": false
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 34,
+            "smiling": 0.3020227253437042,
+            "pitchHz": 66.1827392578125,
+            "timeMs": 23521,
+            "difficultyDelayMs": 80
+        },
+        {
+            "pitchHz": 66.1827392578125,
+            "timeMs": 24023,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 49,
+            "smiling": 0.2905569076538086
+        },
+        {
+            "timeMs": 24524,
+            "pitchHz": 66.1827392578125,
+            "difficultyDelayMs": 80,
+            "stressLevel": 35,
+            "isSpeech": false,
+            "smiling": 0.2905569076538086
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 35,
+            "smiling": 0.2905569076538086,
+            "pitchHz": 66.1827392578125,
+            "timeMs": 25025,
+            "difficultyDelayMs": 80
+        },
+        {
+            "pitchHz": 66.1827392578125,
+            "timeMs": 25526,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 41,
+            "smiling": 0.17023080587387085
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 66.1827392578125,
+            "timeMs": 26026,
+            "smiling": 0.2905569076538086,
+            "isSpeech": false,
+            "stressLevel": 35
+        },
+        {
+            "difficultyDelayMs": 80,
+            "timeMs": 26533,
+            "pitchHz": 66.1827392578125,
+            "smiling": 0.147067591547966,
+            "stressLevel": 55,
+            "isSpeech": false
+        },
+        {
+            "pitchHz": 66.1827392578125,
+            "timeMs": 27035,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 34,
+            "smiling": 0.3020227253437042
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 49,
+            "smiling": 0.2905569076538086,
+            "pitchHz": 66.1827392578125,
+            "timeMs": 27537,
+            "difficultyDelayMs": 80
+        },
+        {
+            "smiling": 0.2905569076538086,
+            "stressLevel": 51,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 28037,
+            "pitchHz": 66.1827392578125
+        },
+        {
+            "smiling": 0.2905569076538086,
+            "isSpeech": false,
+            "stressLevel": 35,
+            "difficultyDelayMs": 80,
+            "pitchHz": 66.1827392578125,
+            "timeMs": 28538
+        },
+        {
+            "smiling": 0.2905569076538086,
+            "isSpeech": false,
+            "stressLevel": 51,
+            "difficultyDelayMs": 80,
+            "pitchHz": 201.73806762695312,
+            "timeMs": 29039
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 35,
+            "smiling": 0.2905569076538086,
+            "pitchHz": 201.73806762695312,
+            "timeMs": 29539,
+            "difficultyDelayMs": 80
+        },
+        {
+            "timeMs": 30039,
+            "pitchHz": 201.73806762695312,
+            "difficultyDelayMs": 80,
+            "stressLevel": 40,
+            "isSpeech": false,
+            "smiling": 0.19892069697380066
+        },
+        {
+            "pitchHz": 201.73806762695312,
+            "timeMs": 30540,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 34,
+            "smiling": 0.31375253200531006
+        },
+        {
+            "difficultyDelayMs": 80,
+            "timeMs": 31042,
+            "pitchHz": 201.73806762695312,
+            "smiling": 0.10806591063737869,
+            "stressLevel": 44,
+            "isSpeech": false
+        },
+        {
+            "smiling": 0.26047202944755554,
+            "stressLevel": 51,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 31545,
+            "pitchHz": 201.73806762695312
+        },
+        {
+            "smiling": 0.26047202944755554,
+            "isSpeech": false,
+            "stressLevel": 36,
+            "difficultyDelayMs": 80,
+            "pitchHz": 214.91412353515625,
+            "timeMs": 32047
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 36,
+            "smiling": 0.26047202944755554,
+            "pitchHz": 214.91412353515625,
+            "timeMs": 32548,
+            "difficultyDelayMs": 80
+        },
+        {
+            "difficultyDelayMs": 80,
+            "timeMs": 33049,
+            "pitchHz": 214.91412353515625,
+            "smiling": 0.26047202944755554,
+            "stressLevel": 53,
+            "isSpeech": false
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 214.91412353515625,
+            "timeMs": 33550,
+            "smiling": 0.26047202944755554,
+            "isSpeech": false,
+            "stressLevel": 36
+        },
+        {
+            "timeMs": 34051,
+            "pitchHz": 214.91412353515625,
+            "difficultyDelayMs": 80,
+            "stressLevel": 36,
+            "isSpeech": false,
+            "smiling": 0.26047202944755554
+        },
+        {
+            "stressLevel": 36,
+            "isSpeech": false,
+            "smiling": 0.26047202944755554,
+            "timeMs": 34552,
+            "pitchHz": 201.82565307617188,
+            "difficultyDelayMs": 80
+        },
+        {
+            "smiling": 0.26047202944755554,
+            "isSpeech": false,
+            "stressLevel": 36,
+            "difficultyDelayMs": 80,
+            "pitchHz": 201.82565307617188,
+            "timeMs": 35052
+        },
+        {
+            "smiling": 0.26047202944755554,
+            "stressLevel": 36,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 35553,
+            "pitchHz": 201.82565307617188
+        },
+        {
+            "smiling": 0.26047202944755554,
+            "stressLevel": 36,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 36053,
+            "pitchHz": 201.82565307617188
+        },
+        {
+            "stressLevel": 36,
+            "isSpeech": false,
+            "smiling": 0.26047202944755554,
+            "timeMs": 36554,
+            "pitchHz": 201.82565307617188,
+            "difficultyDelayMs": 80
+        },
+        {
+            "pitchHz": 201.82565307617188,
+            "timeMs": 37055,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 36,
+            "smiling": 0.26047202944755554
+        },
+        {
+            "timeMs": 37556,
+            "pitchHz": 201.82565307617188,
+            "difficultyDelayMs": 80,
+            "stressLevel": 36,
+            "isSpeech": false,
+            "smiling": 0.26047202944755554
+        },
+        {
+            "timeMs": 38056,
+            "pitchHz": 201.82565307617188,
+            "difficultyDelayMs": 80,
+            "stressLevel": 36,
+            "isSpeech": false,
+            "smiling": 0.26047202944755554
+        },
+        {
+            "timeMs": 38556,
+            "pitchHz": 201.82565307617188,
+            "difficultyDelayMs": 80,
+            "stressLevel": 36,
+            "isSpeech": false,
+            "smiling": 0.26047202944755554
+        },
+        {
+            "timeMs": 39060,
+            "pitchHz": 201.82565307617188,
+            "difficultyDelayMs": 80,
+            "stressLevel": 36,
+            "isSpeech": false,
+            "smiling": 0.26047202944755554
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 36,
+            "smiling": 0.26047202944755554,
+            "pitchHz": 188.76315307617188,
+            "timeMs": 39564,
+            "difficultyDelayMs": 80
+        },
+        {
+            "stressLevel": 36,
+            "isSpeech": false,
+            "smiling": 0.26047202944755554,
+            "timeMs": 40068,
+            "pitchHz": 167.69383239746094,
+            "difficultyDelayMs": 80
+        },
+        {
+            "pitchHz": 167.69383239746094,
+            "timeMs": 40570,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 36,
+            "smiling": 0.26047202944755554
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 167.69383239746094,
+            "timeMs": 41070,
+            "smiling": 0.26047202944755554,
+            "isSpeech": false,
+            "stressLevel": 50
+        },
+        {
+            "smiling": 0.26047202944755554,
+            "isSpeech": false,
+            "stressLevel": 36,
+            "difficultyDelayMs": 80,
+            "pitchHz": 194.43484497070312,
+            "timeMs": 41572
+        },
+        {
+            "smiling": 0.26047202944755554,
+            "stressLevel": 36,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 42073,
+            "pitchHz": 194.43484497070312
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 36,
+            "smiling": 0.26047202944755554,
+            "pitchHz": 194.43484497070312,
+            "timeMs": 42573,
+            "difficultyDelayMs": 80
+        },
+        {
+            "pitchHz": 194.43484497070312,
+            "timeMs": 43074,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 36,
+            "smiling": 0.26047202944755554
+        },
+        {
+            "difficultyDelayMs": 80,
+            "timeMs": 43575,
+            "pitchHz": 194.43484497070312,
+            "smiling": 0.26047202944755554,
+            "stressLevel": 57,
+            "isSpeech": false
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 194.43484497070312,
+            "timeMs": 44076,
+            "smiling": 0.26047202944755554,
+            "isSpeech": false,
+            "stressLevel": 36
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 194.43484497070312,
+            "timeMs": 44576,
+            "smiling": 0.26047202944755554,
+            "isSpeech": false,
+            "stressLevel": 36
+        },
+        {
+            "pitchHz": 194.43484497070312,
+            "timeMs": 45077,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 50,
+            "smiling": 0.26047202944755554
+        },
+        {
+            "stressLevel": 36,
+            "isSpeech": false,
+            "smiling": 0.26047202944755554,
+            "timeMs": 45577,
+            "pitchHz": 194.43484497070312,
+            "difficultyDelayMs": 80
+        },
+        {
+            "timeMs": 46077,
+            "pitchHz": 194.43484497070312,
+            "difficultyDelayMs": 80,
+            "stressLevel": 36,
+            "isSpeech": false,
+            "smiling": 0.26047202944755554
+        },
+        {
+            "stressLevel": 36,
+            "isSpeech": false,
+            "smiling": 0.26047202944755554,
+            "timeMs": 46577,
+            "pitchHz": 194.43484497070312,
+            "difficultyDelayMs": 80
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 50,
+            "smiling": 0.26047202944755554,
+            "pitchHz": 194.43484497070312,
+            "timeMs": 47079,
+            "difficultyDelayMs": 80
+        },
+        {
+            "stressLevel": 61,
+            "isSpeech": false,
+            "smiling": 0.26047202944755554,
+            "timeMs": 47580,
+            "pitchHz": 194.416259765625,
+            "difficultyDelayMs": 80
+        },
+        {
+            "smiling": 0.26047202944755554,
+            "isSpeech": false,
+            "stressLevel": 36,
+            "difficultyDelayMs": 80,
+            "pitchHz": 196.15675354003906,
+            "timeMs": 48080
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 190.20286560058594,
+            "timeMs": 48580,
+            "smiling": 0.26047202944755554,
+            "isSpeech": false,
+            "stressLevel": 36
+        },
+        {
+            "timeMs": 49081,
+            "pitchHz": 190.20286560058594,
+            "difficultyDelayMs": 80,
+            "stressLevel": 36,
+            "isSpeech": false,
+            "smiling": 0.26047202944755554
+        },
+        {
+            "pitchHz": 196.5393829345703,
+            "timeMs": 49581,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 53,
+            "smiling": 0.26047202944755554
+        },
+        {
+            "pitchHz": 196.5393829345703,
+            "timeMs": 50082,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 51,
+            "smiling": 0.26047202944755554
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 196.5393829345703,
+            "timeMs": 50583,
+            "smiling": 0.26047202944755554,
+            "isSpeech": false,
+            "stressLevel": 36
+        },
+        {
+            "smiling": 0.26047202944755554,
+            "stressLevel": 62,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 51083,
+            "pitchHz": 196.5393829345703
+        },
+        {
+            "smiling": 0.26047202944755554,
+            "isSpeech": false,
+            "stressLevel": 51,
+            "difficultyDelayMs": 80,
+            "pitchHz": 196.5393829345703,
+            "timeMs": 51583
+        },
+        {
+            "stressLevel": 50,
+            "isSpeech": false,
+            "smiling": 0.26047202944755554,
+            "timeMs": 52084,
+            "pitchHz": 196.5393829345703,
+            "difficultyDelayMs": 80
+        },
+        {
+            "smiling": 0.26047202944755554,
+            "isSpeech": false,
+            "stressLevel": 36,
+            "difficultyDelayMs": 80,
+            "pitchHz": 170.4199676513672,
+            "timeMs": 52584
+        },
+        {
+            "stressLevel": 57,
+            "isSpeech": false,
+            "smiling": 0.26047202944755554,
+            "timeMs": 53085,
+            "pitchHz": 170.4199676513672,
+            "difficultyDelayMs": 80
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 36,
+            "smiling": 0.26047202944755554,
+            "pitchHz": 170.4199676513672,
+            "timeMs": 53585,
+            "difficultyDelayMs": 80
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 170.4199676513672,
+            "timeMs": 54087,
+            "smiling": 0.26047202944755554,
+            "isSpeech": false,
+            "stressLevel": 36
+        },
+        {
+            "pitchHz": 170.4199676513672,
+            "timeMs": 54587,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 30,
+            "smiling": 0.39144736528396606
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 170.4199676513672,
+            "timeMs": 55088,
+            "smiling": 0.46985340118408203,
+            "isSpeech": false,
+            "stressLevel": 26
+        },
+        {
+            "difficultyDelayMs": 80,
+            "timeMs": 55588,
+            "pitchHz": 170.4199676513672,
+            "smiling": 0.147067591547966,
+            "stressLevel": 42,
+            "isSpeech": false
+        },
+        {
+            "pitchHz": 170.4199676513672,
+            "timeMs": 56090,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 46,
+            "smiling": 0.061523858457803726
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 48,
+            "smiling": 0.026149364188313484,
+            "pitchHz": 239.8148193359375,
+            "timeMs": 56590,
+            "difficultyDelayMs": 80
+        },
+        {
+            "smiling": 0.05568087100982666,
+            "stressLevel": 47,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 57090,
+            "pitchHz": 262.8128662109375
+        },
+        {
+            "smiling": 0.028300998732447624,
+            "isSpeech": false,
+            "stressLevel": 48,
+            "difficultyDelayMs": 80,
+            "pitchHz": 262.8128662109375,
+            "timeMs": 57591
+        },
+        {
+            "smiling": 0.11841070652008057,
+            "isSpeech": false,
+            "stressLevel": 56,
+            "difficultyDelayMs": 80,
+            "pitchHz": 262.8128662109375,
+            "timeMs": 58091
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 49,
+            "smiling": 0.017574554309248924,
+            "pitchHz": 262.8128662109375,
+            "timeMs": 58592,
+            "difficultyDelayMs": 80
+        },
+        {
+            "timeMs": 59092,
+            "pitchHz": 262.8128662109375,
+            "difficultyDelayMs": 80,
+            "stressLevel": 46,
+            "isSpeech": false,
+            "smiling": 0.06494977325201035
+        },
+        {
+            "pitchHz": 262.8128662109375,
+            "timeMs": 59593,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 46,
+            "smiling": 0.07003184407949448
+        },
+        {
+            "difficultyDelayMs": 80,
+            "timeMs": 60093,
+            "pitchHz": 262.8128662109375,
+            "smiling": 0.06593630462884903,
+            "stressLevel": 46,
+            "isSpeech": false
+        },
+        {
+            "smiling": 0.06494977325201035,
+            "isSpeech": false,
+            "stressLevel": 46,
+            "difficultyDelayMs": 80,
+            "pitchHz": 262.8128662109375,
+            "timeMs": 60594
+        },
+        {
+            "stressLevel": 49,
+            "isSpeech": false,
+            "smiling": 0.010426056571304798,
+            "timeMs": 61099,
+            "pitchHz": 262.8128662109375,
+            "difficultyDelayMs": 80
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 48,
+            "smiling": 0.03130638226866722,
+            "pitchHz": 262.8128662109375,
+            "timeMs": 61599,
+            "difficultyDelayMs": 80
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 42,
+            "smiling": 0.147067591547966,
+            "pitchHz": 262.8128662109375,
+            "timeMs": 62099,
+            "difficultyDelayMs": 80
+        },
+        {
+            "smiling": 0.147067591547966,
+            "isSpeech": false,
+            "stressLevel": 57,
+            "difficultyDelayMs": 80,
+            "pitchHz": 129.54234313964844,
+            "timeMs": 62599
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 64,
+            "smiling": 0.03130638226866722,
+            "pitchHz": 129.54234313964844,
+            "timeMs": 63099,
+            "difficultyDelayMs": 80
+        },
+        {
+            "timeMs": 63599,
+            "pitchHz": 135.5995635986328,
+            "difficultyDelayMs": 80,
+            "stressLevel": 46,
+            "isSpeech": false,
+            "smiling": 0.06494977325201035
+        },
+        {
+            "pitchHz": 135.5995635986328,
+            "timeMs": 64099,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 48,
+            "smiling": 0.02065070904791355
+        },
+        {
+            "difficultyDelayMs": 80,
+            "timeMs": 64599,
+            "pitchHz": 135.5995635986328,
+            "smiling": 0.017574554309248924,
+            "stressLevel": 49,
+            "isSpeech": false
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 48,
+            "smiling": 0.028300998732447624,
+            "pitchHz": 135.5995635986328,
+            "timeMs": 65099,
+            "difficultyDelayMs": 80
+        },
+        {
+            "smiling": 0.05568087100982666,
+            "stressLevel": 47,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 65599,
+            "pitchHz": 135.5995635986328
+        },
+        {
+            "pitchHz": 135.5995635986328,
+            "timeMs": 66100,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 46,
+            "smiling": 0.06494977325201035
+        },
+        {
+            "stressLevel": 59,
+            "isSpeech": false,
+            "smiling": 0.06593630462884903,
+            "timeMs": 66601,
+            "pitchHz": 135.5995635986328,
+            "difficultyDelayMs": 80
+        },
+        {
+            "smiling": 0.028300998732447624,
+            "stressLevel": 64,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 67101,
+            "pitchHz": 135.5995635986328
+        },
+        {
+            "smiling": 0.1818937361240387,
+            "isSpeech": false,
+            "stressLevel": 40,
+            "difficultyDelayMs": 80,
+            "pitchHz": 135.5995635986328,
+            "timeMs": 67601
+        },
+        {
+            "smiling": 0.00994393602013588,
+            "stressLevel": 72,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 68102,
+            "pitchHz": 135.5995635986328
+        },
+        {
+            "stressLevel": 65,
+            "isSpeech": false,
+            "smiling": 0.008996601216495037,
+            "timeMs": 68602,
+            "pitchHz": 135.5995635986328,
+            "difficultyDelayMs": 80
+        },
+        {
+            "smiling": 0.10511480271816254,
+            "stressLevel": 44,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 69102,
+            "pitchHz": 135.5995635986328
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 135.5995635986328,
+            "timeMs": 69602,
+            "smiling": 0.3273563086986542,
+            "isSpeech": false,
+            "stressLevel": 33
+        },
+        {
+            "difficultyDelayMs": 80,
+            "timeMs": 70103,
+            "pitchHz": 135.5995635986328,
+            "smiling": 0.17023080587387085,
+            "stressLevel": 58,
+            "isSpeech": false
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 135.5995635986328,
+            "timeMs": 70603,
+            "smiling": 0.05568087100982666,
+            "isSpeech": false,
+            "stressLevel": 59
+        },
+        {
+            "pitchHz": 135.5995635986328,
+            "timeMs": 71104,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 48,
+            "smiling": 0.02757435292005539
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 135.5995635986328,
+            "timeMs": 71604,
+            "smiling": 0.19892069697380066,
+            "isSpeech": false,
+            "stressLevel": 40
+        },
+        {
+            "smiling": 0.19892069697380066,
+            "stressLevel": 40,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 72105,
+            "pitchHz": 135.5995635986328
+        },
+        {
+            "smiling": 0.19892069697380066,
+            "isSpeech": false,
+            "stressLevel": 40,
+            "difficultyDelayMs": 80,
+            "pitchHz": 135.5995635986328,
+            "timeMs": 72606
+        },
+        {
+            "stressLevel": 40,
+            "isSpeech": false,
+            "smiling": 0.19892069697380066,
+            "timeMs": 73106,
+            "pitchHz": 135.5995635986328,
+            "difficultyDelayMs": 80
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 40,
+            "smiling": 0.19892069697380066,
+            "pitchHz": 432.3206481933594,
+            "timeMs": 73606,
+            "difficultyDelayMs": 80
+        },
+        {
+            "timeMs": 74106,
+            "pitchHz": 171.721435546875,
+            "difficultyDelayMs": 80,
+            "stressLevel": 40,
+            "isSpeech": false,
+            "smiling": 0.19892069697380066
+        },
+        {
+            "pitchHz": 171.721435546875,
+            "timeMs": 74607,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 53,
+            "smiling": 0.19892069697380066
+        },
+        {
+            "stressLevel": 40,
+            "isSpeech": false,
+            "smiling": 0.19892069697380066,
+            "timeMs": 75108,
+            "pitchHz": 171.721435546875,
+            "difficultyDelayMs": 80
+        },
+        {
+            "timeMs": 75609,
+            "pitchHz": 171.721435546875,
+            "difficultyDelayMs": 80,
+            "stressLevel": 40,
+            "isSpeech": false,
+            "smiling": 0.19892069697380066
+        },
+        {
+            "pitchHz": 171.721435546875,
+            "timeMs": 76110,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 40,
+            "smiling": 0.19892069697380066
+        },
+        {
+            "pitchHz": 171.721435546875,
+            "timeMs": 76611,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 41,
+            "smiling": 0.17023080587387085
+        }
+    ]
+}

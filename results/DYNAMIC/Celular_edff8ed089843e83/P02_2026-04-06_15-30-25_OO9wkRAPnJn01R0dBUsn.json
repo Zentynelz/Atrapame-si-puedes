@@ -1,0 +1,72 @@
+{
+    "maxAudioAmplitude": 9,
+    "timestamp": 1775507425855,
+    "moves": 23,
+    "timeElapsed": 3411,
+    "finalEmotion": "NEUTRAL_FOCUSED",
+    "avgSmilingProb": 0.19357265532016754,
+    "deviceId": "edff8ed089843e83",
+    "emotionTimeline": [
+        {
+            "difficultyDelayMs": 500,
+            "pitchHz": 157.43772888183594,
+            "timeMs": 325,
+            "smiling": 0.06494977325201035,
+            "isSpeech": false,
+            "stressLevel": 46
+        },
+        {
+            "timeMs": 826,
+            "pitchHz": 157.43772888183594,
+            "difficultyDelayMs": 575,
+            "stressLevel": 39,
+            "isSpeech": false,
+            "smiling": 0.21929682791233063
+        },
+        {
+            "difficultyDelayMs": 575,
+            "timeMs": 1327,
+            "pitchHz": 165.37411499023438,
+            "smiling": 0.10511480271816254,
+            "stressLevel": 44,
+            "isSpeech": false
+        },
+        {
+            "smiling": 0.1818937361240387,
+            "isSpeech": false,
+            "stressLevel": 40,
+            "difficultyDelayMs": 575,
+            "pitchHz": 165.37411499023438,
+            "timeMs": 1828
+        },
+        {
+            "smiling": 0.06494977325201035,
+            "stressLevel": 46,
+            "isSpeech": false,
+            "difficultyDelayMs": 575,
+            "timeMs": 2327,
+            "pitchHz": 165.37411499023438
+        },
+        {
+            "difficultyDelayMs": 650,
+            "pitchHz": 165.37411499023438,
+            "timeMs": 2828,
+            "smiling": 0.3273563086986542,
+            "isSpeech": false,
+            "stressLevel": 33
+        },
+        {
+            "difficultyDelayMs": 650,
+            "timeMs": 3329,
+            "pitchHz": 165.37411499023438,
+            "smiling": 0.39144736528396606,
+            "stressLevel": 30,
+            "isSpeech": false
+        }
+    ],
+    "playerName": "P02",
+    "avgRightEyeOpenProb": 0.0,
+    "perceivedStressScore": 0,
+    "difficulty": "DYNAMIC",
+    "exitReason": "WON"
+}

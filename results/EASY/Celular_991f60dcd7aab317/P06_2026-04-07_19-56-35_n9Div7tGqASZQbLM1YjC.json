@@ -1,0 +1,96 @@
+{
+    "deviceId": "991f60dcd7aab317",
+    "emotionTimeline": [
+        {
+            "isSpeech": false,
+            "stressLevel": 50,
+            "smiling": 0.0,
+            "pitchHz": 0.0,
+            "timeMs": 499,
+            "difficultyDelayMs": 700
+        },
+        {
+            "smiling": 0.017574554309248924,
+            "stressLevel": 49,
+            "isSpeech": false,
+            "difficultyDelayMs": 700,
+            "timeMs": 999,
+            "pitchHz": 0.0
+        },
+        {
+            "pitchHz": 0.0,
+            "timeMs": 1499,
+            "difficultyDelayMs": 700,
+            "isSpeech": false,
+            "stressLevel": 48,
+            "smiling": 0.02065070904791355
+        },
+        {
+            "difficultyDelayMs": 700,
+            "timeMs": 1999,
+            "pitchHz": 0.0,
+            "smiling": 0.02757435292005539,
+            "stressLevel": 48,
+            "isSpeech": false
+        },
+        {
+            "difficultyDelayMs": 700,
+            "pitchHz": 0.0,
+            "timeMs": 2500,
+            "smiling": 0.026149364188313484,
+            "isSpeech": false,
+            "stressLevel": 48
+        },
+        {
+            "pitchHz": 0.0,
+            "timeMs": 3001,
+            "difficultyDelayMs": 700,
+            "isSpeech": false,
+            "stressLevel": 48,
+            "smiling": 0.02757435292005539
+        },
+        {
+            "difficultyDelayMs": 700,
+            "pitchHz": 0.0,
+            "timeMs": 3501,
+            "smiling": 0.02065070904791355,
+            "isSpeech": false,
+            "stressLevel": 48
+        },
+        {
+            "difficultyDelayMs": 700,
+            "pitchHz": 0.0,
+            "timeMs": 4002,
+            "smiling": 0.02065070904791355,
+            "isSpeech": false,
+            "stressLevel": 48
+        },
+        {
+            "difficultyDelayMs": 700,
+            "timeMs": 4503,
+            "pitchHz": 0.0,
+            "smiling": 0.02065070904791355,
+            "stressLevel": 48,
+            "isSpeech": false
+        },
+        {
+            "pitchHz": 0.0,
+            "timeMs": 5004,
+            "difficultyDelayMs": 700,
+            "isSpeech": false,
+            "stressLevel": 48,
+            "smiling": 0.02065070904791355
+        }
+    ],
+    "finalEmotion": "BORED_SAD",
+    "avgSmilingProb": 0.02021261863410473,
+    "timeElapsed": 5129,
+    "moves": 19,
+    "maxAudioAmplitude": 0,
+    "timestamp": 1775609795280,
+    "exitReason": "WON",
+    "perceivedStressScore": 0,
+    "difficulty": "EASY",
+    "playerName": "P06",
+    "avgRightEyeOpenProb": 0.0
+}

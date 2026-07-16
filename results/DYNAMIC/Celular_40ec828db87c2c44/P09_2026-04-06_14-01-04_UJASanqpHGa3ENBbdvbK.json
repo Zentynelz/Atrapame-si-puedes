@@ -1,0 +1,56 @@
+{
+    "exitReason": "WON",
+    "avgRightEyeOpenProb": 0.0,
+    "playerName": "P09",
+    "difficulty": "DYNAMIC",
+    "perceivedStressScore": 0,
+    "finalEmotion": "BORED_SAD",
+    "avgSmilingProb": 0.054452843964099884,
+    "emotionTimeline": [
+        {
+            "isSpeech": false,
+            "stressLevel": 46,
+            "smiling": 0.06593630462884903,
+            "pitchHz": 449.5480041503906,
+            "timeMs": 427,
+            "difficultyDelayMs": 500
+        },
+        {
+            "stressLevel": 48,
+            "isSpeech": false,
+            "smiling": 0.029783526435494423,
+            "timeMs": 928,
+            "pitchHz": 449.5480041503906,
+            "difficultyDelayMs": 575
+        },
+        {
+            "smiling": 0.06494977325201035,
+            "isSpeech": false,
+            "stressLevel": 46,
+            "difficultyDelayMs": 650,
+            "pitchHz": 449.5480041503906,
+            "timeMs": 1428
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 47,
+            "smiling": 0.046644844114780426,
+            "pitchHz": 205.87478637695312,
+            "timeMs": 1929,
+            "difficultyDelayMs": 725
+        },
+        {
+            "timeMs": 2430,
+            "pitchHz": 174.06292724609375,
+            "difficultyDelayMs": 800,
+            "stressLevel": 46,
+            "isSpeech": false,
+            "smiling": 0.06494977325201035
+        }
+    ],
+    "deviceId": "40ec828db87c2c44",
+    "timestamp": 1775502064084,
+    "maxAudioAmplitude": 13,
+    "moves": 12,
+    "timeElapsed": 2609
+}

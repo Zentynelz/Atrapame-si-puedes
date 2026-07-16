@@ -1,0 +1,40 @@
+{
+    "avgSmilingProb": 0.022045673802495003,
+    "finalEmotion": "BORED_SAD",
+    "emotionTimeline": [
+        {
+            "pitchHz": 60.51638412475586,
+            "timeMs": 432,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 49,
+            "smiling": 0.01241330523043871
+        },
+        {
+            "timeMs": 932,
+            "pitchHz": 60.51638412475586,
+            "difficultyDelayMs": 80,
+            "stressLevel": 48,
+            "isSpeech": false,
+            "smiling": 0.026149364188313484
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 60.51638412475586,
+            "timeMs": 1433,
+            "smiling": 0.02757435292005539,
+            "isSpeech": false,
+            "stressLevel": 48
+        }
+    ],
+    "deviceId": "6edb93f967771e7b",
+    "timestamp": 1775507216467,
+    "maxAudioAmplitude": 19,
+    "timeElapsed": 1402,
+    "moves": 13,
+    "exitReason": "WON",
+    "avgRightEyeOpenProb": 0.0,
+    "playerName": "P10",
+    "difficulty": "IMPOSSIBLE",
+    "perceivedStressScore": 3
+}

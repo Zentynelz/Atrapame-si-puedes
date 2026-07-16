@@ -1,0 +1,64 @@
+{
+    "deviceId": "edff8ed089843e83",
+    "emotionTimeline": [
+        {
+            "timeMs": 498,
+            "pitchHz": 202.20582580566406,
+            "difficultyDelayMs": 500,
+            "stressLevel": 63,
+            "isSpeech": false,
+            "smiling": 0.0
+        },
+        {
+            "difficultyDelayMs": 500,
+            "pitchHz": 202.20582580566406,
+            "timeMs": 998,
+            "smiling": 0.026149364188313484,
+            "isSpeech": false,
+            "stressLevel": 48
+        },
+        {
+            "pitchHz": 202.20582580566406,
+            "timeMs": 1499,
+            "difficultyDelayMs": 500,
+            "isSpeech": false,
+            "stressLevel": 64,
+            "smiling": 0.016065111383795738
+        },
+        {
+            "difficultyDelayMs": 500,
+            "timeMs": 1999,
+            "pitchHz": 164.96517944335938,
+            "smiling": 0.016065111383795738,
+            "stressLevel": 64,
+            "isSpeech": false
+        },
+        {
+            "difficultyDelayMs": 500,
+            "pitchHz": 150.95399475097656,
+            "timeMs": 2498,
+            "smiling": 0.02065070904791355,
+            "isSpeech": false,
+            "stressLevel": 48
+        },
+        {
+            "smiling": 0.00994393602013588,
+            "stressLevel": 49,
+            "isSpeech": false,
+            "difficultyDelayMs": 500,
+            "timeMs": 2999,
+            "pitchHz": 150.95399475097656
+        }
+    ],
+    "finalEmotion": "NEUTRAL_FOCUSED",
+    "avgSmilingProb": 0.014812372624874115,
+    "timeElapsed": 2939,
+    "moves": 17,
+    "maxAudioAmplitude": 26,
+    "timestamp": 1775507086482,
+    "exitReason": "WON",
+    "perceivedStressScore": 0,
+    "difficulty": "MEDIUM",
+    "playerName": "P02",
+    "avgRightEyeOpenProb": 0.0
+}

@@ -1,168 +1,168 @@
-# Atrapame Si Puedes
+# Catch Me If You Can
 
-Un juego móvil de estrategia y lógica desarrollado para Android con estética futurista inspirada en Tron. Los jugadores deben atrapar a un enemigo inteligente en un tablero isométrico con obstáculos dinámicos que cambian según la dificultad.
+A mobile strategy and logic game developed for Android with a futuristic Tron-inspired aesthetic. Players must catch an intelligent enemy on an isometric board with dynamic obstacles that change according to difficulty level.
 
-## Equipo de Desarrollo
+## Development Team
 
 - **Johan Esteban Solano Rojas** - 20202578112
 - **Diego David Chinchilla Leal** - 20221578047  
 - **Juan Eduardo Morales Santana** - 20221578034
 
-## Características Principales
+## Main Features
 
-### Arquitectura y Desarrollo
-- **Arquitectura MVVM** - Separación clara entre modelo, vista y lógica de negocio
-- **Kotlin** - Lenguaje moderno y seguro para Android
-- **Material Design 3** - Interfaz moderna con tema Tron personalizado
-- **Firebase Firestore** - Base de datos en tiempo real para puntuaciones globales
-- **Soporte Multilingüe** - Español e inglés con detección automática del sistema
+### Architecture & Development
+- **MVVM Architecture** - Clear separation between model, view, and business logic
+- **Kotlin** - Modern and safe language for Android
+- **Material Design 3** - Modern interface with custom Tron theme
+- **Firebase Firestore** - Real-time database for global scores
+- **Multilingual Support** - Spanish and English with automatic system detection
 
-### Funcionalidades del Juego
-- **Tablero Isométrico 3D** - Vista tridimensional con efectos visuales neón
-- **Sistema de Colisiones Robusto** - Obstáculos sólidos que bloquean completamente el movimiento
-- **Mapas Dinámicos por Dificultad** - Tres layouts completamente diferentes:
-  - **Fácil**: Pocos obstáculos dispersos para aprendizaje
-  - **Medio**: Laberinto moderado con formas en L y paredes estratégicas
-  - **Difícil**: Laberinto denso con patrones complejos y corredores mínimos
-- **Sistema de Dificultad Inteligente** - Velocidad del enemigo variable:
-  - **Fácil**: 1000ms entre movimientos
-  - **Medio**: 750ms entre movimientos  
-  - **Difícil**: 500ms entre movimientos
-- **Timer en Tiempo Real** - Cronómetro preciso con actualizaciones cada 100ms
-- **Sistema de Pausa Completo** - Pausa el timer y movimientos del enemigo
-- **Notificaciones Internas** - Alertas de victoria y derrota con opciones
-- **Diálogos Interactivos** - Ventanas de resultado con estadísticas y navegación
+### Game Features
+- **3D Isometric Board** - Three-dimensional view with neon visual effects
+- **Robust Collision System** - Solid obstacles that fully block movement
+- **Dynamic Maps by Difficulty** - Three completely different layouts:
+  - **Easy**: Few scattered obstacles for learning
+  - **Medium**: Moderate maze with L-shaped walls and strategic barriers
+  - **Hard**: Dense maze with complex patterns and minimal corridors
+- **Intelligent Difficulty System** - Variable enemy speed:
+  - **Easy**: 1000ms between moves
+  - **Medium**: 750ms between moves  
+  - **Hard**: 500ms between moves
+- **Real-Time Timer** - Precise stopwatch with updates every 100ms
+- **Full Pause System** - Pauses both timer and enemy movements
+- **Internal Notifications** - Victory and defeat alerts with options
+- **Interactive Dialogs** - Result windows with statistics and navigation
 
-### Interfaz Tron Futurista
-- **Paleta de Colores Neón**:
-  - Cian brillante (#00FFFF) para elementos principales
-  - Naranja neón (#FF6600) para enemigos y alertas
-  - Púrpura (#9966FF) para elementos secundarios
-  - Fondos oscuros (#0A0A0A, #1A1A1A) para contraste
-- **Efectos Visuales Avanzados**:
-  - Sombras neón con resplandor en botones y entidades
-  - Bordes luminosos en elementos interactivos
-  - Gradientes sutiles en paneles y fondos
-- **Tipografía Futurista** - Fuentes monoespaciadas para estadísticas y UI
-- **Animaciones Fluidas** - Transiciones suaves entre estados del juego
+### Futuristic Tron Interface
+- **Neon Color Palette**:
+  - Bright cyan (#00FFFF) for main elements
+  - Neon orange (#FF6600) for enemies and alerts
+  - Purple (#9966FF) for secondary elements
+  - Dark backgrounds (#0A0A0A, #1A1A1A) for contrast
+- **Advanced Visual Effects**:
+  - Neon glow shadows on buttons and entities
+  - Glowing borders on interactive elements
+  - Subtle gradients on panels and backgrounds
+- **Futuristic Typography** - Monospace fonts for statistics and UI
+- **Smooth Animations** - Fluid transitions between game states
 
-### Inteligencia Artificial del Enemigo
-- **Algoritmo A*** - Pathfinding óptimo para encontrar rutas de escape
-- **Comportamiento Estratégico** - El enemigo busca maximizar distancia del jugador
-- **Adaptación al Terreno** - Navega inteligentemente alrededor de obstáculos
-- **Múltiples Objetivos** - Evalúa todas las posiciones posibles para escapar
+### Enemy Artificial Intelligence
+- **A\* Algorithm** - Optimal pathfinding for escape routes
+- **Strategic Behavior** - Enemy seeks to maximize distance from the player
+- **Terrain Adaptation** - Intelligently navigates around obstacles
+- **Multiple Objectives** - Evaluates all possible escape positions
 
-## Objetivo del Juego
+## Game Objective
 
-Atrapa al enemigo naranja usando tu personaje cian en un tablero isométrico. El enemigo utiliza inteligencia artificial avanzada para escapar, calculando rutas óptimas y evitando obstáculos. Tu objetivo es completar cada nivel en el menor tiempo y número de movimientos posibles.
+Catch the orange enemy using your cyan character on an isometric board. The enemy uses advanced artificial intelligence to escape, calculating optimal routes and avoiding obstacles. Your goal is to complete each level in the shortest time and fewest moves possible.
 
-### Mecánicas de Juego
-1. **Movimiento**: Toca las celdas adyacentes para mover tu personaje
-2. **Estrategia**: Usa los obstáculos para bloquear las rutas de escape del enemigo
-3. **Timing**: El enemigo se mueve automáticamente, planifica tus movimientos
-4. **Victoria**: Alcanza la misma posición que el enemigo para capturarlo
+### Game Mechanics
+1. **Movement**: Tap adjacent cells to move your character
+2. **Strategy**: Use obstacles to block the enemy's escape routes
+3. **Timing**: The enemy moves automatically — plan your moves carefully
+4. **Victory**: Reach the same position as the enemy to capture it
 
-## Tecnologías Utilizadas
+## Technologies Used
 
-- **Lenguaje**: Kotlin 100%
-- **Arquitectura**: MVVM (Model-View-ViewModel) con LiveData
-- **Base de Datos**: Firebase Firestore para puntuaciones globales
-- **UI Framework**: Material Design 3 con tema personalizado Tron
-- **Gestión de Estado**: LiveData, ViewModel y Coroutines
-- **Patrones de Diseño**: Repository Pattern, Observer Pattern
-- **Renderizado**: Canvas personalizado para vista isométrica 3D
-- **Persistencia Local**: SharedPreferences para configuración
+- **Language**: 100% Kotlin
+- **Architecture**: MVVM (Model-View-ViewModel) with LiveData
+- **Database**: Firebase Firestore for global scores
+- **UI Framework**: Material Design 3 with custom Tron theme
+- **State Management**: LiveData, ViewModel, and Coroutines
+- **Design Patterns**: Repository Pattern, Observer Pattern
+- **Rendering**: Custom Canvas for 3D isometric view
+- **Local Persistence**: SharedPreferences for settings
 
-## Requerimientos del Proyecto Cumplidos
+## Project Requirements Fulfilled
 
-### Repositorio Público
-- Código fuente completo disponible en GitHub
-- Historial de commits detallado
-- Documentación técnica completa
-- APK de release incluido
+### Public Repository
+- Complete source code available on GitHub
+- Detailed commit history
+- Complete technical documentation
+- Release APK included
 
-### Servicios Web (Firebase)
-- **Firebase Firestore**: Base de datos NoSQL para almacenamiento de puntuaciones
-- **Operaciones CRUD**: Create, Read, Update, Delete de scores
-- **Sincronización en tiempo real**: Puntuaciones actualizadas automáticamente
-- **Manejo de errores**: Fallback a almacenamiento local si no hay conexión
+### Web Services (Firebase)
+- **Firebase Firestore**: NoSQL database for score storage
+- **CRUD Operations**: Create, Read, Update, Delete of scores
+- **Real-time Sync**: Automatically updated scores
+- **Error Handling**: Fallback to local storage when offline
 
-### Soporte Multilingüe Completo
-- **Detección automática**: Basada en configuración del dispositivo Android
-- **Recursos externalizados**: 
-  - `res/values/strings.xml` (Español - idioma por defecto)
-  - `res/values-en/strings.xml` (Inglés)
-- **Cobertura total**: Toda la interfaz, mensajes y diálogos traducidos
-- **Cambio dinámico**: Sin necesidad de reiniciar la aplicación
+### Complete Multilingual Support
+- **Automatic Detection**: Based on Android device settings
+- **Externalized Resources**: 
+  - `res/values/strings.xml` (Spanish - default language)
+  - `res/values-en/strings.xml` (English)
+- **Full Coverage**: Entire interface, messages, and dialogs translated
+- **Dynamic Switching**: No app restart required
 
-### Formularios Interactivos
-- **Pantalla de Configuración**: Formulario completo de jugador
-- **Campos validados**:
-  - Nombre del jugador (requerido, mínimo 2 caracteres)
-  - Selección de dificultad (Easy/Medium/Hard)
-- **Persistencia**: Configuración guardada localmente con SharedPreferences
-- **Validación en tiempo real**: Feedback inmediato al usuario
+### Interactive Forms
+- **Settings Screen**: Complete player configuration form
+- **Validated Fields**:
+  - Player name (required, minimum 2 characters)
+  - Difficulty selection (Easy/Medium/Hard)
+- **Persistence**: Settings saved locally with SharedPreferences
+- **Real-time Validation**: Immediate user feedback
 
-### Notificaciones Internas
-- **Sistema de diálogos**: Notificaciones nativas de Android
-- **Tipos de notificación**:
-  - Victoria: Muestra tiempo y movimientos realizados
-  - Derrota: Opciones de reintentar o volver al menú
-  - Configuración guardada: Confirmación de cambios
-- **Acciones interactivas**: Botones para navegar o reiniciar
+### Internal Notifications
+- **Dialog System**: Native Android notifications
+- **Notification Types**:
+  - Victory: Shows time and moves performed
+  - Defeat: Retry or return to menu options
+  - Settings saved: Confirmation of changes
+- **Interactive Actions**: Navigation or restart buttons
 
-### Arquitectura MVVM Completa
-- **Model**: Clases de datos (GameState, Position, Score, etc.)
-- **View**: Activities y Views personalizadas (IsometricBoardView)
-- **ViewModel**: Lógica de negocio y gestión de estado
-- **Repository**: Abstracción de fuentes de datos (Firebase, Local)
-- **Separación clara**: Sin lógica de negocio en las vistas
+### Complete MVVM Architecture
+- **Model**: Data classes (GameState, Position, Score, etc.)
+- **View**: Activities and custom Views (IsometricBoardView)
+- **ViewModel**: Business logic and state management
+- **Repository**: Data source abstraction (Firebase, Local)
+- **Clear Separation**: No business logic in views
 
-## Instalación y Configuración
+## Installation & Setup
 
-### Prerrequisitos del Sistema
-- **Android Studio**: Flamingo o superior (2023.1.1+)
+### System Prerequisites
+- **Android Studio**: Flamingo or higher (2023.1.1+)
 - **Android SDK**: API Level 24+ (Android 7.0 Nougat)
-- **Gradle**: 8.0+ (incluido con Android Studio)
-- **Dispositivo**: Android físico o emulador con API 24+
+- **Gradle**: 8.0+ (included with Android Studio)
+- **Device**: Physical Android device or emulator with API 24+
 
-### Instalación Paso a Paso
+### Step-by-Step Installation
 
-1. **Clonar el Repositorio**
+1. **Clone the Repository**
    ```bash
    git clone https://github.com/tu-usuario/atrapame-si-puedes.git
    cd atrapame-si-puedes
    ```
 
-2. **Configuración en Android Studio**
-   - Abrir Android Studio
-   - File → Open → Seleccionar carpeta del proyecto
-   - Esperar sincronización automática de Gradle
-   - Verificar que el SDK esté configurado correctamente
+2. **Setup in Android Studio**
+   - Open Android Studio
+   - File → Open → Select project folder
+   - Wait for automatic Gradle sync
+   - Verify that the SDK is properly configured
 
-3. **Configuración de Firebase** (Incluida)
-   - El archivo `google-services.json` ya está incluido
-   - Firebase Firestore configurado para puntuaciones
-   - No requiere configuración adicional para funcionalidad básica
+3. **Firebase Configuration** (Included)
+   - The `google-services.json` file is already included
+   - Firebase Firestore configured for scores
+   - No additional configuration required for basic functionality
 
-4. **Compilación y Ejecución**
-   - Conectar dispositivo Android (habilitar depuración USB)
-   - O iniciar emulador Android desde AVD Manager
-   - Seleccionar "app" en la configuración de run
-   - Presionar "Run" (Shift+F10) o el botón verde de play
+4. **Build & Run**
+   - Connect an Android device (enable USB debugging)
+   - Or start an Android emulator from AVD Manager
+   - Select "app" in the run configuration
+   - Press "Run" (Shift+F10) or the green play button
 
-### Configuración Opcional de Firebase
+### Optional Firebase Setup
 
-Si deseas usar tu propia instancia de Firebase:
+If you wish to use your own Firebase instance:
 
-1. **Crear Proyecto Firebase**
-   - Ir a [Firebase Console](https://console.firebase.google.com)
-   - Crear nuevo proyecto
-   - Agregar aplicación Android con package `com.equipo.atrapame`
+1. **Create Firebase Project**
+   - Go to [Firebase Console](https://console.firebase.google.com)
+   - Create a new project
+   - Add Android app with package `com.equipo.atrapame`
 
-2. **Configurar Firestore**
-   - Habilitar Firestore Database
-   - Configurar reglas de seguridad:
+2. **Configure Firestore**
+   - Enable Firestore Database
+   - Set up security rules:
    ```javascript
    rules_version = '2';
    service cloud.firestore {
@@ -174,122 +174,122 @@ Si deseas usar tu propia instancia de Firebase:
    }
    ```
 
-3. **Descargar Configuración**
-   - Descargar `google-services.json`
-   - Reemplazar el archivo en `app/google-services.json`
+3. **Download Configuration**
+   - Download `google-services.json`
+   - Replace the file at `app/google-services.json`
 
-## Estructura del Proyecto
+## Project Structure
 
 ```
 app/src/main/
 ├── java/com/equipo/atrapame/
 │   ├── data/
-│   │   ├── models/                    # Modelos de datos del dominio
-│   │   │   ├── GameState.kt          # Estado completo del juego
-│   │   │   ├── Position.kt           # Posiciones en el tablero
-│   │   │   ├── Direction.kt          # Direcciones de movimiento
-│   │   │   ├── CellType.kt           # Tipos de celdas
-│   │   │   ├── Difficulty.kt         # Niveles de dificultad
-│   │   │   └── Score.kt              # Modelo de puntuaciones
-│   │   ├── repository/               # Capa de acceso a datos
-│   │   │   ├── ConfigRepository.kt   # Configuración del jugador
-│   │   │   └── ScoreRepository.kt    # Gestión de puntuaciones
-│   │   └── local/                    # Almacenamiento local
+│   │   ├── models/                    # Domain data models
+│   │   │   ├── GameState.kt          # Complete game state
+│   │   │   ├── Position.kt           # Board positions
+│   │   │   ├── Direction.kt          # Movement directions
+│   │   │   ├── CellType.kt           # Cell types
+│   │   │   ├── Difficulty.kt         # Difficulty levels
+│   │   │   └── Score.kt              # Score model
+│   │   ├── repository/               # Data access layer
+│   │   │   ├── ConfigRepository.kt   # Player configuration
+│   │   │   └── ScoreRepository.kt    # Score management
+│   │   └── local/                    # Local storage
 │   │       └── LocalGameRepository.kt
-│   ├── presentation/                 # Capa de presentación (UI)
-│   │   ├── MainActivity.kt           # Pantalla principal con navegación
-│   │   ├── config/                   # Configuración del jugador
-│   │   │   ├── ConfigActivity.kt     # Formulario de configuración
-│   │   │   └── ConfigViewModel.kt    # Lógica de configuración
-│   │   ├── game/                     # Pantalla principal del juego
-│   │   │   ├── GameActivity.kt       # Activity del juego
-│   │   │   ├── GameViewModel.kt      # Lógica del juego y IA
-│   │   │   ├── GameDialogs.kt        # Diálogos de victoria/derrota
-│   │   │   ├── IsometricBoardView.kt # Vista 3D personalizada
-│   │   │   └── VirtualJoystickView.kt # Control de movimiento
-│   │   ├── score/                    # Pantalla de puntuaciones
-│   │   │   ├── ScoreActivity.kt      # Lista de mejores scores
-│   │   │   └── ScoreViewModel.kt     # Lógica de puntuaciones
-│   │   └── NotificationHelper.kt     # Sistema de notificaciones
-│   └── utils/                        # Utilidades y extensiones
+│   ├── presentation/                 # Presentation layer (UI)
+│   │   ├── MainActivity.kt           # Main screen with navigation
+│   │   ├── config/                   # Player configuration
+│   │   │   ├── ConfigActivity.kt     # Configuration form
+│   │   │   └── ConfigViewModel.kt    # Configuration logic
+│   │   ├── game/                     # Main game screen
+│   │   │   ├── GameActivity.kt       # Game activity
+│   │   │   ├── GameViewModel.kt      # Game logic and AI
+│   │   │   ├── GameDialogs.kt        # Victory/defeat dialogs
+│   │   │   ├── IsometricBoardView.kt # Custom 3D view
+│   │   │   └── VirtualJoystickView.kt # Movement control
+│   │   ├── score/                    # Score screen
+│   │   │   ├── ScoreActivity.kt      # Best scores list
+│   │   │   └── ScoreViewModel.kt     # Score logic
+│   │   └── NotificationHelper.kt     # Notification system
+│   └── utils/                        # Utilities and extensions
 ├── res/
-│   ├── layout/                       # Layouts XML de las pantallas
-│   │   ├── activity_main.xml         # Pantalla principal
-│   │   ├── activity_game.xml         # Pantalla del juego
-│   │   ├── activity_config.xml       # Pantalla de configuración
-│   │   ├── activity_score.xml        # Pantalla de puntuaciones
-│   │   └── item_score.xml            # Item de lista de scores
-│   ├── values/                       # Recursos en español (por defecto)
-│   │   ├── strings.xml               # Textos en español
-│   │   ├── colors.xml                # Paleta de colores Tron
-│   │   └── themes.xml                # Tema visual personalizado
-│   ├── values-en/                    # Recursos en inglés
-│   │   └── strings.xml               # Textos en inglés
-│   ├── drawable/                     # Recursos gráficos
-│   │   ├── tron_button_bg.xml        # Fondo de botones Tron
-│   │   ├── tron_panel_bg.xml         # Fondo de paneles
-│   │   └── tron_grid_bg.xml          # Fondo de cuadrícula
-│   └── mipmap-*/                     # Iconos de la aplicación
-├── google-services.json              # Configuración de Firebase
-└── AndroidManifest.xml               # Configuración de la aplicación
+│   ├── layout/                       # Screen XML layouts
+│   │   ├── activity_main.xml         # Main screen
+│   │   ├── activity_game.xml         # Game screen
+│   │   ├── activity_config.xml       # Settings screen
+│   │   ├── activity_score.xml        # Scores screen
+│   │   └── item_score.xml            # Score list item
+│   ├── values/                       # Spanish resources (default)
+│   │   ├── strings.xml               # Spanish texts
+│   │   ├── colors.xml                # Tron color palette
+│   │   └── themes.xml                # Custom visual theme
+│   ├── values-en/                    # English resources
+│   │   └── strings.xml               # English texts
+│   ├── drawable/                     # Graphic resources
+│   │   ├── tron_button_bg.xml        # Tron button background
+│   │   ├── tron_panel_bg.xml         # Panel background
+│   │   └── tron_grid_bg.xml          # Grid background
+│   └── mipmap-*/                     # App icons
+├── google-services.json              # Firebase configuration
+└── AndroidManifest.xml               # App configuration
 ```
 
-### Arquitectura de Componentes
+### Component Architecture
 
-**Capa de Datos (Data Layer)**
-- `models/`: Entidades del dominio con lógica de negocio
-- `repository/`: Interfaces y implementaciones para acceso a datos
-- `local/`: Implementaciones de almacenamiento local
+**Data Layer**
+- `models/`: Domain entities with business logic
+- `repository/`: Interfaces and implementations for data access
+- `local/`: Local storage implementations
 
-**Capa de Presentación (Presentation Layer)**  
-- `Activities`: Controladores de pantalla con ciclo de vida
-- `ViewModels`: Lógica de presentación y gestión de estado
-- `Views`: Componentes UI personalizados (IsometricBoardView)
+**Presentation Layer**  
+- `Activities`: Screen controllers with lifecycle management
+- `ViewModels`: Presentation logic and state management
+- `Views`: Custom UI components (IsometricBoardView)
 
-**Capa de Recursos (Resources Layer)**
-- `layout/`: Definiciones de interfaz en XML
-- `values/`: Strings, colores, dimensiones y estilos
-- `drawable/`: Recursos gráficos vectoriales y bitmaps
+**Resources Layer**
+- `layout/`: Interface definitions in XML
+- `values/`: Strings, colors, dimensions, and styles
+- `drawable/`: Vector graphics and bitmap resources
 
-## Guía de Juego
+## Game Guide
 
-### Configuración Inicial
-1. **Primer Uso**
-   - Al abrir la app, ve a "Configuración"
-   - Ingresa tu nombre (mínimo 2 caracteres)
-   - Selecciona tu dificultad preferida:
-     - **Fácil**: Pocos obstáculos, enemigo lento (1000ms)
-     - **Medio**: Laberinto moderado, velocidad media (750ms)  
-     - **Difícil**: Laberinto complejo, enemigo rápido (500ms)
-   - Guarda la configuración
+### Initial Setup
+1. **First Use**
+   - Open the app and go to "Settings"
+   - Enter your name (minimum 2 characters)
+   - Select your preferred difficulty:
+     - **Easy**: Few obstacles, slow enemy (1000ms)
+     - **Medium**: Moderate maze, medium speed (750ms)  
+     - **Hard**: Complex maze, fast enemy (500ms)
+   - Save your settings
 
-### Mecánicas de Juego
-1. **Objetivo**: Atrapar al enemigo naranja con tu personaje cian
-2. **Movimiento**: Toca las celdas adyacentes para mover tu personaje
-3. **Restricciones**: No puedes atravesar obstáculos (bloques grises)
-4. **IA del Enemigo**: Se mueve automáticamente buscando escapar de ti
+### Game Mechanics
+1. **Objective**: Catch the orange enemy with your cyan character
+2. **Movement**: Tap adjacent cells to move your character
+3. **Restrictions**: You cannot pass through obstacles (gray blocks)
+4. **Enemy AI**: Moves automatically, always trying to escape
 
-### Estrategias Avanzadas
-- **Usa los obstáculos**: Bloquea las rutas de escape del enemigo
-- **Planifica movimientos**: El enemigo se mueve después de ti
-- **Controla el centro**: Posiciones centrales dan más opciones
-- **Timing**: En dificultad alta, cada segundo cuenta
+### Advanced Strategies
+- **Use obstacles**: Block the enemy's escape routes
+- **Plan your moves**: The enemy moves after you
+- **Control the center**: Central positions offer more options
+- **Timing**: At high difficulty, every second counts
 
-### Sistema de Puntuación
-- **Movimientos**: Menos movimientos = mejor puntuación
-- **Tiempo**: Completar rápido mejora tu score
-- **Dificultad**: Niveles más altos otorgan bonificaciones
-- **Guardado**: Puntuaciones se sincronizan automáticamente con Firebase
+### Scoring System
+- **Moves**: Fewer moves = better score
+- **Time**: Faster completion improves your score
+- **Difficulty**: Higher levels grant bonuses
+- **Saving**: Scores sync automatically with Firebase
 
-### Controles del Juego
-- **Pausa**: Botón superior derecho para pausar/reanudar
-- **Reiniciar**: Botón para empezar un nuevo juego
-- **Menú**: Volver a la pantalla principal
-- **Configuración**: Cambiar nombre o dificultad
+### Game Controls
+- **Pause**: Top-right button to pause/resume
+- **Restart**: Button to start a new game
+- **Menu**: Return to the main screen
+- **Settings**: Change name or difficulty
 
-## Configuración de Desarrollo
+## Development Configuration
 
-### Dependencias del Proyecto
+### Project Dependencies
 
 **Core Android**
 ```gradle
@@ -298,7 +298,7 @@ implementation 'androidx.appcompat:appcompat:1.6.1'
 implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 ```
 
-**Arquitectura MVVM**
+**MVVM Architecture**
 ```gradle
 implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0'
 implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.7.0'
@@ -312,18 +312,18 @@ implementation 'com.google.firebase:firebase-firestore-ktx'
 implementation 'com.google.firebase:firebase-analytics-ktx'
 ```
 
-**UI y Material Design**
+**UI & Material Design**
 ```gradle
 implementation 'com.google.android.material:material:1.11.0'
 implementation 'androidx.recyclerview:recyclerview:1.3.2'
 ```
 
-**Corrutinas para Async**
+**Coroutines for Async**
 ```gradle
 implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
 ```
 
-### Configuración del Build
+### Build Configuration
 
 **build.gradle (Module: app)**
 ```gradle
@@ -356,48 +356,48 @@ android {
 }
 ```
 
-### Variables de Entorno
+### Environment Variables
 
-No se requieren variables de entorno especiales. La configuración de Firebase se maneja automáticamente a través de `google-services.json`.
+No special environment variables required. Firebase configuration is handled automatically through `google-services.json`.
 
-### Generación de APK
+### APK Generation
 
-**APK de Debug (para desarrollo)**
+**Debug APK (for development)**
 ```bash
 ./gradlew assembleDebug
-# Ubicación: app/build/outputs/apk/debug/app-debug.apk
+# Location: app/build/outputs/apk/debug/app-debug.apk
 ```
 
-**APK de Release (para distribución)**
+**Release APK (for distribution)**
 ```bash
 ./gradlew assembleRelease  
-# Ubicación: app/build/outputs/apk/release/app-release-unsigned.apk
+# Location: app/build/outputs/apk/release/app-release-unsigned.apk
 ```
 
-**Bundle de Android (para Google Play)**
+**Android App Bundle (for Google Play)**
 ```bash
 ./gradlew bundleRelease
-# Ubicación: app/build/outputs/bundle/release/app-release.aab
+# Location: app/build/outputs/bundle/release/app-release.aab
 ```
 
-### Configuración de Firma (Release)
+### Signing Configuration (Release)
 
-Para generar APK firmado para distribución:
+To generate a signed APK for distribution:
 
-1. **Crear Keystore**
+1. **Create Keystore**
    ```bash
    keytool -genkey -v -keystore atrapame-release-key.keystore -alias atrapame -keyalg RSA -keysize 2048 -validity 10000
    ```
 
-2. **Configurar en build.gradle**
+2. **Configure in build.gradle**
    ```gradle
    android {
        signingConfigs {
            release {
                storeFile file('atrapame-release-key.keystore')
-               storePassword 'tu_password'
+               storePassword 'your_password'
                keyAlias 'atrapame'
-               keyPassword 'tu_password'
+               keyPassword 'your_password'
            }
        }
        buildTypes {
@@ -408,87 +408,87 @@ Para generar APK firmado para distribución:
    }
    ```
 
-## Estado del Proyecto
+## Project Status
 
-### Funcionalidades Implementadas
-- ✅ **Arquitectura MVVM completa** con separación de responsabilidades
-- ✅ **Firebase Firestore** integrado para puntuaciones globales
-- ✅ **Soporte multilingüe** (Español/Inglés) con detección automática
-- ✅ **Formularios validados** para configuración de jugador
-- ✅ **Notificaciones internas** con diálogos interactivos
-- ✅ **Sistema de colisiones robusto** con validación por board array
-- ✅ **Mapas dinámicos por dificultad** con tres patrones únicos
-- ✅ **Timer en tiempo real** con sistema de pausa funcional
-- ✅ **IA avanzada del enemigo** con algoritmo A* para pathfinding
-- ✅ **Interfaz Tron futurista** con efectos neón y colores vibrantes
-- ✅ **Vista isométrica 3D** personalizada con Canvas
-- ✅ **Sistema de dificultad** con velocidades variables del enemigo
+### Implemented Features
+- ✅ **Complete MVVM architecture** with separation of concerns
+- ✅ **Firebase Firestore** integrated for global scores
+- ✅ **Multilingual support** (Spanish/English) with automatic detection
+- ✅ **Validated forms** for player configuration
+- ✅ **Internal notifications** with interactive dialogs
+- ✅ **Robust collision system** validated through board array
+- ✅ **Dynamic maps by difficulty** with three unique patterns
+- ✅ **Real-time timer** with functional pause system
+- ✅ **Advanced enemy AI** with A* pathfinding algorithm
+- ✅ **Futuristic Tron interface** with neon effects and vibrant colors
+- ✅ **Custom 3D isometric view** rendered with Canvas
+- ✅ **Difficulty system** with variable enemy speeds
 
-### Características Técnicas Destacadas
-- **Renderizado personalizado**: Vista isométrica 3D dibujada completamente en Canvas
-- **Algoritmos de IA**: Implementación de A* para navegación inteligente del enemigo
-- **Gestión de estado**: LiveData y ViewModel para arquitectura reactiva
-- **Persistencia híbrida**: Firebase para datos globales, SharedPreferences para configuración local
-- **Internacionalización**: Sistema completo de recursos multilingües
-- **Tema visual cohesivo**: Paleta de colores Tron aplicada consistentemente
+### Technical Highlights
+- **Custom rendering**: 3D isometric view drawn entirely on Canvas
+- **AI algorithms**: A* implementation for intelligent enemy navigation
+- **State management**: LiveData and ViewModel for reactive architecture
+- **Hybrid persistence**: Firebase for global data, SharedPreferences for local configuration
+- **Internationalization**: Complete multilingual resource system
+- **Cohesive visual theme**: Tron color palette consistently applied
 
-### Problemas Resueltos Recientemente
-- ✅ **Colisiones corregidas**: Ahora usa board array en lugar de lista de obstáculos
-- ✅ **Mapas por dificultad**: Tres patrones completamente diferentes implementados
-- ✅ **Timer funcional**: Actualización en tiempo real cada 100ms con pausa
-- ✅ **Botones de control**: Pausa y reinicio completamente funcionales
-- ✅ **Sincronización visual**: Obstáculos mostrados coinciden con colisiones
+### Recently Resolved Issues
+- ✅ **Collisions fixed**: Now uses board array instead of obstacle list
+- ✅ **Maps by difficulty**: Three completely different patterns implemented
+- ✅ **Functional timer**: Real-time update every 100ms with pause
+- ✅ **Control buttons**: Pause and restart fully functional
+- ✅ **Visual synchronization**: Displayed obstacles match collision detection
 
-### Roadmap Futuro
+### Future Roadmap
 
-**Versión 1.1 - Mejoras de Gameplay**
-- [ ] Múltiples niveles progresivos
-- [ ] Diferentes tipos de enemigos con comportamientos únicos
-- [ ] Sistema de logros y estadísticas avanzadas
-- [ ] Modo multijugador local (hot-seat)
+**Version 1.1 - Gameplay Improvements**
+- [ ] Multiple progressive levels
+- [ ] Different enemy types with unique behaviors
+- [ ] Achievement system and advanced statistics
+- [ ] Local multiplayer mode (hot-seat)
 
-**Versión 1.2 - Experiencia Mejorada**  
-- [ ] Efectos de sonido y música ambiente
-- [ ] Animaciones de transición entre movimientos
-- [ ] Tutorial interactivo para nuevos jugadores
-- [ ] Temas visuales alternativos (Matrix, Cyberpunk)
+**Version 1.2 - Enhanced Experience**  
+- [ ] Sound effects and ambient music
+- [ ] Transition animations between moves
+- [ ] Interactive tutorial for new players
+- [ ] Alternative visual themes (Matrix, Cyberpunk)
 
-**Versión 1.3 - Características Avanzadas**
-- [ ] Modo online multijugador
-- [ ] Leaderboards globales con rankings
-- [ ] Replay system para revisar partidas
-- [ ] Editor de niveles personalizado
+**Version 1.3 - Advanced Features**
+- [ ] Online multiplayer mode
+- [ ] Global leaderboards with rankings
+- [ ] Replay system for reviewing games
+- [ ] Custom level editor
 
-## Información del Proyecto
+## Project Information
 
-### Contexto Académico
-Este proyecto fue desarrollado como parte del curso de **Programación por Componentes** y cumple con todos los requerimientos técnicos establecidos:
+### Academic Context
+This project was developed as part of the **Component-Based Programming** course and fulfills all established technical requirements:
 
-- **Repositorio público** con código fuente completo
-- **Servicios web** mediante Firebase Firestore
-- **Soporte multilingüe** con detección automática
-- **Formularios validados** para entrada de datos
-- **Notificaciones internas** del sistema
-- **Arquitectura MVVM** implementada correctamente
+- **Public repository** with complete source code
+- **Web services** via Firebase Firestore
+- **Multilingual support** with automatic detection
+- **Validated forms** for data input
+- **Internal system notifications**
+- **MVVM architecture** correctly implemented
 
-### Tecnologías y Patrones
-- **Lenguaje**: Kotlin 100% (moderno y type-safe)
-- **Arquitectura**: MVVM con LiveData y ViewModel
-- **Base de datos**: Firebase Firestore (NoSQL en la nube)
-- **UI**: Material Design 3 con tema personalizado
-- **Patrones**: Repository, Observer, Strategy (para dificultades)
-- **Concurrencia**: Kotlin Coroutines para operaciones asíncronas
+### Technologies & Patterns
+- **Language**: 100% Kotlin (modern and type-safe)
+- **Architecture**: MVVM with LiveData and ViewModel
+- **Database**: Firebase Firestore (NoSQL cloud database)
+- **UI**: Material Design 3 with custom theme
+- **Patterns**: Repository, Observer, Strategy (for difficulties)
+- **Concurrency**: Kotlin Coroutines for asynchronous operations
 
-### Equipo de Desarrollo
-- **Johan Esteban Solano Rojas** - 20202578112 - Arquitectura y Backend
-- **Diego David Chinchilla Leal** - 20221578047 - UI/UX y Frontend  
-- **Juan Eduardo Morales Santana** - 20221578034 - Lógica de juego y IA
+### Development Team
+- **Johan Esteban Solano Rojas** - 20202578112 - Architecture and Backend
+- **Diego David Chinchilla Leal** - 20221578047 - UI/UX and Frontend  
+- **Juan Eduardo Morales Santana** - 20221578034 - Game Logic and AI
 
-### Contacto y Soporte
-- **Repositorio**: [GitHub - Atrapame Si Puedes](https://github.com/equipo-atrapame/atrapame-si-puedes)
-- **Issues**: Para reportar bugs o solicitar features
-- **Documentación**: README completo con guías de instalación y uso
+### Contact & Support
+- **Repository**: [GitHub - Catch Me If You Can](https://github.com/equipo-atrapame/atrapame-si-puedes)
+- **Issues**: To report bugs or request features
+- **Documentation**: Complete README with installation and usage guides
 
 ---
 
-**Proyecto desarrollado para Programación por Componentes - Universidad Distrital Francisco José de Caldas**
+**Project developed for Component-Based Programming - Universidad Distrital Francisco José de Caldas**

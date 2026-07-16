@@ -1,0 +1,72 @@
+{
+    "exitReason": "WON",
+    "difficulty": "MEDIUM",
+    "perceivedStressScore": 0,
+    "avgRightEyeOpenProb": 0.0,
+    "playerName": "P02",
+    "emotionTimeline": [
+        {
+            "stressLevel": 49,
+            "isSpeech": false,
+            "smiling": 0.006722430698573589,
+            "timeMs": 24,
+            "pitchHz": 203.26235961914062,
+            "difficultyDelayMs": 500
+        },
+        {
+            "smiling": 0.0062830084934830666,
+            "isSpeech": false,
+            "stressLevel": 49,
+            "difficultyDelayMs": 500,
+            "pitchHz": 203.26235961914062,
+            "timeMs": 525
+        },
+        {
+            "smiling": 0.0062830084934830666,
+            "stressLevel": 49,
+            "isSpeech": false,
+            "difficultyDelayMs": 500,
+            "timeMs": 1024,
+            "pitchHz": 203.26235961914062
+        },
+        {
+            "difficultyDelayMs": 500,
+            "pitchHz": 203.26235961914062,
+            "timeMs": 1524,
+            "smiling": 0.0062830084934830666,
+            "isSpeech": false,
+            "stressLevel": 49
+        },
+        {
+            "pitchHz": 203.26235961914062,
+            "timeMs": 2025,
+            "difficultyDelayMs": 500,
+            "isSpeech": false,
+            "stressLevel": 49,
+            "smiling": 0.0062830084934830666
+        },
+        {
+            "difficultyDelayMs": 500,
+            "timeMs": 2526,
+            "pitchHz": 203.26235961914062,
+            "smiling": 0.0062830084934830666,
+            "stressLevel": 49,
+            "isSpeech": false
+        },
+        {
+            "difficultyDelayMs": 500,
+            "pitchHz": 203.26235961914062,
+            "timeMs": 3027,
+            "smiling": 0.0062830084934830666,
+            "isSpeech": false,
+            "stressLevel": 65
+        }
+    ],
+    "deviceId": "edff8ed089843e83",
+    "avgSmilingProb": 0.006345782428979874,
+    "finalEmotion": "NEUTRAL_FOCUSED",
+    "timeElapsed": 3407,
+    "moves": 18,
+    "timestamp": 1775507212835,
+    "maxAudioAmplitude": 26
+}

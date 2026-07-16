@@ -1,0 +1,72 @@
+{
+    "timestamp": 1775507541188,
+    "maxAudioAmplitude": 18,
+    "moves": 20,
+    "timeElapsed": 3229,
+    "avgSmilingProb": 0.14826372265815735,
+    "finalEmotion": "NEUTRAL_FOCUSED",
+    "emotionTimeline": [
+        {
+            "smiling": 0.010426056571304798,
+            "stressLevel": 49,
+            "isSpeech": false,
+            "difficultyDelayMs": 500,
+            "timeMs": 239,
+            "pitchHz": 200.3391876220703
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 49,
+            "smiling": 0.011907465755939484,
+            "pitchHz": 200.3391876220703,
+            "timeMs": 740,
+            "difficultyDelayMs": 500
+        },
+        {
+            "stressLevel": 49,
+            "isSpeech": false,
+            "smiling": 0.01140771247446537,
+            "timeMs": 1254,
+            "pitchHz": 331.5209655761719,
+            "difficultyDelayMs": 500
+        },
+        {
+            "difficultyDelayMs": 500,
+            "timeMs": 1754,
+            "pitchHz": 331.5209655761719,
+            "smiling": 0.3428768813610077,
+            "stressLevel": 32,
+            "isSpeech": false
+        },
+        {
+            "timeMs": 2254,
+            "pitchHz": 331.5209655761719,
+            "difficultyDelayMs": 500,
+            "stressLevel": 43,
+            "isSpeech": false,
+            "smiling": 0.13751231133937836
+        },
+        {
+            "smiling": 0.49393221735954285,
+            "isSpeech": false,
+            "stressLevel": 25,
+            "difficultyDelayMs": 500,
+            "pitchHz": 331.5209655761719,
+            "timeMs": 2754
+        },
+        {
+            "stressLevel": 48,
+            "isSpeech": false,
+            "smiling": 0.029783526435494423,
+            "timeMs": 3256,
+            "pitchHz": 331.5209655761719,
+            "difficultyDelayMs": 500
+        }
+    ],
+    "deviceId": "85398d26ef79a8ad",
+    "avgRightEyeOpenProb": 0.0,
+    "playerName": "P16",
+    "difficulty": "MEDIUM",
+    "perceivedStressScore": 0,
+    "exitReason": "WON"
+}

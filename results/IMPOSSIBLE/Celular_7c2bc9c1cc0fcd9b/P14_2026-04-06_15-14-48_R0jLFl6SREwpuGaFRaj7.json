@@ -1,0 +1,56 @@
+{
+    "maxAudioAmplitude": 0,
+    "timestamp": 1775506488217,
+    "moves": 12,
+    "timeElapsed": 2327,
+    "avgSmilingProb": 0.0,
+    "finalEmotion": "BORED_SAD",
+    "deviceId": "7c2bc9c1cc0fcd9b",
+    "emotionTimeline": [
+        {
+            "timeMs": 259,
+            "pitchHz": 0.0,
+            "difficultyDelayMs": 80,
+            "stressLevel": 50,
+            "isSpeech": false,
+            "smiling": 0.0
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 50,
+            "smiling": 0.0,
+            "pitchHz": 0.0,
+            "timeMs": 761,
+            "difficultyDelayMs": 80
+        },
+        {
+            "smiling": 0.0,
+            "stressLevel": 50,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 1261,
+            "pitchHz": 0.0
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 50,
+            "smiling": 0.0,
+            "pitchHz": 0.0,
+            "timeMs": 1767,
+            "difficultyDelayMs": 80
+        },
+        {
+            "pitchHz": 0.0,
+            "timeMs": 2268,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 50,
+            "smiling": 0.0
+        }
+    ],
+    "playerName": "P14",
+    "avgRightEyeOpenProb": 0.0,
+    "perceivedStressScore": 0,
+    "difficulty": "IMPOSSIBLE",
+    "exitReason": "WON"
+}

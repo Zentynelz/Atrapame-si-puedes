@@ -1,0 +1,80 @@
+{
+    "perceivedStressScore": 0,
+    "difficulty": "IMPOSSIBLE",
+    "playerName": "P06",
+    "avgRightEyeOpenProb": 0.0,
+    "exitReason": "WON",
+    "timeElapsed": 4309,
+    "moves": 10,
+    "maxAudioAmplitude": 0,
+    "timestamp": 1775609130737,
+    "deviceId": "991f60dcd7aab317",
+    "emotionTimeline": [
+        {
+            "timeMs": 498,
+            "pitchHz": 0.0,
+            "difficultyDelayMs": 80,
+            "stressLevel": 50,
+            "isSpeech": false,
+            "smiling": 0.0
+        },
+        {
+            "pitchHz": 0.0,
+            "timeMs": 998,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 49,
+            "smiling": 0.00994393602013588
+        },
+        {
+            "difficultyDelayMs": 80,
+            "timeMs": 1499,
+            "pitchHz": 0.0,
+            "smiling": 0.026149364188313484,
+            "stressLevel": 48,
+            "isSpeech": false
+        },
+        {
+            "stressLevel": 48,
+            "isSpeech": false,
+            "smiling": 0.028300998732447624,
+            "timeMs": 1999,
+            "pitchHz": 0.0,
+            "difficultyDelayMs": 80
+        },
+        {
+            "smiling": 0.02757435292005539,
+            "isSpeech": false,
+            "stressLevel": 48,
+            "difficultyDelayMs": 80,
+            "pitchHz": 0.0,
+            "timeMs": 2500
+        },
+        {
+            "smiling": 0.022218160331249237,
+            "stressLevel": 48,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 3000,
+            "pitchHz": 0.0
+        },
+        {
+            "difficultyDelayMs": 80,
+            "timeMs": 3500,
+            "pitchHz": 0.0,
+            "smiling": 0.026149364188313484,
+            "stressLevel": 48,
+            "isSpeech": false
+        },
+        {
+            "timeMs": 4003,
+            "pitchHz": 0.0,
+            "difficultyDelayMs": 80,
+            "stressLevel": 48,
+            "isSpeech": false,
+            "smiling": 0.028300998732447624
+        }
+    ],
+    "avgSmilingProb": 0.021079648286104202,
+    "finalEmotion": "BORED_SAD"
+}

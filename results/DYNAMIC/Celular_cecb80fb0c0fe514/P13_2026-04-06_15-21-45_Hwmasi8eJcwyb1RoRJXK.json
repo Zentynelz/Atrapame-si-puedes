@@ -1,0 +1,72 @@
+{
+    "difficulty": "DYNAMIC",
+    "perceivedStressScore": 7,
+    "avgRightEyeOpenProb": 0.0,
+    "playerName": "P13",
+    "exitReason": "WON",
+    "timeElapsed": 3048,
+    "moves": 12,
+    "timestamp": 1775506905282,
+    "maxAudioAmplitude": 28,
+    "emotionTimeline": [
+        {
+            "difficultyDelayMs": 500,
+            "timeMs": 22,
+            "pitchHz": 131.5937957763672,
+            "smiling": 0.00994393602013588,
+            "stressLevel": 49,
+            "isSpeech": false
+        },
+        {
+            "timeMs": 529,
+            "pitchHz": 173.40489196777344,
+            "difficultyDelayMs": 575,
+            "stressLevel": 66,
+            "isSpeech": false,
+            "smiling": 0.008071166463196278
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 63,
+            "smiling": 0.008996601216495037,
+            "pitchHz": 189.51751708984375,
+            "timeMs": 1030,
+            "difficultyDelayMs": 725
+        },
+        {
+            "stressLevel": 49,
+            "isSpeech": false,
+            "smiling": 0.007616420742124319,
+            "timeMs": 1530,
+            "pitchHz": 203.8247528076172,
+            "difficultyDelayMs": 800
+        },
+        {
+            "smiling": 0.008996601216495037,
+            "isSpeech": false,
+            "stressLevel": 49,
+            "difficultyDelayMs": 875,
+            "pitchHz": 203.8247528076172,
+            "timeMs": 2031
+        },
+        {
+            "pitchHz": 170.33274841308594,
+            "timeMs": 2531,
+            "difficultyDelayMs": 950,
+            "isSpeech": false,
+            "stressLevel": 49,
+            "smiling": 0.00994393602013588
+        },
+        {
+            "difficultyDelayMs": 1025,
+            "timeMs": 3032,
+            "pitchHz": 170.33274841308594,
+            "smiling": 0.00994393602013588,
+            "stressLevel": 49,
+            "isSpeech": false
+        }
+    ],
+    "deviceId": "cecb80fb0c0fe514",
+    "avgSmilingProb": 0.009073227643966675,
+    "finalEmotion": "NEUTRAL_FOCUSED"
+}

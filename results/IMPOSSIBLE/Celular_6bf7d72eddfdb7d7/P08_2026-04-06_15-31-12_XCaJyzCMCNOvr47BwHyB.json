@@ -1,0 +1,96 @@
+{
+    "deviceId": "6bf7d72eddfdb7d7",
+    "emotionTimeline": [
+        {
+            "isSpeech": false,
+            "stressLevel": 10,
+            "smiling": 0.7965245246887207,
+            "pitchHz": 0.0,
+            "timeMs": 486,
+            "difficultyDelayMs": 80
+        },
+        {
+            "stressLevel": 10,
+            "isSpeech": false,
+            "smiling": 0.7844081521034241,
+            "timeMs": 986,
+            "pitchHz": 0.0,
+            "difficultyDelayMs": 80
+        },
+        {
+            "stressLevel": 10,
+            "isSpeech": false,
+            "smiling": 0.7800779938697815,
+            "timeMs": 1486,
+            "pitchHz": 0.0,
+            "difficultyDelayMs": 80
+        },
+        {
+            "smiling": 0.2905569076538086,
+            "stressLevel": 35,
+            "isSpeech": false,
+            "difficultyDelayMs": 80,
+            "timeMs": 1986,
+            "pitchHz": 0.0
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 0.0,
+            "timeMs": 2487,
+            "smiling": 0.03208344429731369,
+            "isSpeech": false,
+            "stressLevel": 48
+        },
+        {
+            "difficultyDelayMs": 80,
+            "timeMs": 2988,
+            "pitchHz": 0.0,
+            "smiling": 0.05568087100982666,
+            "stressLevel": 47,
+            "isSpeech": false
+        },
+        {
+            "pitchHz": 0.0,
+            "timeMs": 3488,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 49,
+            "smiling": 0.008996601216495037
+        },
+        {
+            "difficultyDelayMs": 80,
+            "timeMs": 3990,
+            "pitchHz": 0.0,
+            "smiling": 0.00994393602013588,
+            "stressLevel": 49,
+            "isSpeech": false
+        },
+        {
+            "pitchHz": 150.19520568847656,
+            "timeMs": 4493,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 49,
+            "smiling": 0.011907465755939484
+        },
+        {
+            "difficultyDelayMs": 80,
+            "timeMs": 4994,
+            "pitchHz": 150.19520568847656,
+            "smiling": 0.008071166463196278,
+            "stressLevel": 49,
+            "isSpeech": false
+        }
+    ],
+    "finalEmotion": "NEUTRAL_FOCUSED",
+    "avgSmilingProb": 0.27782508730888367,
+    "moves": 23,
+    "timeElapsed": 5077,
+    "maxAudioAmplitude": 13,
+    "timestamp": 1775507472833,
+    "exitReason": "WON",
+    "perceivedStressScore": 0,
+    "difficulty": "IMPOSSIBLE",
+    "playerName": "P08",
+    "avgRightEyeOpenProb": 0.0
+}

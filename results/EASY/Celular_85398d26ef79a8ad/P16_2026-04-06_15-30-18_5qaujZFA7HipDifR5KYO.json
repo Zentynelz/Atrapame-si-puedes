@@ -1,0 +1,64 @@
+{
+    "perceivedStressScore": 0,
+    "difficulty": "EASY",
+    "playerName": "P16",
+    "avgRightEyeOpenProb": 0.0,
+    "exitReason": "WON",
+    "moves": 17,
+    "timeElapsed": 3225,
+    "maxAudioAmplitude": 15,
+    "timestamp": 1775507418862,
+    "deviceId": "85398d26ef79a8ad",
+    "emotionTimeline": [
+        {
+            "smiling": 0.028300998732447624,
+            "stressLevel": 48,
+            "isSpeech": false,
+            "difficultyDelayMs": 700,
+            "timeMs": 350,
+            "pitchHz": 167.96438598632812
+        },
+        {
+            "difficultyDelayMs": 700,
+            "timeMs": 850,
+            "pitchHz": 167.96438598632812,
+            "smiling": 0.01241330523043871,
+            "stressLevel": 49,
+            "isSpeech": false
+        },
+        {
+            "smiling": 0.010426056571304798,
+            "isSpeech": false,
+            "stressLevel": 49,
+            "difficultyDelayMs": 700,
+            "pitchHz": 167.96438598632812,
+            "timeMs": 1359
+        },
+        {
+            "smiling": 0.017574554309248924,
+            "isSpeech": false,
+            "stressLevel": 49,
+            "difficultyDelayMs": 700,
+            "pitchHz": 167.96438598632812,
+            "timeMs": 1860
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 46,
+            "smiling": 0.06795352697372437,
+            "pitchHz": 167.96438598632812,
+            "timeMs": 2361,
+            "difficultyDelayMs": 700
+        },
+        {
+            "difficultyDelayMs": 700,
+            "pitchHz": 141.9428253173828,
+            "timeMs": 2862,
+            "smiling": 0.31375253200531006,
+            "isSpeech": false,
+            "stressLevel": 34
+        }
+    ],
+    "avgSmilingProb": 0.07507016509771347,
+    "finalEmotion": "BORED_SAD"
+}

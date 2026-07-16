@@ -1,0 +1,64 @@
+{
+    "timestamp": 1775615743608,
+    "maxAudioAmplitude": 4,
+    "moves": 12,
+    "timeElapsed": 3116,
+    "avgSmilingProb": 0.006423674523830414,
+    "finalEmotion": "BORED_SAD",
+    "emotionTimeline": [
+        {
+            "timeMs": 500,
+            "pitchHz": 0.0,
+            "difficultyDelayMs": 500,
+            "stressLevel": 50,
+            "isSpeech": false,
+            "smiling": 0.0
+        },
+        {
+            "stressLevel": 49,
+            "isSpeech": false,
+            "smiling": 0.008071166463196278,
+            "timeMs": 1001,
+            "pitchHz": 291.5566711425781,
+            "difficultyDelayMs": 500
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 49,
+            "smiling": 0.007616420742124319,
+            "pitchHz": 291.5566711425781,
+            "timeMs": 1501,
+            "difficultyDelayMs": 500
+        },
+        {
+            "stressLevel": 49,
+            "isSpeech": false,
+            "smiling": 0.0071668741293251514,
+            "timeMs": 2002,
+            "pitchHz": 291.5566711425781,
+            "difficultyDelayMs": 500
+        },
+        {
+            "pitchHz": 291.5566711425781,
+            "timeMs": 2503,
+            "difficultyDelayMs": 500,
+            "isSpeech": false,
+            "stressLevel": 49,
+            "smiling": 0.008071166463196278
+        },
+        {
+            "difficultyDelayMs": 500,
+            "pitchHz": 144.84133911132812,
+            "timeMs": 3006,
+            "smiling": 0.007616420742124319,
+            "isSpeech": false,
+            "stressLevel": 49
+        }
+    ],
+    "deviceId": "6bf7d72eddfdb7d7",
+    "avgRightEyeOpenProb": 0.0,
+    "playerName": "P08",
+    "difficulty": "MEDIUM",
+    "perceivedStressScore": 0,
+    "exitReason": "WON"
+}

@@ -1,0 +1,80 @@
+{
+    "avgRightEyeOpenProb": 0.0,
+    "playerName": "P14",
+    "difficulty": "IMPOSSIBLE",
+    "perceivedStressScore": 5,
+    "exitReason": "WON",
+    "timestamp": 1775507377287,
+    "maxAudioAmplitude": 41,
+    "moves": 22,
+    "timeElapsed": 4127,
+    "avgSmilingProb": 0.7245834469795227,
+    "finalEmotion": "HAPPY_ENJOYING",
+    "emotionTimeline": [
+        {
+            "pitchHz": 135.4488525390625,
+            "timeMs": 429,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 30,
+            "smiling": 0.7779129147529602
+        },
+        {
+            "difficultyDelayMs": 80,
+            "timeMs": 929,
+            "pitchHz": 135.4488525390625,
+            "smiling": 0.772500216960907,
+            "stressLevel": 28,
+            "isSpeech": false
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 168.88111877441406,
+            "timeMs": 1430,
+            "smiling": 0.7779129147529602,
+            "isSpeech": false,
+            "stressLevel": 11
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 35,
+            "smiling": 0.7800779938697815,
+            "pitchHz": 147.98582458496094,
+            "timeMs": 1931,
+            "difficultyDelayMs": 80
+        },
+        {
+            "stressLevel": 23,
+            "isSpeech": false,
+            "smiling": 0.8172932863235474,
+            "timeMs": 2431,
+            "pitchHz": 149.2015838623047,
+            "difficultyDelayMs": 80
+        },
+        {
+            "pitchHz": 149.2015838623047,
+            "timeMs": 2931,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 23,
+            "smiling": 0.539508044719696
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 149.2015838623047,
+            "timeMs": 3432,
+            "smiling": 0.5589624643325806,
+            "isSpeech": false,
+            "stressLevel": 39
+        },
+        {
+            "timeMs": 3932,
+            "pitchHz": 149.2015838623047,
+            "difficultyDelayMs": 80,
+            "stressLevel": 26,
+            "isSpeech": false,
+            "smiling": 0.772500216960907
+        }
+    ],
+    "deviceId": "6edb93f967771e7b"
+}

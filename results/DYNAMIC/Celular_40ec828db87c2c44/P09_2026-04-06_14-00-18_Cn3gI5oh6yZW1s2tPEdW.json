@@ -1,0 +1,80 @@
+{
+    "finalEmotion": "BORED_SAD",
+    "avgSmilingProb": 0.054343678057193756,
+    "deviceId": "40ec828db87c2c44",
+    "emotionTimeline": [
+        {
+            "smiling": 0.05226818844676018,
+            "isSpeech": false,
+            "stressLevel": 47,
+            "difficultyDelayMs": 500,
+            "pitchHz": 252.68511962890625,
+            "timeMs": 206
+        },
+        {
+            "smiling": 0.06795352697372437,
+            "isSpeech": false,
+            "stressLevel": 46,
+            "difficultyDelayMs": 575,
+            "pitchHz": 252.68511962890625,
+            "timeMs": 706
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 46,
+            "smiling": 0.061523858457803726,
+            "pitchHz": 252.68511962890625,
+            "timeMs": 1206,
+            "difficultyDelayMs": 650
+        },
+        {
+            "smiling": 0.06593630462884903,
+            "stressLevel": 46,
+            "isSpeech": false,
+            "difficultyDelayMs": 725,
+            "timeMs": 1713,
+            "pitchHz": 252.68511962890625
+        },
+        {
+            "smiling": 0.061523858457803726,
+            "isSpeech": false,
+            "stressLevel": 46,
+            "difficultyDelayMs": 800,
+            "pitchHz": 252.68511962890625,
+            "timeMs": 2213
+        },
+        {
+            "difficultyDelayMs": 875,
+            "timeMs": 2713,
+            "pitchHz": 252.68511962890625,
+            "smiling": 0.03130638226866722,
+            "stressLevel": 48,
+            "isSpeech": false
+        },
+        {
+            "difficultyDelayMs": 950,
+            "pitchHz": 252.68511962890625,
+            "timeMs": 3214,
+            "smiling": 0.028300998732447624,
+            "isSpeech": false,
+            "stressLevel": 48
+        },
+        {
+            "stressLevel": 46,
+            "isSpeech": false,
+            "smiling": 0.06593630462884903,
+            "timeMs": 3715,
+            "pitchHz": 252.68511962890625,
+            "difficultyDelayMs": 1025
+        }
+    ],
+    "maxAudioAmplitude": 14,
+    "timestamp": 1775502018310,
+    "moves": 13,
+    "timeElapsed": 4123,
+    "exitReason": "WON",
+    "playerName": "P09",
+    "avgRightEyeOpenProb": 0.0,
+    "perceivedStressScore": 0,
+    "difficulty": "DYNAMIC"
+}

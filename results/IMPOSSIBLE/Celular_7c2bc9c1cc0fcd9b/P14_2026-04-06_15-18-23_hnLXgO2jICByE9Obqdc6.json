@@ -1,0 +1,48 @@
+{
+    "avgRightEyeOpenProb": 0.0,
+    "playerName": "P14",
+    "difficulty": "IMPOSSIBLE",
+    "perceivedStressScore": 0,
+    "exitReason": "WON",
+    "timestamp": 1775506703778,
+    "maxAudioAmplitude": 65,
+    "timeElapsed": 2013,
+    "moves": 10,
+    "avgSmilingProb": 0.7684792876243591,
+    "finalEmotion": "HAPPY_ENJOYING",
+    "emotionTimeline": [
+        {
+            "difficultyDelayMs": 80,
+            "timeMs": 340,
+            "pitchHz": 187.34954833984375,
+            "smiling": 0.31375253200531006,
+            "stressLevel": 34,
+            "isSpeech": false
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 178.35276794433594,
+            "timeMs": 840,
+            "smiling": 0.8172932863235474,
+            "isSpeech": false,
+            "stressLevel": 9
+        },
+        {
+            "difficultyDelayMs": 80,
+            "pitchHz": 178.35276794433594,
+            "timeMs": 1340,
+            "smiling": 0.9601184129714966,
+            "isSpeech": false,
+            "stressLevel": 30
+        },
+        {
+            "pitchHz": 178.35276794433594,
+            "timeMs": 1841,
+            "difficultyDelayMs": 80,
+            "isSpeech": false,
+            "stressLevel": 39,
+            "smiling": 0.9827530384063721
+        }
+    ],
+    "deviceId": "7c2bc9c1cc0fcd9b"
+}

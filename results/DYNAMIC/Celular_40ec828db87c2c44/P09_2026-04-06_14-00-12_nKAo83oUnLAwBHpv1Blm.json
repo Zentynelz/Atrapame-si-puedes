@@ -1,0 +1,72 @@
+{
+    "difficulty": "DYNAMIC",
+    "perceivedStressScore": 0,
+    "avgRightEyeOpenProb": 0.0,
+    "playerName": "P09",
+    "exitReason": "WON",
+    "timeElapsed": 3209,
+    "moves": 12,
+    "timestamp": 1775502012901,
+    "maxAudioAmplitude": 9,
+    "emotionTimeline": [
+        {
+            "stressLevel": 48,
+            "isSpeech": false,
+            "smiling": 0.03208344429731369,
+            "timeMs": 75,
+            "pitchHz": 252.68511962890625,
+            "difficultyDelayMs": 500
+        },
+        {
+            "smiling": 0.026149364188313484,
+            "isSpeech": false,
+            "stressLevel": 48,
+            "difficultyDelayMs": 575,
+            "pitchHz": 252.68511962890625,
+            "timeMs": 574
+        },
+        {
+            "difficultyDelayMs": 650,
+            "pitchHz": 252.68511962890625,
+            "timeMs": 1075,
+            "smiling": 0.046644844114780426,
+            "isSpeech": false,
+            "stressLevel": 47
+        },
+        {
+            "timeMs": 1575,
+            "pitchHz": 252.68511962890625,
+            "difficultyDelayMs": 725,
+            "stressLevel": 48,
+            "isSpeech": false,
+            "smiling": 0.03208344429731369
+        },
+        {
+            "pitchHz": 252.68511962890625,
+            "timeMs": 2076,
+            "difficultyDelayMs": 800,
+            "isSpeech": false,
+            "stressLevel": 48,
+            "smiling": 0.028300998732447624
+        },
+        {
+            "smiling": 0.028300998732447624,
+            "isSpeech": false,
+            "stressLevel": 48,
+            "difficultyDelayMs": 875,
+            "pitchHz": 252.68511962890625,
+            "timeMs": 2577
+        },
+        {
+            "isSpeech": false,
+            "stressLevel": 47,
+            "smiling": 0.05226818844676018,
+            "pitchHz": 252.68511962890625,
+            "timeMs": 3078,
+            "difficultyDelayMs": 950
+        }
+    ],
+    "deviceId": "40ec828db87c2c44",
+    "avgSmilingProb": 0.03511875495314598,
+    "finalEmotion": "BORED_SAD"
+}
